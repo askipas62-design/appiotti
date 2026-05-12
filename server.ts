@@ -55,22 +55,41 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "askipas62@gmail.com";
 // Helper for Auth with Supabase
 const getAuthUser = async (req: express.Request) => {
   const authHeader = req.headers.authorization;
-  if (!authHeader) return null;
+  if (!authHeader) {
+    console.warn("getAuthUser: No authorization header");
+    return null;
+  }
   const token = authHeader.split(" ")[1];
-  if (!token) return null;
+  if (!token) {
+    console.warn("getAuthUser: No token found in header");
+    return null;
+  }
   
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error("getAuthUser: Supabase URL or Anon Key is missing in environment variables!");
+    return null;
+  }
+
   try {
     const { data: { user }, error } = await supabase.auth.getUser(token);
-    if (error || !user) return null;
+    if (error) {
+      console.error("getAuthUser: Supabase error", error);
+      return null;
+    }
+    if (!user) {
+      console.warn("getAuthUser: No user returned from Supabase");
+      return null;
+    }
     
     return {
       id: user.id,
       email: user.email,
-      isAdmin: user.email === "askipas62@gmail.com",
+      isAdmin: user.email === (process.env.ADMIN_EMAIL || "askipas62@gmail.com"),
       firstName: user.user_metadata?.firstName || "",
       lastName: user.user_metadata?.lastName || ""
     };
   } catch (e) {
+    console.error("getAuthUser: unexpected error", e);
     return null;
   }
 };
@@ -147,64 +166,53 @@ async function startServer() {
     if (!user) return res.status(401).json({ error: "Non autorisé" });
     
     try {
+      console.log("POST /api/orders: starting for user", user.id);
       const orders = readDB(ORDERS_FILE);
       const newOrder = {
         id: req.body.id || ("ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase()),
         userId: user.id,
-        items: req.body.items,
-        totalTTC: req.body.totalTTC,
+        items: req.body.items || [],
+        totalTTC: req.body.totalTTC || 0,
         status: "En attente de virement",
         createdAt: new Date().toISOString(),
         proofUploaded: false
       };
+      
+      if (newOrder.items.length === 0) {
+        console.warn("POST /api/orders: Order with no items received");
+      }
+
       orders.push(newOrder);
       writeDB(ORDERS_FILE, orders);
+      console.log("POST /api/orders: Order saved", newOrder.id);
 
       // Send confirmation email
       if (resend && user.email) {
         try {
-          await resend.emails.send({
-            from: "Appiotti Game Shop <onboarding@resend.dev>",
+          console.log("POST /api/orders: Attempting email to", user.email);
+          const { data, error } = await resend.emails.send({
+            from: "Shop <onboarding@resend.dev>",
             to: [user.email],
             subject: `Confirmation de commande ${newOrder.id}`,
-            html: `
-              <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h1 style="color: #FF6B35; text-transform: uppercase;">Merci pour votre commande !</h1>
-                <p>Bonjour <strong>${user.firstName}</strong>,</p>
-                <p>Votre commande <strong>${newOrder.id}</strong> a bien été enregistrée. Elle est actuellement en attente de virement.</p>
-                
-                <div style="background: #fdf2f2; padding: 15px; border-radius: 8px; border-left: 4px solid #FF6B35; margin: 20px 0;">
-                  <h3 style="margin-top: 0;">Rappel des consignes de paiement :</h3>
-                  <p><strong>Référence à indiquer (Motif) :</strong> <span style="font-size: 1.2em; color: #FF6B35; font-family: monospace;">#${newOrder.id.split('-')[1]}</span></p>
-                  <p><strong>IBAN :</strong> FR76 1234 5678 9012 3456 7890 123 (Exemple)</p>
-                  <p><em>Virement instantané recommandé pour une expédition dans l'heure.</em></p>
-                </div>
-
-                <h3>Détails de la commande :</h3>
-                <ul style="list-style: none; padding: 0;">
-                  ${(newOrder.items || []).map((item: any) => `
-                    <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
-                      <span>${item.name || 'Produit'} x${item.quantity || 1}</span>
-                      <strong>${((item.priceHT || 0) * 1.2 * (item.quantity || 1)).toFixed(2)}€</strong>
-                    </li>
-                  `).join('')}
-                </ul>
-                <p style="text-align: right; font-size: 1.2em;"><strong>Total TTC : ${(newOrder.totalTTC || 0).toFixed(2)}€</strong></p>
-                
-                <p>Dès reception de votre preuve de virement sur le site, Hervé procèdera à l'envoi de votre colis.</p>
-                <p>À bientôt,<br>L'équipe Appiotti Game Shop</p>
-              </div>
-            `
+            html: `<h1>Merci pour votre commande ${newOrder.id}</h1><p>Total: ${(newOrder.totalTTC || 0).toFixed(2)}€</p><p>Veuillez effectuer le virement pour valider.</p>`
           });
+          if (error) console.error("Resend API error:", error);
+          else console.log("Email sent successfully:", data?.id);
         } catch (mailErr) {
-          console.error("Email error:", mailErr);
+          console.error("Email send critical error:", mailErr);
         }
+      } else {
+        console.warn("Resend skipped: no client or no user email", { hasResend: !!resend, email: user.email });
       }
 
       res.json(newOrder);
     } catch (e: any) {
       console.error("POST /api/orders error:", e);
-      res.status(500).json({ error: "Erreur serveur: " + (e.message || "Inconnue") });
+      res.status(500).json({ 
+        error: "Erreur serveur: " + (e.message || "Inconnue"),
+        details: e.toString(),
+        stack: process.env.NODE_ENV === 'development' ? e.stack : undefined
+      });
     }
   });
 
@@ -283,6 +291,27 @@ async function startServer() {
     } catch (e) {
       res.status(500).json({ error: "Erreur serveur" });
     }
+  });
+
+  // Debug endpoint (restricted to admin)
+  app.get("/api/debug/server", async (req, res) => {
+    const user = await getAuthUser(req);
+    if (!user || !user.isAdmin) return res.status(403).json({ error: "Accès refusé" });
+    
+    res.json({
+      env: {
+        hasSupabaseUrl: !!process.env.VITE_SUPABASE_URL,
+        hasSupabaseKey: !!process.env.VITE_SUPABASE_ANON_KEY,
+        hasResendKey: !!process.env.RESEND_API_KEY,
+        adminEmail: process.env.ADMIN_EMAIL || "askipas62@gmail.com",
+        nodeEnv: process.env.NODE_ENV
+      },
+      user,
+      files: {
+        ordersExist: fs.existsSync(ORDERS_FILE),
+        usersExist: fs.existsSync(USERS_FILE)
+      }
+    });
   });
 
   // Admin Routes
