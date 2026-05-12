@@ -29,17 +29,36 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-[#1B1B2F] text-white shadow-lg">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <motion.div 
-            whileHover={{ rotate: 15 }}
-            className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(255,107,53,0.5)]"
-          >
-            <Sparkles className="text-white" size={24} />
-          </motion.div>
-          <span className="text-2xl font-black font-display tracking-tight">
-            Appiotti <span className="text-brand-yellow">Game Shop</span>
-          </span>
-        </Link>
+        <div className="flex items-center gap-2 sm:gap-6">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+            <motion.div 
+              whileHover={{ rotate: 15 }}
+              className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-orange rounded-lg sm:rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(255,107,53,0.5)]"
+            >
+              <Sparkles className="text-white" size={18} />
+            </motion.div>
+            <span className="text-lg sm:text-2xl font-black font-display tracking-tight whitespace-nowrap">
+              <span className="hidden xs:inline">Appiotti </span><span className="text-brand-yellow">Game Shop</span>
+            </span>
+          </Link>
+
+          {/* Mobile Action Icons */}
+          <div className="flex md:hidden items-center gap-1">
+            {user && (
+              <Link to="/client/dashboard" className="p-1.5 hover:bg-white/10 rounded-full transition-all text-brand-orange">
+                <Heart size={20} />
+              </Link>
+            )}
+            <Link to="/panier" className="relative p-1.5 hover:bg-white/10 rounded-full transition-all text-brand-orange">
+              <ShoppingCart size={20} />
+              {itemCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-white text-brand-orange text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-black border-2 border-[#1B1B2F]">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+          </div>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide uppercase text-brand-cream/80">
@@ -146,16 +165,6 @@ export default function Header() {
               </form>
               <Link to="/" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Accueil</Link>
               <Link to="/boutique" onClick={() => setIsMenuOpen(false)} className="hover:text-brand-orange transition-colors">Boutique</Link>
-              <Link to="/panier" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-4 hover:text-brand-orange transition-colors">
-                <ShoppingCart size={24} className="text-brand-orange" />
-                <span>Panier ({itemCount})</span>
-              </Link>
-              {user && (
-                <Link to="/client/dashboard" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-4 hover:text-brand-orange transition-colors">
-                  <Heart size={24} className="text-brand-orange" />
-                  <span>Favoris</span>
-                </Link>
-              )}
               {!user ? (
                 <Link to="/connexion" onClick={() => setIsMenuOpen(false)} className="text-brand-orange">Connexion</Link>
               ) : (

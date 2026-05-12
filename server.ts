@@ -182,14 +182,14 @@ async function startServer() {
 
                 <h3>Détails de la commande :</h3>
                 <ul style="list-style: none; padding: 0;">
-                  ${newOrder.items.map((item: any) => `
+                  ${(newOrder.items || []).map((item: any) => `
                     <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
-                      <span>${item.name} x${item.quantity}</span>
-                      <strong>${(item.priceHT * 1.2 * item.quantity).toFixed(2)}€</strong>
+                      <span>${item.name || 'Produit'} x${item.quantity || 1}</span>
+                      <strong>${((item.priceHT || 0) * 1.2 * (item.quantity || 1)).toFixed(2)}€</strong>
                     </li>
                   `).join('')}
                 </ul>
-                <p style="text-align: right; font-size: 1.2em;"><strong>Total TTC : ${newOrder.totalTTC.toFixed(2)}€</strong></p>
+                <p style="text-align: right; font-size: 1.2em;"><strong>Total TTC : ${(newOrder.totalTTC || 0).toFixed(2)}€</strong></p>
                 
                 <p>Dès reception de votre preuve de virement sur le site, Hervé procèdera à l'envoi de votre colis.</p>
                 <p>À bientôt,<br>L'équipe Appiotti Game Shop</p>
