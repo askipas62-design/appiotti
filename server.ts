@@ -19,7 +19,8 @@ if (supabaseUrl && supabaseUrl.startsWith("http")) {
     supabase = createClient(supabaseUrl, supabaseServiceKey, {
       auth: {
         autoRefreshToken: false,
-        persistSession: false
+        persistSession: false,
+        detectSessionInUrl: false // Add this for server-side
       }
     });
   } catch (err) {
@@ -182,13 +183,16 @@ async function startServer() {
     });
   });
 
-  // Orders Routes - STATLESS VERSION: Only sends email
+  // Orders Routes - SUPABASE VERSION
   app.post("/api/orders", async (req, res) => {
     console.log("[POST /api/orders] Processing order (Supabase mode)");
     
     try {
       const user = await getAuthUser(req);
-      if (!user) return res.status(401).json({ error: "Authentification requise" });
+      if (!user) {
+        console.warn("[POST /api/orders] No user found for token");
+        return res.status(401).json({ error: "Authentification requise" });
+      }
 
       const { items, totalTTC, id: customId } = req.body;
       const orderId = customId || ("ORD-" + Math.random().toString(36).substring(2, 11).toUpperCase());
@@ -202,64 +206,79 @@ async function startServer() {
         proof_uploaded: false
       };
 
+      console.log("[POST /api/orders] Inserting order into Supabase:", orderId);
+      
       // Persistence: Save to Supabase
-      const { error: dbError } = await supabase
+      const { data: insertedData, error: dbError } = await supabase
         .from("orders")
-        .insert(orderData);
+        .insert(orderData)
+        .select();
 
       if (dbError) {
-        console.error("Supabase insert error:", dbError);
-        throw dbError;
+        console.error("[POST /api/orders] Supabase insert error:", dbError.message, dbError.details);
+        return res.status(500).json({ 
+          error: "Erreur lors de l'enregistrement en base de données",
+          details: dbError.message 
+        });
       }
+
+      console.log("[POST /api/orders] Order inserted successfully:", orderId);
 
       // Send confirmation email (Stateless version)
       if (resend) {
-        await resend.emails.send({
-          from: "Appiotti <onboarding@resend.dev>",
-          to: [ADMIN_EMAIL],
-          subject: `Confirmation de commande ${orderId}`,
-          html: `
-            <div style="font-family: sans-serif; padding: 20px;">
-              <h2>Merci pour votre commande !</h2>
-              <p>Votre commande <strong>#${orderId}</strong> est en attente de virement.</p>
-              <p>Montant total : <strong>${orderData.total_ttc.toFixed(2)}€</strong></p>
-              <p>Veuillez effectuer le virement avec le motif <strong>#${orderId}</strong>.</p>
-              <hr/>
-              <p>Note: Cet email a été envoyé à l'administration (${ADMIN_EMAIL}) comme demandé.</p>
-            </div>
-          `
-        }).catch(err => console.error("Error sending order email:", err));
+        console.log("[POST /api/orders] Sending confirmation emails...");
+        try {
+          await resend.emails.send({
+            from: "Appiotti <onboarding@resend.dev>",
+            to: [ADMIN_EMAIL],
+            subject: `Confirmation de commande ${orderId}`,
+            html: `
+              <div style="font-family: sans-serif; padding: 20px;">
+                <h2>Merci pour votre commande !</h2>
+                <p>Votre commande <strong>#${orderId}</strong> est en attente de virement.</p>
+                <p>Montant total : <strong>${orderData.total_ttc.toFixed(2)}€</strong></p>
+                <p>Veuillez effectuer le virement avec le motif <strong>#${orderId}</strong>.</p>
+                <hr/>
+                <p>Note: Cet email a été envoyé à l'administration (${ADMIN_EMAIL}) comme demandé.</p>
+              </div>
+            `
+          });
 
-        // Send notification email to admin
-        await resend.emails.send({
-          from: "Alertes Appiotti <onboarding@resend.dev>",
-          to: [ADMIN_EMAIL],
-          subject: `NOUVELLE COMMANDE - ${orderId}`,
-          html: `
-            <div style="font-family: sans-serif; padding: 20px;">
-              <h1>Nouvelle commande reçue !</h1>
-              <p>ID: <strong>${orderId}</strong></p>
-              <p>Client: ${user.firstName} ${user.lastName} (${user.email})</p>
-              <p>Total: ${orderData.total_ttc.toFixed(2)}€</p>
-              <h3>Produits:</h3>
-              <ul>
-                ${orderData.items.map((item: any) => `<li>${item.name} x${item.quantity}</li>`).join('')}
-              </ul>
-            </div>
-          `
-        }).catch(err => console.error("Error sending admin email:", err));
+          // Send notification email to admin
+          await resend.emails.send({
+            from: "Alertes Appiotti <onboarding@resend.dev>",
+            to: [ADMIN_EMAIL],
+            subject: `NOUVELLE COMMANDE - ${orderId}`,
+            html: `
+              <div style="font-family: sans-serif; padding: 20px;">
+                <h1>Nouvelle commande reçue !</h1>
+                <p>ID: <strong>${orderId}</strong></p>
+                <p>Client: ${user.firstName} ${user.lastName} (${user.email})</p>
+                <p>Total: ${orderData.total_ttc.toFixed(2)}€</p>
+                <h3>Produits:</h3>
+                <ul>
+                  ${orderData.items.map((item: any) => `<li>${item.name} x${item.quantity}</li>`).join('')}
+                </ul>
+              </div>
+            `
+          });
+          console.log("[POST /api/orders] Emails sent successfully");
+        } catch (emailErr: any) {
+          console.error("[POST /api/orders] Resend error:", emailErr.message);
+          // Don't fail the order if email fails, but log it
+        }
       }
 
       // Return the order data so frontend can store it in localStorage
-      res.json({
+      return res.json({
         ...orderData,
         totalTTC: orderData.total_ttc,
         proofUploaded: orderData.proof_uploaded,
         createdAt: new Date().toISOString()
       });
     } catch (e: any) {
-      console.error("[POST /api/orders] Error:", e);
-      res.status(500).json({ error: "Erreur lors du traitement de la commande" });
+      console.error("[POST /api/orders] Unexpected error:", e.message);
+      return res.status(500).json({ error: "Erreur interne lors du traitement de la commande" });
     }
   });
 
