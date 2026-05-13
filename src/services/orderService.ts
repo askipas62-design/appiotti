@@ -14,6 +14,7 @@ export interface Order {
 export const orderService = {
   async create(orderData: { items: any[]; totalTTC: number; status?: string; id?: string }) {
     const token = localStorage.getItem("token");
+    console.log(`Fetching: ${API_URL}/api/orders`, { method: "POST" });
     const res = await fetch(`${API_URL}/api/orders`, {
       method: "POST",
       headers: {
@@ -22,6 +23,7 @@ export const orderService = {
       },
       body: JSON.stringify(orderData)
     });
+    console.log(`Response status: ${res.status}`);
 
     if (!res.ok) {
       let errorMessage = "Erreur lors de la création de la commande";

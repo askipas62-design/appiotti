@@ -106,5 +106,32 @@
     "createdAt": "2026-05-13T06:34:41.868Z",
     "proofUploaded": true,
     "proofUrl": "/uploads/proofs/proof-ORD-70LS7XNO6-1778654106490.png"
+  },
+  {
+    "id": "ORD-TDGTPI5ET",
+    "userId": "328ddff6-95d1-4366-86ae-e94bb1f01e6f",
+    "items": [
+      {
+        "id": "bi-3",
+        "name": "Table de Billard Mixte Pool/Snooker",
+        "priceHT": 999,
+        "category": "billard",
+        "quantity": 1,
+        "image": "/images/products/table-de-billard-mixte-pool-snooker.jpg"
+      },
+      {
+        "id": "tr-5",
+        "name": "Trampoline Semi-Enterré 430cm",
+        "priceHT": 1199,
+        "category": "trampoline",
+        "quantity": 1,
+        "image": "/images/products/trampoline-semi-enterre-430cm.jpg"
+      }
+    ],
+    "totalTTC": 2637.6,
+    "status": "En cours de validation",
+    "createdAt": "2026-05-13T08:36:13.695Z",
+    "proofUploaded": true,
+    "proofUrl": "/uploads/proofs/proof-ORD-TDGTPI5ET-1778661417576.jpg"
   }
 ]

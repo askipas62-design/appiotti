@@ -110,6 +110,11 @@ async function startServer() {
   });
   const upload = multer({ storage });
 
+  // Health Check
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok", time: new Date().toISOString() });
+  });
+
   // Auth Sync (Legacy consistency, used for local storage logic if needed)
   app.patch("/api/auth/me", async (req, res) => {
     const authUser = await getAuthUser(req);
@@ -162,8 +167,12 @@ async function startServer() {
 
   // Orders Routes
   app.post("/api/orders", async (req, res) => {
+    console.log("POST /api/orders: Request received");
     const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Non autorisé" });
+    if (!user) {
+      console.warn("POST /api/orders: Auth failed");
+      return res.status(401).json({ error: "Non autorisé" });
+    }
     
     try {
       console.log("POST /api/orders: starting for user", user.id);
