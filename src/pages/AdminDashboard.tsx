@@ -39,9 +39,10 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const data = await adminService.getOrders();
-      setOrders(data);
-    } catch (err) {
-      addToast("Erreur commandes", "error");
+      setOrders(data || []);
+    } catch (err: any) {
+      console.error("Admin loadOrders error:", err);
+      addToast(err.message || "Erreur chargement commandes", "error");
     } finally {
       setLoading(false);
     }
@@ -51,8 +52,8 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const data = await reviewService.getAll();
-      setReviews(data);
-    } catch (err) {
+      setReviews(data || []);
+    } catch (err: any) {
       addToast("Erreur avis", "error");
     } finally {
       setLoading(false);
@@ -63,8 +64,8 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const data = await adminService.getUsers();
-      setUsers(data);
-    } catch (err) {
+      setUsers(data || []);
+    } catch (err: any) {
       addToast("Erreur utilisateurs", "error");
     } finally {
       setLoading(false);
@@ -75,8 +76,8 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const data = await adminService.getProducts();
-      setProducts(data);
-    } catch (err) {
+      setProducts(data || []);
+    } catch (err: any) {
       addToast("Erreur produits", "error");
     } finally {
       setLoading(false);
@@ -90,8 +91,8 @@ export default function AdminDashboard() {
       addToast(`Statut : ${status}`, "success");
       loadOrders();
       setSelectedOrder(null);
-    } catch (err) {
-      addToast("Erreur mise à jour", "error");
+    } catch (err: any) {
+      addToast(err.message || "Erreur mise à jour", "error");
     } finally {
       setUpdatingId(null);
     }
@@ -115,7 +116,7 @@ export default function AdminDashboard() {
     { label: "Commandes", value: orders.length, icon: <Package />, color: "bg-blue-500" },
     { label: "Clients", value: users.length, icon: <Users />, color: "bg-sky-500" },
     { label: "Avis Clients", value: reviews.length, icon: <MessageSquare />, color: "bg-brand-orange" },
-    { label: "CA Validé", value: `${orders.filter(o => o.status === "Validée" || o.status === "Expédiée" || o.status === "Livrée").reduce((sum, o) => sum + o.totalTTC, 0).toFixed(2)}€`, icon: <TrendingUp />, color: "bg-brand-green" },
+    { label: "CA Validé", value: `${orders.filter(o => o.status === "Validée" || o.status === "Expédiée" || o.status === "Livrée").reduce((sum, o) => sum + (o.totalTTC || 0), 0).toFixed(2)}€`, icon: <TrendingUp />, color: "bg-brand-green" },
   ];
 
   const filteredOrders = filter === "Tous" ? orders : orders.filter(o => o.status === filter);
@@ -205,7 +206,7 @@ export default function AdminDashboard() {
               <div className="p-8 md:p-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8 bg-white/[0.02]">
                  <div>
                     <h2 className="text-3xl font-black font-display uppercase tracking-tight mb-2">Gestion des commandes</h2>
-                    <p className="text-xs text-gray-500 font-medium font-mono">STOCKAGE JSON RÉEL : {orders.length} entrées détectées</p>
+                    <p className="text-xs text-gray-500 font-medium font-mono">SUPABASE CLOUD : {orders.length} entrées détectées</p>
                  </div>
                  <div className="flex gap-4">
                     <select 
@@ -242,7 +243,7 @@ export default function AdminDashboard() {
                          <tr key={order.id} className="hover:bg-white/[0.05] transition-colors group">
                             <td className="px-10 py-10 font-black font-mono text-brand-green text-lg tracking-tighter">#{order.id.split('-')[1]}</td>
                             <td className="px-6 py-10 text-sm font-bold text-gray-400">{new Date(order.createdAt).toLocaleDateString("fr-FR")}</td>
-                            <td className="px-6 py-10 font-black text-2xl font-mono tracking-tighter">{order.totalTTC.toFixed(2)}€</td>
+                            <td className="px-6 py-10 font-black text-2xl font-mono tracking-tighter">{(order.totalTTC || 0).toFixed(2)}€</td>
                             <td className="px-6 py-10">
                                {order.proofUploaded ? (
                                   <button 
@@ -358,7 +359,7 @@ export default function AdminDashboard() {
                               <td className="px-6 py-8">
                                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">{p.category}</span>
                               </td>
-                              <td className="px-6 py-8 font-mono text-lg font-black">{p.priceHT.toFixed(2)}€</td>
+                              <td className="px-6 py-8 font-mono text-lg font-black">{(p.priceHT || 0).toFixed(2)}€</td>
                               <td className="px-6 py-8">
                                  <div className="flex items-center gap-3">
                                     <div className={`w-3 h-3 rounded-full ${p.stock > 0 ? 'bg-brand-green' : 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)] animate-pulse'}`} />

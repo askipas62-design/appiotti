@@ -10,6 +10,7 @@ import ProductCard from "../components/ProductCard";
 
 import { products as allProducts } from "../data/products";
 import { reviewService } from "../services/reviewService";
+import { getStaticReviewsForProduct } from "../data/staticReviews";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -36,10 +37,16 @@ export default function ProductDetail() {
     if (!id) return;
     setReviewsLoading(true);
     try {
-      const data = await reviewService.getAll(id);
-      setReviews(data);
+      const dynamicData = await reviewService.getAll(id);
+      const staticData = getStaticReviewsForProduct(id);
+      
+      // Combiner et dédupliquer par ID si nécessaire (bien que les IDs sr- soient uniques)
+      const merged = [...dynamicData, ...staticData];
+      setReviews(merged);
     } catch (err) {
       console.error("Fetch reviews error:", err);
+      // En cas d'erreur API, on garde au moins les avis statiques
+      setReviews(getStaticReviewsForProduct(id));
     } finally {
       setReviewsLoading(false);
     }
@@ -47,6 +54,12 @@ export default function ProductDetail() {
 
   const sortedReviews = useMemo(() => {
     return [...reviews].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }, [reviews]);
+
+  const averageRating = useMemo(() => {
+    if (reviews.length === 0) return 5.0;
+    const sum = reviews.reduce((acc, r: any) => acc + r.rating, 0);
+    return (sum / reviews.length).toFixed(1);
   }, [reviews]);
 
   useEffect(() => {
@@ -181,7 +194,7 @@ export default function ProductDetail() {
                  <div className="flex items-center gap-1 mb-6 text-brand-yellow">
                     <div className="flex items-center gap-1">
                        {[...Array(5)].map((_, i) => (
-                         <Star key={i} size={18} fill={i < Math.floor(product.rating) ? "currentColor" : "none"} />
+                         <Star key={i} size={18} fill={i < Math.floor(Number(averageRating)) ? "currentColor" : "none"} />
                        ))}
                     </div>
                     <button 
@@ -309,13 +322,13 @@ export default function ProductDetail() {
                  </div>
                  <div className="flex items-center gap-6 bg-brand-cream/50 p-6 rounded-3xl border border-brand-yellow/10">
                     <div className="text-center">
-                       <p className="text-4xl font-black text-brand-dark leading-none">{reviews.length > 0 ? (reviews.reduce((acc, r: any) => acc + r.rating, 0) / reviews.length).toFixed(1) : "5.0"}</p>
+                       <p className="text-4xl font-black text-brand-dark leading-none">{averageRating}</p>
                        <p className="text-[10px] font-black text-gray-400 uppercase mt-1">Sur 5</p>
                     </div>
                     <div className="h-10 w-[2px] bg-brand-yellow/20" />
                     <div>
                        <div className="flex gap-1 text-brand-yellow mb-1">
-                          {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                          {[...Array(5)].map((_, i) => <Star key={i} size={14} fill={i < Math.floor(Number(averageRating)) ? "currentColor" : "none"} />)}
                        </div>
                        <p className="text-[10px] font-black text-brand-orange uppercase">{reviews.length} Avis vérifiés</p>
                     </div>
@@ -335,10 +348,10 @@ export default function ProductDetail() {
                        </div>
                     ) : (
                        <div className="space-y-6">
-                          {reviews.map((review, idx) => (
+                          {sortedReviews.map((review, idx) => (
                              <motion.div 
-                               initial={{ opacity: 0, x: -20 }}
-                               whileInView={{ opacity: 1, x: 0 }}
+                               initial={{ opacity: 0, y: 20 }}
+                               whileInView={{ opacity: 1, y: 0 }}
                                transition={{ delay: idx * 0.1 }}
                                viewport={{ once: true }}
                                key={review.id} 

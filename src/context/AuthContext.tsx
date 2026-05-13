@@ -41,6 +41,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(mapUser(session?.user ?? null));
+      if (session?.access_token) {
+        localStorage.setItem("token", session.access_token);
+      }
       setLoading(false);
     });
 

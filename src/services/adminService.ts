@@ -9,7 +9,10 @@ export const adminService = {
   // Orders
   getOrders: async () => {
     const res = await fetch(`${API_URL}/orders`, { headers: getHeaders() });
-    if (!res.ok) throw new Error("Failed to fetch orders");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || "Failed to fetch orders");
+    }
     return res.json();
   },
   updateOrderStatus: async (id: string, status: string) => {
@@ -18,21 +21,30 @@ export const adminService = {
       headers: getHeaders(),
       body: JSON.stringify({ status })
     });
-    if (!res.ok) throw new Error("Failed to update order");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || "Failed to update order");
+    }
     return res.json();
   },
 
   // Users
   getUsers: async () => {
     const res = await fetch(`${API_URL}/users`, { headers: getHeaders() });
-    if (!res.ok) throw new Error("Failed to fetch users");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || "Failed to fetch users");
+    }
     return res.json();
   },
 
   // Products
   getProducts: async () => {
     const res = await fetch(`${API_URL}/products`, { headers: getHeaders() });
-    if (!res.ok) throw new Error("Failed to fetch products");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || "Failed to fetch products");
+    }
     return res.json();
   },
   updateProduct: async (id: string, data: any) => {

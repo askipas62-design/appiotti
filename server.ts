@@ -344,27 +344,48 @@ async function configureApp() {
     if (!user || !user.isAdmin) return res.status(403).json({ error: "Accès refusé" });
     
     try {
-      const { data, error } = await supabase
+      // Safer fetching: fetch orders and profiles separately to avoid join errors if relations aren't perfectly set up
+      const { data: orders, error: ordersError } = await supabase
         .from("orders")
-        .select("*, profiles!inner(first_name, last_name, email)")
-        .order("created_at", { ascending: false });
+        .select("*");
       
-      if (error) throw error;
+      if (ordersError) {
+        console.error("Supabase orders fetch error:", ordersError);
+        throw ordersError;
+      }
+
+      const { data: profiles, error: profilesError } = await supabase
+        .from("profiles")
+        .select("*");
       
-      const mapped = data.map((o: any) => ({
-        ...o,
-        userId: o.user_id,
-        totalTTC: o.total_ttc,
-        proofUploaded: o.proof_uploaded,
-        proofUrl: o.proof_url,
-        createdAt: o.created_at,
-        userName: `${o.profiles.first_name} ${o.profiles.last_name}`,
-        userEmail: o.profiles.email
-      }));
+      if (profilesError) {
+        console.error("Supabase profiles fetch error:", profilesError);
+      }
+
+      // Sort manually if DB order fails or to be sure
+      const sortedOrders = (orders || []).sort((a: any, b: any) => {
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      });
+      
+      const mapped = sortedOrders.map((o: any) => {
+        const profile = (profiles || []).find((p: any) => p.id === o.user_id);
+        return {
+          ...o,
+          id: o.id || "N/A",
+          userId: o.user_id,
+          totalTTC: o.total_ttc || 0,
+          status: o.status || "Inconnu",
+          proofUploaded: o.proof_uploaded || false,
+          proofUrl: o.proof_url,
+          createdAt: o.created_at || new Date().toISOString(),
+          userName: profile ? `${profile.first_name || ""} ${profile.last_name || ""}`.trim() : "Acheteur",
+          userEmail: profile?.email || "N/A"
+        };
+      });
       res.json(mapped);
-    } catch (e) {
+    } catch (e: any) {
       console.error("GET /api/admin/orders error:", e);
-      res.status(500).json({ error: "Erreur serveur" });
+      res.status(500).json({ error: "Erreur serveur: " + (e.message || "Unknown error") });
     }
   });
 
@@ -378,17 +399,24 @@ async function configureApp() {
         .from("orders")
         .update({ status })
         .eq("id", req.params.id)
-        .select("*, profiles!inner(first_name, last_name, email)")
+        .select("*")
         .single();
 
       if (error) throw error;
 
+      // Fetch user profile for email notification
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("email")
+        .eq("id", order.user_id)
+        .single();
+
       // Send status update email
-      if (resend && order.profiles?.email) {
+      if (resend && profile?.email) {
         try {
           await resend.emails.send({
             from: "Appiotti Game Shop <onboarding@resend.dev>",
-            to: [order.profiles.email],
+            to: [profile.email],
             subject: `Mise à jour de votre commande ${order.id}`,
             html: `<h2>Le statut de votre commande a changé</h2><p>Nouveau statut : ${status}</p>`
           });
@@ -406,9 +434,9 @@ async function configureApp() {
         createdAt: order.created_at
       };
       res.json(mapped);
-    } catch (e) {
+    } catch (e: any) {
       console.error("PATCH /api/admin/orders/:id error:", e);
-      res.status(500).json({ error: "Erreur serveur" });
+      res.status(500).json({ error: "Erreur serveur: " + (e.message || "Unknown error") });
     }
   });
 
@@ -419,8 +447,16 @@ async function configureApp() {
     try {
       const { data, error } = await supabase.from("profiles").select("*");
       if (error) throw error;
-      res.json(data);
-    } catch (e) {
+      
+      const mapped = data.map((u: any) => ({
+        ...u,
+        firstName: u.first_name,
+        lastName: u.last_name,
+        isAdmin: u.is_admin
+      }));
+      
+      res.json(mapped);
+    } catch (e: any) {
       console.error("GET /api/admin/users error:", e);
       res.status(500).json({ error: "Erreur serveur" });
     }
@@ -433,8 +469,14 @@ async function configureApp() {
     try {
       const { data, error } = await supabase.from("products").select("*");
       if (error) throw error;
-      res.json(data);
-    } catch (e) {
+      
+      const mapped = data.map((p: any) => ({
+        ...p,
+        priceHT: p.price_ht
+      }));
+      
+      res.json(mapped);
+    } catch (e: any) {
       console.error("GET /api/admin/products error:", e);
       res.status(500).json({ error: "Erreur serveur" });
     }
@@ -487,10 +529,23 @@ async function configureApp() {
       
       const { data, error } = await query;
       if (error) throw error;
-      res.json(data);
-    } catch (e) {
+      
+      // Map to frontend camelCase
+      const mapped = (data || []).map((r: any) => ({
+        ...r,
+        id: r.id || "N/A",
+        productId: r.product_id,
+        userId: r.user_id,
+        userName: r.user_name || "Anonyme",
+        rating: r.rating || 5,
+        comment: r.comment || "",
+        createdAt: r.created_at || new Date().toISOString()
+      }));
+      
+      res.json(mapped);
+    } catch (e: any) {
       console.error("GET /api/reviews error:", e);
-      res.status(500).json({ error: "Erreur serveur" });
+      res.status(500).json({ error: "Erreur serveur: " + (e.message || "Unknown error") });
     }
   });
 
