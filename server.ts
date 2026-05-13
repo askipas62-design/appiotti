@@ -185,14 +185,18 @@ async function configureApp() {
 
   // Orders Routes
   app.post("/api/orders", async (req, res) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader?.split(" ")[1];
     const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Non autorisé" });
+    
+    if (!user || !token) return res.status(401).json({ error: "Non autorisé" });
     
     try {
       const { items, totalTTC, id: customId } = req.body;
       const orderId = customId || ("ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase());
       
       const newOrder: any = {
+        id: orderId,
         user_id: user.id,
         items: items || [],
         total_ttc: Number(totalTTC) || 0,
@@ -201,32 +205,43 @@ async function configureApp() {
         created_at: new Date().toISOString()
       };
 
-      // Only include ID if it's not a UUID-only table
-      // If we're not sure, we can try to insert and see. 
-      // But usuallyORD-XXX is a string ID.
-      if (orderId) {
-        newOrder.id = orderId;
-      }
+      console.log(`[Order] Creating ${orderId} for user ${user.id}`);
       
-      const { data, error } = await supabase
+      // Use a client with the user's token to satisfy RLS if we're not using service_role
+      const client = createClient(supabaseUrl, supabaseServiceKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } }
+      });
+
+      const { data, error } = await client
         .from("orders")
         .insert(newOrder)
         .select()
-        .single();
+        .maybeSingle();
 
       if (error) {
         console.error("Supabase order insert error:", error);
         return res.status(400).json({ error: `Erreur base de données: ${error.message}` });
       }
 
+      if (!data) {
+        throw new Error("La commande a été insérée mais aucune donnée n'a été retournée.");
+      }
+
       // Send confirmation email
       if (resend && user.email) {
         try {
           await resend.emails.send({
-            from: "Shop <onboarding@resend.dev>",
+            from: "Appiotti <onboarding@resend.dev>",
             to: [user.email],
-            subject: `Confirmation de commande ${orderId}`,
-            html: `<h1>Merci pour votre commande ${orderId}</h1><p>Total: ${(newOrder.total_ttc || 0).toFixed(2)}€</p><p>Veuillez effectuer le virement pour valider.</p>`
+            subject: `Confirmation de commande ${orderId.split('-')[1]}`,
+            html: `
+              <div style="font-family: sans-serif; padding: 20px;">
+                <h2>Merci pour votre commande !</h2>
+                <p>Votre commande <strong>#${orderId.split('-')[1]}</strong> est bien enregistrée.</p>
+                <p>Montant total : <strong>${Number(totalTTC).toFixed(2)}€</strong></p>
+                <p>Veuillez effectuer le virement avec le motif <strong>#${orderId.split('-')[1]}</strong>.</p>
+              </div>
+            `
           });
         } catch (mailErr) {
           console.error("Email send error:", mailErr);
@@ -244,16 +259,22 @@ async function configureApp() {
       res.json(mapped);
     } catch (e: any) {
       console.error("POST /api/orders error:", e);
-      res.status(500).json({ error: "Erreur serveur" });
+      res.status(500).json({ error: "Erreur serveur lors de la création de la commande" });
     }
   });
 
   app.get("/api/orders/me", async (req, res) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader?.split(" ")[1];
     const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Non autorisé" });
+    if (!user || !token) return res.status(401).json({ error: "Non autorisé" });
     
     try {
-      const { data, error } = await supabase
+      const client = createClient(supabaseUrl, supabaseServiceKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } }
+      });
+
+      const { data, error } = await client
         .from("orders")
         .select("*")
         .eq("user_id", user.id)
@@ -261,7 +282,7 @@ async function configureApp() {
       
       if (error) throw error;
       
-      const mapped = data.map((o: any) => ({
+      const mapped = (data || []).map((o: any) => ({
         ...o,
         userId: o.user_id,
         totalTTC: o.total_ttc,
@@ -277,13 +298,19 @@ async function configureApp() {
   });
 
   app.post("/api/orders/:id/proof", upload.single("proof"), async (req, res) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader?.split(" ")[1];
     const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Non autorisé" });
+    if (!user || !token) return res.status(401).json({ error: "Non autorisé" });
     
     try {
       const proofUrl = req.file ? `/uploads/proofs/${req.file.filename}` : null;
       
-      const { data, error } = await supabase
+      const client = createClient(supabaseUrl, supabaseServiceKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } }
+      });
+
+      const { data, error } = await client
         .from("orders")
         .update({
           proof_uploaded: true,
@@ -562,8 +589,10 @@ async function configureApp() {
   });
 
   app.post("/api/reviews", async (req, res) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader?.split(" ")[1];
     const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Non autorisé" });
+    if (!user || !token) return res.status(401).json({ error: "Non autorisé" });
 
     try {
       const { rating, comment, userName, productId } = req.body;
@@ -571,7 +600,11 @@ async function configureApp() {
         return res.status(400).json({ error: "Note et commentaire requis" });
       }
 
-      const { data, error } = await supabase
+      const client = createClient(supabaseUrl, supabaseServiceKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } }
+      });
+
+      const { data, error } = await client
         .from("reviews")
         .insert({
           user_id: user.id,
