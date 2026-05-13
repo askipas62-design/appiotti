@@ -152,14 +152,31 @@ export default function ProductCard({ product }: ProductCardProps) {
              <span className="text-[10px] text-gray-400 font-medium tracking-tight">TTC</span>
           </div>
 
-          <button 
-            onClick={handleAddToCart}
-            disabled={isAdding}
-            className="w-full bg-gradient-to-r from-brand-orange to-brand-yellow text-white py-2.5 rounded-xl font-bold text-xs shadow-lg hover:shadow-brand-orange/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-wait"
-          >
-            {isAdding ? <Loader2 className="animate-spin" size={14} /> : null}
-            {isAdding ? "AJOUT EN COURS..." : "AJOUTER AU PANIER"}
-          </button>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={handleAddToCart}
+              disabled={isAdding}
+              className="flex-grow bg-gradient-to-r from-brand-orange to-brand-yellow text-white py-2.5 rounded-xl font-bold text-xs shadow-lg hover:shadow-brand-orange/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-wait"
+            >
+              {isAdding ? <Loader2 className="animate-spin" size={14} /> : null}
+              {isAdding ? "AJOUT EN COURS..." : "AJOUTER AU PANIER"}
+            </button>
+            <button 
+              onClick={handleWishlist}
+              disabled={isWishlistLoading}
+              className={`p-2.5 rounded-xl transition-all shadow-md active:scale-95 disabled:opacity-50 border shrink-0 ${
+                isFavorite 
+                  ? "bg-brand-orange/10 border-brand-orange text-brand-orange" 
+                  : "bg-gray-50 border-gray-100 text-gray-400 hover:text-brand-orange hover:border-brand-orange"
+              }`}
+            >
+               {isWishlistLoading ? (
+                 <RefreshCw size={14} className="animate-spin" />
+               ) : (
+                 <Heart size={14} fill={isFavorite ? "currentColor" : "none"} />
+               )}
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

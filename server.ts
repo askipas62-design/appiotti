@@ -94,9 +94,9 @@ const getAuthUser = async (req: express.Request) => {
   }
 };
 
-// Start Server Logic
-async function startServer() {
-  const app = express();
+const app = express();
+
+async function configureApp() {
   app.use(express.json());
   app.use(cors());
 
@@ -490,10 +490,18 @@ async function startServer() {
     });
   }
 
-  const PORT = 3000;
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+  return app;
+}
+
+const appPromise = configureApp();
+
+if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
+  appPromise.then(() => {
+    const PORT = 3000;
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
   });
 }
 
-startServer();
+export default app;

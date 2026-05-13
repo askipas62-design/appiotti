@@ -226,7 +226,7 @@ export default function ProductDetail() {
 
                  {/* Actions */}
                  <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
-                    <div className="flex items-center bg-gray-50 border-2 border-gray-100 rounded-3xl overflow-hidden p-2">
+                    <div className="flex items-center bg-gray-50 border-2 border-gray-100 rounded-3xl overflow-hidden p-2 shrink-0">
                        <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="p-4 text-gray-400 hover:text-brand-orange hover:bg-white rounded-2xl transition-all">
                           <Minus size={20} />
                        </button>
@@ -235,31 +235,35 @@ export default function ProductDetail() {
                           <Plus size={20} />
                        </button>
                     </div>
-                    <button 
-                      onClick={handleAddToCart}
-                      disabled={updatingCart}
-                      className="flex-grow w-full bg-brand-dark py-6 px-10 rounded-[24px] text-white font-black text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-4 shadow-2xl hover:bg-brand-orange transition-all active:scale-95 disabled:opacity-70 disabled:cursor-wait"
-                    >
-                       {updatingCart ? <Loader2 className="animate-spin" size={20} /> : <ShoppingCart size={20} />}
-                       {updatingCart ? "Traitement..." : "Ajouter au panier"}
-                    </button>
+                    <div className="flex items-center gap-4 w-full">
+                       <button 
+                         onClick={handleAddToCart}
+                         disabled={updatingCart}
+                         className="flex-grow bg-brand-dark py-6 px-10 rounded-[24px] text-white font-black text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-4 shadow-2xl hover:bg-brand-orange transition-all active:scale-95 disabled:opacity-70 disabled:cursor-wait"
+                       >
+                          {updatingCart ? <Loader2 className="animate-spin" size={20} /> : <ShoppingCart size={20} />}
+                          {updatingCart ? "Traitement..." : "Ajouter au panier"}
+                       </button>
+                       <button 
+                         onClick={() => toggleWishlist(id || "")}
+                         disabled={isWishlistLoading}
+                         className={`p-6 rounded-[24px] border-2 transition-all flex items-center justify-center shrink-0 shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-wait ${
+                           isFavorite 
+                             ? "bg-brand-orange/10 border-brand-orange text-brand-orange" 
+                             : "bg-white border-gray-100 text-gray-400 hover:text-brand-orange hover:border-brand-orange"
+                         }`}
+                         title={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+                       >
+                          {isWishlistLoading ? (
+                            <Loader2 size={24} className="animate-spin" />
+                          ) : (
+                            <Heart size={24} fill={isFavorite ? "currentColor" : "none"} />
+                          )}
+                       </button>
+                    </div>
                  </div>
 
                  <div className="flex items-center gap-10 text-gray-400 text-[10px] font-black uppercase tracking-[0.3em] border-t pt-10">
-                    <button 
-                      onClick={() => toggleWishlist(id || "")}
-                      disabled={isWishlistLoading}
-                      className={`flex items-center gap-2 transition-all p-3 rounded-2xl disabled:opacity-50 disabled:cursor-wait ${
-                        isFavorite ? "text-brand-orange bg-brand-orange/10" : "hover:text-brand-orange hover:bg-gray-50"
-                      }`}
-                    >
-                       {isWishlistLoading ? (
-                         <Loader2 size={18} className="animate-spin" />
-                       ) : (
-                         <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
-                       )}
-                       {isFavorite ? "Dans mes favoris" : "Ajouter aux favoris"}
-                    </button>
                     <button className="flex items-center gap-2 hover:text-brand-orange hover:bg-gray-50 p-3 rounded-2xl transition-all">
                        <Share2 size={18} /> Partager
                     </button>
