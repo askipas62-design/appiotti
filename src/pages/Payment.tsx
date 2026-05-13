@@ -40,6 +40,7 @@ export default function Payment() {
       return;
     }
     setLoading(true);
+    console.log("[Payment] Creating order with payload:", { id: orderId, items, totalTTC });
     try {
       await orderService.create({
         id: orderId,

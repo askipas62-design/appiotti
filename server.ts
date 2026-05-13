@@ -56,35 +56,39 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "askipas62@gmail.com";
 const getAuthUser = async (req: express.Request) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    console.warn("getAuthUser: No authorization header");
+    console.warn("getAuthUser: No authorization header found");
     return null;
   }
   const token = authHeader.split(" ")[1];
   if (!token) {
-    console.warn("getAuthUser: No token found in header");
+    console.warn("getAuthUser: Token segment missing in Authorization header");
     return null;
   }
   
   try {
     const { data: { user }, error } = await supabase.auth.getUser(token);
     if (error) {
-      console.error("getAuthUser: Supabase error", error);
+      console.error("getAuthUser: Supabase auth error:", error.message);
       return null;
     }
     if (!user) {
-      console.warn("getAuthUser: No user returned from Supabase");
+      console.warn("getAuthUser: Supabase returned no user for token");
       return null;
     }
     
-    return {
+    const adminEmail = process.env.ADMIN_EMAIL || "askipas62@gmail.com";
+    const mappedUser = {
       id: user.id,
       email: user.email,
-      isAdmin: user.email === (process.env.ADMIN_EMAIL || "askipas62@gmail.com"),
+      isAdmin: user.email === adminEmail,
       firstName: user.user_metadata?.firstName || "",
       lastName: user.user_metadata?.lastName || ""
     };
-  } catch (e) {
-    console.error("getAuthUser: unexpected error", e);
+
+    console.log(`getAuthUser: Successfully authenticated ${mappedUser.email} (Admin: ${mappedUser.isAdmin})`);
+    return mappedUser;
+  } catch (e: any) {
+    console.error("getAuthUser: Unexpected exception during auth check:", e.message);
     return null;
   }
 };
@@ -185,12 +189,21 @@ async function configureApp() {
 
   // Orders Routes
   app.post("/api/orders", async (req, res) => {
+    console.log("[POST /api/orders] Incoming request body:", JSON.stringify(req.body, null, 2));
+    
     const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Non autorisé" });
+    if (!user) {
+      console.warn("[POST /api/orders] Authentication failed or user not found");
+      return res.status(401).json({ error: "Non autorisé" });
+    }
+    
+    console.log(`[POST /api/orders] User identified: ${user.id} (${user.email})`);
     
     try {
       const { items, totalTTC, id: customId } = req.body;
       const orderId = customId || ("ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase());
+      
+      console.log(`[POST /api/orders] Processing order ${orderId} for ${user.id}`);
       
       const orders = readDB(ORDERS_FILE);
       
@@ -208,12 +221,13 @@ async function configureApp() {
       orders.push(newOrder);
       writeDB(ORDERS_FILE, orders);
 
-      console.log(`[Local Order] Created ${orderId} for user ${user.id}`);
+      console.log(`[POST /api/orders] Order ${orderId} saved locally. total_ttc: ${newOrder.total_ttc}`);
 
       // Send confirmation email
       if (resend && user.email) {
         try {
-          await resend.emails.send({
+          console.log(`[POST /api/orders] Attempting to send confirmation email to ${user.email}`);
+          const { data: emailData, error: emailError } = await resend.emails.send({
             from: "Appiotti <onboarding@resend.dev>",
             to: [user.email],
             subject: `Confirmation de commande ${orderId.split('-')[1] || orderId}`,
@@ -226,9 +240,16 @@ async function configureApp() {
               </div>
             `
           });
+          if (emailError) {
+            console.error("[POST /api/orders] Resend error:", emailError);
+          } else {
+            console.log("[POST /api/orders] Confirmation email sent:", emailData);
+          }
         } catch (mailErr) {
-          console.error("Email send error:", mailErr);
+          console.error("[POST /api/orders] Email send failed (unexpected):", mailErr);
         }
+      } else {
+        console.warn("[POST /api/orders] Email not sent: resend not configured OR user email missing");
       }
 
       res.json({
@@ -240,8 +261,8 @@ async function configureApp() {
         createdAt: newOrder.created_at
       });
     } catch (e: any) {
-      console.error("POST /api/orders error:", e);
-      res.status(500).json({ error: "Erreur serveur lors de la création de la commande" });
+      console.error("[POST /api/orders] Error:", e);
+      res.status(500).json({ error: "Erreur serveur lors de la création de la commande: " + (e.message || "Unknown error") });
     }
   });
 
