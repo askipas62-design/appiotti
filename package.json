@@ -7,6 +7,7 @@
     "dev": "tsx server.ts",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },
@@ -43,12 +44,4 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.3"
   }
-
-  {
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "start": "vite preview"
-  }
-}
 }
