@@ -18,9 +18,9 @@ function ReviewCarousel() {
       // Add some default reviews if none in DB
       if (data.length === 0) {
         setReviews([
-          { id: "1", userName: "Jean Dupont", rating: 5, comment: "Le baby-foot est de super qualité, livraison au top !", createdAt: new Date().toISOString() },
-          { id: "2", userName: "Marie Curie", rating: 5, comment: "Table de ping-pong robuste, mes enfants l'adorent !", createdAt: new Date().toISOString() },
-          { id: "3", userName: "Pierre Gasly", rating: 4, comment: "Très bon service client de Hervé. Je recommande.", createdAt: new Date().toISOString() }
+          { id: "1", userName: "Jean Dupont", rating: 4, comment: "J'ai reçu ma commande à temps mais il y manquait un pied, j'ai dû attendre 5 jours pour le recevoir. Sinon le produit est top.", createdAt: new Date().toISOString() },
+          { id: "2", userName: "Marie Curie", rating: 4, comment: "Très bon jeu, la qualité est au rendez-vous mais le montage est assez difficile, prévoyez du temps !", createdAt: new Date().toISOString() },
+          { id: "3", userName: "Pierre Gasly", rating: 5, comment: "Super expérience avec Hervé, très réactif et professionnel. Je recommande vivement.", createdAt: new Date().toISOString() }
         ]);
       } else {
         setReviews(data);
