@@ -24,7 +24,7 @@ const cleanEnv = (val: string | undefined) => {
   return s.replace(/['"`\s\u200B-\u200D\uFEFF]+/g, '');
 };
 
-const BUILD_ID = "v3.2-ultra-clean"; // To verify deployment status
+const BUILD_ID = "v3.3-debug-init"; // To verify deployment status
 
 // Initialize Supabase
 let supabaseUrl = cleanEnv(process.env.VITE_SUPABASE_URL);
@@ -32,8 +32,11 @@ if (supabaseUrl.endsWith("/")) supabaseUrl = supabaseUrl.slice(0, -1);
 const supabaseServiceKey = cleanEnv(process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY);
 
 let supabase: any = null;
+let supabaseInitError: string | null = null;
+
 if (supabaseUrl && supabaseUrl.startsWith("http")) {
   try {
+    console.log(`[Startup] Attempting to initialize Supabase with URL: ${supabaseUrl.substring(0, 15)}...`);
     supabase = createClient(supabaseUrl, supabaseServiceKey, {
       auth: {
         autoRefreshToken: false,
@@ -41,6 +44,13 @@ if (supabaseUrl && supabaseUrl.startsWith("http")) {
         detectSessionInUrl: false
       }
     });
+    
+    if (supabase) {
+      console.log("[Startup] Supabase object created successfully");
+    } else {
+      supabaseInitError = "createClient returned null";
+      console.error("[Startup] createClient returned null");
+    }
     
     // Masked logs for verification in Railway console
     const maskedUrl = supabaseUrl.substring(0, 15) + "...";
@@ -50,10 +60,12 @@ if (supabaseUrl && supabaseUrl.startsWith("http")) {
     if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
       console.warn("[Startup] WARNING: SUPABASE_SERVICE_ROLE_KEY is missing. Using ANON_KEY for server-side auth. This may fail for getUser().");
     }
-  } catch (err) {
+  } catch (err: any) {
+    supabaseInitError = err.message;
     console.error("[Startup] Failed to initialize Supabase:", err);
   }
 } else {
+  supabaseInitError = "URL missing or doesn't start with http";
   console.error(`[Startup] CRITICAL: Supabase URL is invalid or missing. Starts with: "${supabaseUrl.substring(0, 10)}..."`);
 }
 
@@ -262,6 +274,7 @@ async function startServer() {
       time: new Date().toISOString(),
       env: process.env.NODE_ENV,
       hasSupabase: !!supabase,
+      supabaseError: supabaseInitError,
       hasResend: !!resend,
       adminEmailConfig: ADMIN_EMAIL,
       configCheck: {
