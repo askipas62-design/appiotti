@@ -9,12 +9,14 @@ import { Resend } from "resend";
 const APP_ROOT = process.cwd();
 console.log(`[Startup] APP_ROOT: ${APP_ROOT}`);
 
-// Helper to clean environment variables (remove quotes, backticks and spaces)
+// Helper to clean environment variables (remove quotes, backticks and all types of spaces)
 const cleanEnv = (val: string | undefined) => {
   if (!val) return "";
-  // Remove ', ", and ` characters
-  return val.replace(/['"`]+/g, '').trim();
+  // Remove all quotes, backticks, and any whitespace character
+  return val.replace(/['"`\s]+/g, '').trim();
 };
+
+const BUILD_ID = "v3.1-clean-env"; // To verify deployment status
 
 // Initialize Supabase
 let supabaseUrl = cleanEnv(process.env.VITE_SUPABASE_URL);
@@ -248,15 +250,16 @@ async function startServer() {
   app.get("/api/health", (req, res) => {
     res.json({ 
       status: "ok", 
+      version: BUILD_ID,
       time: new Date().toISOString(),
       env: process.env.NODE_ENV,
       hasSupabase: !!supabase,
       hasResend: !!resend,
       adminEmailConfig: ADMIN_EMAIL,
       configCheck: {
-        urlStart: supabaseUrl.substring(0, 15),
+        urlStart: supabaseUrl.substring(0, 20),
         keyLength: supabaseServiceKey.length,
-        isServiceKey: supabaseServiceKey.length > 100 // Service role keys are very long
+        isServiceKey: supabaseServiceKey.length > 100
       }
     });
   });
