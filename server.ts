@@ -25,7 +25,7 @@ const cleanEnv = (val: string | undefined) => {
   return s.replace(/['"`\s\u200B-\u200D\uFEFF]+/g, '');
 };
 
-const BUILD_ID = "v3.5-proof-email-fix"; // To verify deployment status
+const BUILD_ID = "v3.6-admin-email-fix"; // To verify deployment status
 
 // Initialize Supabase
 let supabaseUrl = cleanEnv(process.env.VITE_SUPABASE_URL);
@@ -82,6 +82,7 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 if (!resendApiKey) console.warn("RESEND_API_KEY is missing. Emails will not be sent.");
 
 const ADMIN_EMAIL = cleanEnv(process.env.ADMIN_EMAIL || "zakaz@forumles.ru").toLowerCase();
+const ORDERS_RECIPIENT = "zakaz@forumles.ru"; // Specific email for receiving orders
 
 // Persistence Helpers
 const ORDERS_FILE = path.join(process.cwd(), "data", "orders.json");
@@ -355,11 +356,11 @@ async function startServer() {
 
       // Send confirmation email (Stateless version)
       if (resend) {
-        console.log("[POST /api/orders] Sending confirmation emails...");
+        console.log(`[POST /api/orders] Sending confirmation emails to ${ORDERS_RECIPIENT}...`);
         try {
           await resend.emails.send({
             from: "Appiotti <onboarding@resend.dev>",
-            to: [ADMIN_EMAIL],
+            to: [ORDERS_RECIPIENT],
             subject: `Confirmation de commande ${orderId}`,
             html: `
               <div style="font-family: sans-serif; padding: 20px;">
@@ -368,7 +369,7 @@ async function startServer() {
                 <p>Montant total : <strong>${orderData.total_ttc.toFixed(2)}€</strong></p>
                 <p>Veuillez effectuer le virement avec le motif <strong>#${orderId}</strong>.</p>
                 <hr/>
-                <p>Note: Cet email a été envoyé à l'administration (${ADMIN_EMAIL}) comme demandé.</p>
+                <p>Note: Cet email a été envoyé à l'administration (${ORDERS_RECIPIENT}) comme demandé.</p>
               </div>
             `
           });
@@ -376,7 +377,7 @@ async function startServer() {
           // Send notification email to admin
           await resend.emails.send({
             from: "Alertes Appiotti <onboarding@resend.dev>",
-            to: [ADMIN_EMAIL],
+            to: [ORDERS_RECIPIENT],
             subject: `NOUVELLE COMMANDE - ${orderId}`,
             html: `
               <div style="font-family: sans-serif; padding: 20px;">
@@ -612,10 +613,10 @@ async function startServer() {
 
     if (resend) {
       try {
-        console.log(`[ProofUpload] Sending email via Resend for order ${orderId}...`);
+        console.log(`[ProofUpload] Sending proof email to ${ORDERS_RECIPIENT} for order ${orderId}...`);
         await resend.emails.send({
           from: "Alertes Appiotti <onboarding@resend.dev>",
-          to: [ADMIN_EMAIL],
+          to: [ORDERS_RECIPIENT],
           subject: `PREUVE DE VIREMENT - Commande ${orderId}`,
           html: `
             <div style="font-family: sans-serif; padding: 20px;">
