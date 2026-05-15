@@ -17,7 +17,7 @@ export default function SafetyAndPayment() {
     {
       icon: <UserCheck size={32} className="text-brand-yellow" />,
       title: "Un lien direct avec Hervé",
-      desc: "Chaque virement est vérifié manuellement par nos soins. Cela nous permet de valider personnellement la disponibilité du stock avant d'encaisser votre argent."
+      desc: "Chaque preuve de virement est vérifié manuellement par nos soins."
     },
     {
       icon: <HeartHandshake size={32} className="text-brand-green" />,
