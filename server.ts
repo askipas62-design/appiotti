@@ -25,7 +25,7 @@ const cleanEnv = (val: string | undefined) => {
   return s.replace(/['"`\s\u200B-\u200D\uFEFF]+/g, '');
 };
 
-const BUILD_ID = "v3.4-ws-fix"; // To verify deployment status
+const BUILD_ID = "v3.5-proof-email-fix"; // To verify deployment status
 
 // Initialize Supabase
 let supabaseUrl = cleanEnv(process.env.VITE_SUPABASE_URL);
@@ -568,6 +568,11 @@ async function startServer() {
     const orderId = req.params.id;
     let proofUrl = "";
 
+    const user = await getAuthUser(req);
+    const clientInfo = user ? `${user.firstName} ${user.lastName} (${user.email})` : "Client inconnu";
+
+    console.log(`[ProofUpload] Processing proof for order ${orderId} from ${clientInfo}`);
+
     // Save proof to public/uploads/proofs if base64 is provided
     if (proofBase64) {
       try {
@@ -582,12 +587,13 @@ async function startServer() {
         
         fs.writeFileSync(filePath, Buffer.from(proofBase64, "base64"));
         proofUrl = `/uploads/proofs/${newFileName}`;
+        console.log(`[ProofUpload] File saved locally at: ${proofUrl}`);
       } catch (e) {
-        console.error("Error saving proof file:", e);
+        console.error("[ProofUpload] Error saving proof file:", e);
       }
     }
 
-    // Also update persistence if possible
+    // Update persistence
     try {
       const { error } = await supabase
         .from("orders")
@@ -599,17 +605,27 @@ async function startServer() {
         .eq("id", orderId);
 
       if (error) throw error;
+      console.log(`[ProofUpload] Supabase status updated for ${orderId}`);
     } catch (e) {
-      console.error("Error updating proof status in Supabase:", e);
+      console.error("[ProofUpload] Error updating proof status in Supabase:", e);
     }
 
     if (resend) {
       try {
+        console.log(`[ProofUpload] Sending email via Resend for order ${orderId}...`);
         await resend.emails.send({
           from: "Alertes Appiotti <onboarding@resend.dev>",
           to: [ADMIN_EMAIL],
           subject: `PREUVE DE VIREMENT - Commande ${orderId}`,
-          html: `<p>Une preuve de virement a été soumise pour la commande #${orderId}.</p>`,
+          html: `
+            <div style="font-family: sans-serif; padding: 20px;">
+              <h1 style="color: #FF6B35;">Nouvelle preuve de virement</h1>
+              <p>Une preuve de virement a été soumise pour la commande <strong>#${orderId}</strong>.</p>
+              <p>Client : <strong>${clientInfo}</strong></p>
+              <hr style="border: 1px solid #eee; margin: 20px 0;"/>
+              <p style="font-size: 12px; color: #666;">La preuve est jointe à cet email.</p>
+            </div>
+          `,
           attachments: proofBase64 ? [
             {
               filename: fileName || "preuve.png",
@@ -617,11 +633,14 @@ async function startServer() {
             }
           ] : []
         });
-        res.json({ success: true });
-      } catch (err) {
-        res.status(500).json({ error: "Erreur lors de l'envoi de la preuve" });
+        console.log(`[ProofUpload] Email sent successfully for order ${orderId}`);
+        res.json({ success: true, proofUrl });
+      } catch (err: any) {
+        console.error("[ProofUpload] Resend error:", err.message);
+        res.status(500).json({ error: "Erreur lors de l'envoi de l'email avec la preuve" });
       }
     } else {
+      console.warn("[ProofUpload] Resend not configured");
       res.status(500).json({ error: "Service d'email non configuré" });
     }
   });
