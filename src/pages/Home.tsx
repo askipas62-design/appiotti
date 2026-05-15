@@ -11,9 +11,9 @@ import { reviewService } from "../services/reviewService";
 
 function ReviewCarousel() {
   const reviews = [
-    { id: "1", userName: "Jean Dupont", rating: 4, comment: "J'ai reçu ma commande à temps mais il y manquait un pied, j'ai dû attendre 5 jours pour le recevoir. Sinon le produit est top.", createdAt: new Date().toISOString() },
-    { id: "2", userName: "Marie Curie", rating: 4, comment: "Très bon jeu, la qualité est au rendez-vous mais le montage est assez difficile, prévoyez du temps !", createdAt: new Date().toISOString() },
-    { id: "3", userName: "Pierre Gasly", rating: 5, comment: "Super expérience avec Hervé, très réactif et professionnel. Je recommande vivement.", createdAt: new Date().toISOString() }
+    { id: "1", userName: "Jean F.", rating: 4, comment: "J'ai reçu ma commande à temps mais il y manquait un pied, j'ai dû attendre 5 jours pour le recevoir. Sinon le produit est top.", createdAt: new Date().toISOString() },
+    { id: "2", userName: "Marie C.", rating: 4, comment: "Très bon jeu, la qualité est au rendez-vous mais le montage est assez difficile, prévoyez du temps !", createdAt: new Date().toISOString() },
+    { id: "3", userName: "Pierre G.", rating: 5, comment: "Super expérience avec Hervé, très réactif et professionnel. Je recommande vivement.", createdAt: new Date().toISOString() }
   ];
 
   return (
