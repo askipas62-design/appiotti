@@ -179,7 +179,7 @@ export default function Payment() {
                       <ArrowRight size={48} />
                    </div>
                    <h2 className="text-3xl font-black text-[#1B1B2F] mb-6 font-display uppercase tracking-tight">Prêt à commander ?</h2>
-                   <p className="text-gray-500 mb-10">En validant, nous réservons vos articles pendant 72h, le temps de recevoir votre virement.</p>
+                   <p className="text-gray-500 mb-10">En validant, nous réservons vos articles pendant 72h</p>
                    
                    <div className="w-full p-8 bg-gray-50 rounded-3xl mb-10 border border-gray-100">
                       <div className="flex justify-between items-center text-lg font-bold mb-2">
