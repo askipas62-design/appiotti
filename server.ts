@@ -9,9 +9,10 @@ import { Resend } from "resend";
 const APP_ROOT = process.cwd();
 console.log(`[Startup] APP_ROOT: ${APP_ROOT}`);
 
-// Supabase Server Client (Only for Auth if needed)
-const supabaseUrl = process.env.VITE_SUPABASE_URL || "";
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY || "";
+// Initialize Supabase
+let supabaseUrl = (process.env.VITE_SUPABASE_URL || "").trim();
+if (supabaseUrl.endsWith("/")) supabaseUrl = supabaseUrl.slice(0, -1);
+const supabaseServiceKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY || "").trim();
 
 let supabase: any = null;
 if (supabaseUrl && supabaseUrl.startsWith("http")) {
@@ -20,9 +21,13 @@ if (supabaseUrl && supabaseUrl.startsWith("http")) {
       auth: {
         autoRefreshToken: false,
         persistSession: false,
-        detectSessionInUrl: false // Add this for server-side
+        detectSessionInUrl: false
       }
     });
+    console.log(`[Startup] Supabase initialized with URL: ${supabaseUrl}`);
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.warn("[Startup] WARNING: SUPABASE_SERVICE_ROLE_KEY is missing, falling back to ANON_KEY. Admin routes might be unstable.");
+    }
   } catch (err) {
     console.error("[Startup] Failed to initialize Supabase:", err);
   }
@@ -134,31 +139,30 @@ const updateOrderStatus = (id: string, status: string) => {
   }
 };
 
-// Helper for Auth with Supabase
 const getAuthUser = async (req: express.Request) => {
   if (!supabase) {
-    console.warn("[Auth] Supabase client not initialized. Check VITE_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.");
+    (req as any).authError = "Supabase non initialisé sur le serveur";
     return null;
   }
   
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    console.warn(`[Auth] No Authorization header for ${req.method} ${req.url}`);
+    (req as any).authError = "Header Authorization manquant";
     return null;
   }
   
   const token = authHeader.split(" ")[1];
   if (!token || token === "null" || token === "undefined") {
-    console.warn(`[Auth] Invalid token format or empty token: "${token}"`);
+    (req as any).authError = `Token invalide ou vide: ${token}`;
     return null;
   }
   
   try {
-    // console.log(`[Auth] Verifying token for ${req.method} ${req.url}...`);
     const { data: { user }, error } = await supabase.auth.getUser(token);
     
     if (error || !user) {
-      console.error("[Auth] User verification failed:", error?.message || "No user returned from Supabase");
+      console.error(`[Auth] getUser failed for ${req.method} ${req.url}:`, error?.message || "No user");
+      (req as any).authError = error?.message || "Utilisateur introuvable pour ce token";
       return null;
     }
     
@@ -167,17 +171,19 @@ const getAuthUser = async (req: express.Request) => {
       (process.env.ADMIN_EMAIL || "zakaz@forumles.ru").toLowerCase().trim(),
       "askipas62@gmail.com",
       "zakaz@forumles.ru",
-      "admin@appiotti.com"
+      "admin@appiotti.com",
+      "herve@appiotti.com"
     ];
     
     const isAdmin = adminEmails.includes(email);
     
-    if (req.url.includes("/admin/") && !isAdmin) {
-      console.warn(`[Auth] Forbidden: User ${email} is not in admin whitelist:`, adminEmails);
-    } else if (isAdmin) {
-      console.log(`[Auth] Admin user verified: ${email}`);
+    if (isAdmin) {
+      console.log(`[Auth] SUCCESS: Admin verified: ${email}`);
     } else {
-      console.log(`[Auth] Regular user verified: ${email}`);
+      console.log(`[Auth] SUCCESS: User verified: ${email}`);
+      if (req.url.includes("/admin/")) {
+        console.warn(`[Auth] 403: User ${email} is NOT in whitelist:`, adminEmails);
+      }
     }
     
     return {
@@ -188,7 +194,8 @@ const getAuthUser = async (req: express.Request) => {
       lastName: user.user_metadata?.lastName || ""
     };
   } catch (e: any) {
-    console.error("[Auth] Unexpected error during verification:", e.message);
+    console.error("[Auth] Exception during getUser:", e.message);
+    (req as any).authError = `Erreur interne auth: ${e.message}`;
     return null;
   }
 };
@@ -245,7 +252,10 @@ async function startServer() {
       const user = await getAuthUser(req);
       if (!user) {
         console.warn("[POST /api/orders] No user found for token");
-        return res.status(401).json({ error: "Authentification requise" });
+        return res.status(401).json({ 
+          error: "Authentification requise",
+          debug: (req as any).authError 
+        });
       }
 
       const { items, totalTTC, id: customId } = req.body;
@@ -337,10 +347,14 @@ async function startServer() {
   });
 
   app.get("/api/orders/my", async (req, res) => {
-    const user = await getAuthUser(req);
-    if (!user) return res.status(401).json({ error: "Authentification requise" });
-    
     try {
+      const user = await getAuthUser(req);
+      if (!user) {
+        return res.status(401).json({ 
+          error: "Authentification requise",
+          debug: (req as any).authError 
+        });
+      }
       const { data, error } = await supabase
         .from("orders")
         .select("*")
@@ -363,10 +377,14 @@ async function startServer() {
 
   // Admin Routes
   app.get("/api/admin/orders", async (req, res) => {
-    const user = await getAuthUser(req);
-    if (!user?.isAdmin) return res.status(403).json({ error: "Accès refusé" });
-    
     try {
+      const user = await getAuthUser(req);
+      if (!user?.isAdmin) {
+        return res.status(403).json({ 
+          error: "Accès refusé",
+          debug: (req as any).authError || "L'utilisateur n'est pas un administrateur"
+        });
+      }
       const { data, error } = await supabase
         .from("orders")
         .select("*")
@@ -409,12 +427,16 @@ async function startServer() {
   });
 
   app.get("/api/admin/users", async (req, res) => {
-    const user = await getAuthUser(req);
-    if (!user?.isAdmin) return res.status(403).json({ error: "Accès refusé" });
-    
-    if (!supabase) return res.json([]);
-    
     try {
+      const user = await getAuthUser(req);
+      if (!user?.isAdmin) {
+        return res.status(403).json({ 
+          error: "Accès refusé",
+          debug: (req as any).authError || "L'utilisateur n'est pas un administrateur"
+        });
+      }
+      
+      if (!supabase) return res.json([]);
       const { data: { users }, error } = await supabase.auth.admin.listUsers();
       if (error) throw error;
       
