@@ -74,7 +74,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs font-black uppercase tracking-tighter">Paiement Sécurisé</p>
-              <p className="text-[10px] opacity-60">Virement instantané recommandé</p>
+              <p className="text-[10px] opacity-60">Virement Bancaire</p>
             </div>
           </div>
           <div className="flex items-center gap-4 bg-white/5 p-5 rounded-2xl">
