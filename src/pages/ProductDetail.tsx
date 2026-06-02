@@ -11,6 +11,7 @@ import ProductCard from "../components/ProductCard";
 import { products as allProducts } from "../data/products";
 import { reviewService } from "../services/reviewService";
 import { getStaticReviewsForProduct } from "../data/staticReviews";
+import { getImageSrc } from "../lib/images";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -34,11 +35,7 @@ export default function ProductDetail() {
   const isWishlistLoading = processingId === (id || "");
 
   // Ensure image path is correct
-  const getImageUrl = (path: string) => {
-    if (!path) return "/images/placeholder.jpg";
-    if (path.startsWith("http")) return path;
-    return path.startsWith('/') ? path : `/${path}`;
-  };
+  const getImageUrl = getImageSrc;
 
   const fetchReviews = async () => {
     if (!id) return;

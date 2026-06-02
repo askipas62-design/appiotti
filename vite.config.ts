@@ -20,21 +20,16 @@ export default defineConfig(({mode}) => {
       outDir: 'dist/public',
       emptyOutDir: true,
       target: 'es2020',
-      minify: 'esbuild',
       cssMinify: true,
+      chunkSizeWarningLimit: 800,
       rollupOptions: {
         output: {
           manualChunks: {
-            vendor: ['react', 'react-dom', 'react-router-dom'],
             motion: ['motion/react'],
             icons: ['lucide-react'],
           },
-          entryFileNames: 'assets/[name]-[hash].js',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          assetFileNames: 'assets/[name]-[hash].[ext]',
         },
       },
-      chunkSizeWarningLimit: 500,
     },
     server: {
       watch: {

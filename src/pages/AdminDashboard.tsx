@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 import { adminService } from "../services/adminService";
 import { reviewService } from "../services/reviewService";
+import { getImageSrc } from "../lib/images";
 
 type Tab = "orders" | "reviews" | "users" | "products";
 
@@ -143,11 +144,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const getImageUrl = (path: string) => {
-    if (!path) return null;
-    if (path.startsWith("http")) return path;
-    return path.startsWith('/') ? path : `/${path}`;
-  };
+  const getImageUrl = getImageSrc;
 
   return (
     <div className="bg-[#1B1B2F] min-h-screen text-white pt-12 pb-24">

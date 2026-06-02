@@ -12,6 +12,7 @@ import { useAuth } from "../context/AuthContext";
 import { useWishlist } from "../context/WishlistContext";
 import { useToast } from "../components/ui/Toast";
 import ProductCard from "../components/ProductCard";
+import { getImageSrc } from "../lib/images";
 
 import { orderService } from "../services/orderService";
 import { reviewService } from "../services/reviewService";
@@ -51,11 +52,7 @@ export default function ClientDashboard() {
   const [submittingReview, setSubmittingReview] = useState(false);
 
   // Ensure image path is correct
-  const getImageUrl = (path: string) => {
-    if (!path) return null;
-    if (path.startsWith("http")) return path;
-    return path.startsWith('/') ? path : `/${path}`;
-  };
+  const getImageUrl = getImageSrc;
 
   const favoriteProducts = useMemo(() => {
     return allProducts.filter(p => wishlist.includes(p.id));

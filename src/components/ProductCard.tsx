@@ -6,6 +6,7 @@ import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
 import { useToast } from "./ui/Toast";
 import QuickViewModal from "./QuickViewModal";
+import { getImageSrc } from "../lib/images";
 
 interface ProductCardProps {
   product: any;
@@ -90,7 +91,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Image Section */}
       <Link to={`/boutique/${product.id}`} className="relative h-48 overflow-hidden bg-gray-100 flex items-center justify-center group-hover:bg-brand-cream transition-colors duration-500">
          <img 
-           src={product.image || getCategoryImage(product.category)} 
+           src={getImageSrc(product.image || getCategoryImage(product.category))} 
            alt={product.name} 
            width={400}
            height={300}

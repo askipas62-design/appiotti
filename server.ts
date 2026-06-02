@@ -25,7 +25,7 @@ const cleanEnv = (val: string | undefined) => {
   return s.replace(/['"`\s\u200B-\u200D\uFEFF]+/g, '');
 };
 
-const BUILD_ID = "v3.6-admin-email-fix"; // To verify deployment status
+const BUILD_ID = "v3.7-perf-images"; // To verify deployment status
 
 // Initialize Supabase
 let supabaseUrl = cleanEnv(process.env.VITE_SUPABASE_URL);
