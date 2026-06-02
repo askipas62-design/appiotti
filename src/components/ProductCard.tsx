@@ -92,6 +92,10 @@ export default function ProductCard({ product }: ProductCardProps) {
          <img 
            src={product.image || getCategoryImage(product.category)} 
            alt={product.name} 
+           width={400}
+           height={300}
+           loading="lazy"
+           decoding="async"
            className="absolute inset-0 w-full h-full object-cover transition-all duration-700" 
            referrerPolicy="no-referrer"
          />

@@ -1,16 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Appiotti Game Shop - Baby-foot, ping-pong, billard, trampoline, consoles. Livraison rapide en Charente." />
+    <meta name="theme-color" content="#1B1B2F" />
     <title>Appiotti Game Shop</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@700;900&family=Nunito:wght@800;900&family=Poppins:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@700;900&family=Nunito:wght@800;900&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" as="image" href="/images/hero-bg.jpg" />
+
     <script src="/env.js"></script>
     <script>
       window.onerror = function(msg, url, line, col, error) {
-        console.error("Critial Error:", msg, error);
+        console.error("Critical Error:", msg, error);
         var div = document.createElement('div');
         div.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#ff4444;color:white;padding:20px;z-index:9999;font-family:sans-serif;font-weight:bold;';
-        div.innerHTML = 'Erreur au chargement : ' + msg + '<br/><small>Vérifiez vos variables d\'environnement (VITE_SUPABASE_URL, etc.)</small>';
+        div.innerHTML = 'Erreur au chargement : ' + msg + '<br/><small>Verifiez vos variables d\'environnement</small>';
         document.body.appendChild(div);
       };
     </script>
@@ -20,4 +34,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

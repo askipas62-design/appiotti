@@ -46,9 +46,9 @@ export default function Cart() {
                   className="bg-white rounded-3xl p-4 shadow-xl flex items-center gap-4 border border-gray-100 hover:border-brand-orange/30 transition-all group"
                 >
                   <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden relative">
-                    {item.image ? (
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                    ) : (
+                       {item.image ? (
+                         <img src={item.image} alt={item.name} width={64} height={64} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                       ) : (
                       <Package size={28} className="text-gray-200" />
                     )}
                   </div>

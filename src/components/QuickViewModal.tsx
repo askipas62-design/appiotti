@@ -78,6 +78,10 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                    animate={{ opacity: 1, scale: 1 }}
                    src={product.image} 
                    alt={product.name} 
+                   width={500}
+                   height={500}
+                   loading="lazy"
+                   decoding="async"
                    className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
                  />
                ) : (

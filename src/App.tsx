@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "r
 import { Suspense, lazy } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext";
 import { Toaster } from "./components/ui/Toast";
 
-// Lazy loading pages
-const Home = lazy(() => import("./pages/Home"));
+// Lazy loading pages (except Home which is eagerly loaded)
 const Shop = lazy(() => import("./pages/Shop"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const Cart = lazy(() => import("./pages/Cart"));
@@ -56,7 +56,12 @@ export default function App() {
             <div className="min-h-screen flex flex-col bg-[#FFF8F0]">
               <Header />
               <main className="flex-grow">
-                <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[#FF6B35] font-bold">Chargement de l'univers Appiotti...</div>}>
+                <Suspense fallback={
+                  <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+                    <div className="w-12 h-12 border-4 border-brand-orange/20 border-t-brand-orange rounded-full animate-spin" />
+                    <p className="text-brand-orange font-bold text-xs uppercase tracking-widest">Chargement...</p>
+                  </div>
+                }>
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/boutique" element={<Shop />} />

@@ -176,6 +176,10 @@ export default function ProductDetail() {
                     <img 
                       src={getImageUrl(product.image || getProductImage(product.category))} 
                       alt={product.name} 
+                      width={600}
+                      height={600}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />

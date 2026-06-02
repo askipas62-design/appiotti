@@ -106,6 +106,10 @@ export default function Home() {
           <img 
             src="/images/hero-bg.jpg" 
             alt="Hero Background" 
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-70 scale-105"
             referrerPolicy="no-referrer"
           />
@@ -160,6 +164,10 @@ export default function Home() {
           <div className="relative w-full h-full rounded-[48px] overflow-hidden border-8 border-white/10 rotate-3 shadow-2xl">
              <img 
                src="/images/gaming-scene.jpg" 
+               width={800}
+               height={600}
+               loading="lazy"
+               decoding="async"
                className="w-full h-full object-cover"
                alt="Gaming"
                referrerPolicy="no-referrer"
@@ -208,6 +216,10 @@ export default function Home() {
                   <img 
                     src={cat.image} 
                     alt={cat.name} 
+                    width={600}
+                    height={550}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
