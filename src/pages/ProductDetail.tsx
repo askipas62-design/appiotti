@@ -196,12 +196,11 @@ export default function ProductDetail() {
                   </span>
                   <span className="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em]">TTC</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-400 font-bold line-through text-[11px] opacity-50">
-                    {(product.priceHT * 1.25).toFixed(2)}€
-                  </span>
-                  <span className="bg-brand-green/10 text-brand-green text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">Économisez 5%</span>
-                </div>
+                {product.badge === "Promo" && (
+                  <div className="flex items-center gap-2">
+                    <span className="bg-brand-green/10 text-brand-green text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">En promotion</span>
+                  </div>
+                )}
               </div>
 
               <p className="text-xs text-gray-600 leading-relaxed font-medium italic border-l-4 border-brand-orange pl-3 mb-3 line-clamp-3">

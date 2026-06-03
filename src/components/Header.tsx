@@ -24,10 +24,9 @@ const navigationMenu = [
     slug: "billard",
     href: "/boutique?category=billard",
     brands: [
+      { label: "Garlando", href: "/boutique?category=billard&brand=Garlando" },
+      { label: "Cornilleau", href: "/boutique?category=billard&brand=Cornilleau" },
       { label: "René Pierre", href: "/boutique?category=billard&brand=Ren%C3%A9%20Pierre" },
-      { label: "Chevillotte", href: "/boutique?category=billard&brand=Chevillotte" },
-      { label: "Lafuge", href: "/boutique?category=billard&brand=Lafuge" },
-      { label: "Aramith", href: "/boutique?category=billard&brand=Aramith" },
     ]
   },
   {

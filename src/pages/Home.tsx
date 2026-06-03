@@ -57,7 +57,7 @@ export default function Home() {
 
   const bestSellers = useMemo(() => {
     return allProducts
-      .filter(p => p && (p.badge === "Bestseller" || p.rating >= 4.8))
+      .filter(p => p && (p.badge === "Bestseller" || p.rating >= 4.7))
       .sort((a, b) => b.rating - a.rating)
       .slice(0, 4);
   }, []);

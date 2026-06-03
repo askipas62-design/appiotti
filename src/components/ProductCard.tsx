@@ -85,7 +85,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     >
       {/* Category Badge */}
       <div className={`absolute top-4 left-4 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold text-white uppercase tracking-tighter bg-brand-orange shadow-lg`}>
-        {product?.badge || "SÉLECTION"}
+        {product?.badge || ""}
       </div>
 
       {/* Image Section */}

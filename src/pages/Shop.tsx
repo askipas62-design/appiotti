@@ -59,6 +59,8 @@ export default function Shop() {
       result.sort((a, b) => b.priceHT * 1.2 - a.priceHT * 1.2);
     } else if (sortBy === "popularity") {
       result.sort((a, b) => b.rating - a.rating);
+    } else {
+      result.sort((a, b) => b.rating - a.rating);
     }
 
     return result;
