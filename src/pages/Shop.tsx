@@ -94,7 +94,11 @@ export default function Shop() {
       .map((product) => getProductBrand(product))
       .filter((value): value is string => Boolean(value))
       .map((value) => value.trim());
-    return Array.from(new Set(values)).sort((a, b) => a.localeCompare(b, "fr"));
+    const deduped: string[] = [];
+    for (const v of values) {
+      if (!deduped.some((d) => isSameBrand(d, v))) deduped.push(v);
+    }
+    return deduped.sort((a, b) => a.localeCompare(b, "fr"));
   }, []);
 
   return (
