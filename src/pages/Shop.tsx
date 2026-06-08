@@ -92,7 +92,10 @@ export default function Shop() {
   const resetFilters = () => setSearchParams(new URLSearchParams());
 
   const uniqueBrands = useMemo(() => {
-    const values = allProducts
+    const categoryProducts = category
+      ? allProducts.filter((p) => p.category === category)
+      : allProducts;
+    const values = categoryProducts
       .map((product) => getProductBrand(product))
       .filter((value): value is string => Boolean(value))
       .map((value) => value.trim());
@@ -101,7 +104,7 @@ export default function Shop() {
       if (!deduped.some((d) => isSameBrand(d, v))) deduped.push(v);
     }
     return deduped.sort((a, b) => a.localeCompare(b, "fr"));
-  }, []);
+  }, [category]);
 
   return (
     <div className="bg-[#FFF8F0] min-h-screen pt-12 pb-24">

@@ -9,41 +9,149 @@ import { BabyFootIcon, PingPongIcon, BillardIcon, TrampolineIcon, AccessoriesIco
 import { products as allProducts } from "../data/products";
 import { reviewService } from "../services/reviewService";
 
-function ReviewCarousel() {
-  const reviews = [
+function ReviewSection() {
+  const defaultReviews = [
     { id: "1", userName: "Jean F.", rating: 4, comment: "J'ai reçu ma commande à temps mais il y manquait un pied, j'ai dû attendre 5 jours pour le recevoir. Sinon le produit est top.", createdAt: new Date().toISOString() },
     { id: "2", userName: "Marie C.", rating: 4, comment: "Très bon jeu, la qualité est au rendez-vous mais le montage est assez difficile, prévoyez du temps !", createdAt: new Date().toISOString() },
     { id: "3", userName: "Pierre G.", rating: 5, comment: "Super expérience avec Hervé, très réactif et professionnel. Je recommande vivement.", createdAt: new Date().toISOString() }
   ];
 
+  const [reviews, setReviews] = useState<any[]>([]);
+  const [userName, setUserName] = useState("");
+  const [rating, setRating] = useState(5);
+  const [hoveredStar, setHoveredStar] = useState(0);
+  const [comment, setComment] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("appiotti-reviews");
+      if (stored) {
+        setReviews(JSON.parse(stored));
+      } else {
+        setReviews(defaultReviews);
+      }
+    } catch {
+      setReviews(defaultReviews);
+    }
+  }, []);
+
+  const saveReviews = (newReviews: any[]) => {
+    setReviews(newReviews);
+    localStorage.setItem("appiotti-reviews", JSON.stringify(newReviews));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!userName.trim() || !comment.trim()) return;
+    const newReview = {
+      id: Date.now().toString(),
+      userName: userName.trim(),
+      rating,
+      comment: comment.trim(),
+      createdAt: new Date().toISOString()
+    };
+    const updated = [newReview, ...reviews];
+    saveReviews(updated);
+    setUserName("");
+    setComment("");
+    setRating(5);
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {reviews.map((review, idx) => (
-        <motion.div 
-          key={review.id}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: idx * 0.1 }}
-          className="bg-brand-cream/50 p-10 rounded-[48px] border border-brand-orange/5 relative"
-        >
-          <div className="flex gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={16} className={i < review.rating ? "fill-brand-yellow text-brand-yellow" : "text-gray-200"} />
-            ))}
+    <>
+      {/* Review Form */}
+      <div className="bg-brand-cream/50 p-10 md:p-14 rounded-[48px] border border-brand-orange/10 mb-16 max-w-2xl mx-auto">
+        <h3 className="text-2xl font-black text-brand-dark mb-8 font-display text-center uppercase tracking-tight">
+          Laissez votre avis
+        </h3>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-xs font-black text-brand-dark uppercase tracking-widest mb-2">Votre nom</label>
+            <input
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              placeholder="Ex: Jean D."
+              required
+              className="w-full bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-orange transition-colors font-bold text-sm"
+            />
           </div>
-          <p className="text-brand-dark font-medium italic mb-8 leading-relaxed">"{review.comment}"</p>
-          <div className="flex items-center gap-4">
-             <div className="w-12 h-12 bg-brand-orange text-white rounded-2xl flex items-center justify-center font-black">
+          <div>
+            <label className="block text-xs font-black text-brand-dark uppercase tracking-widest mb-2">Note</label>
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  key={star}
+                  type="button"
+                  onClick={() => setRating(star)}
+                  onMouseEnter={() => setHoveredStar(star)}
+                  onMouseLeave={() => setHoveredStar(0)}
+                  className="p-1"
+                >
+                  <Star
+                    size={28}
+                    className={`transition-colors ${
+                      star <= (hoveredStar || rating)
+                        ? "fill-brand-yellow text-brand-yellow"
+                        : "text-gray-200"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs font-black text-brand-dark uppercase tracking-widest mb-2">Votre avis</label>
+            <textarea
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="Partagez votre expérience..."
+              required
+              rows={4}
+              className="w-full bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-orange transition-colors font-bold text-sm resize-none"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-brand-orange to-brand-yellow text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-brand-orange/20"
+          >
+            {submitted ? "Merci pour votre avis !" : "Publier mon avis"}
+          </button>
+        </form>
+      </div>
+
+      {/* Reviews Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {reviews.map((review: any, idx: number) => (
+          <motion.div
+            key={review.id}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: (idx % 3) * 0.1 }}
+            className="bg-brand-cream/50 p-10 rounded-[48px] border border-brand-orange/5 relative"
+          >
+            <div className="flex gap-1 mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={16} className={i < review.rating ? "fill-brand-yellow text-brand-yellow" : "text-gray-200"} />
+              ))}
+            </div>
+            <p className="text-brand-dark font-medium italic mb-8 leading-relaxed">"{review.comment}"</p>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-brand-orange text-white rounded-2xl flex items-center justify-center font-black">
                 {review.userName.charAt(0)}
-             </div>
-             <div>
+              </div>
+              <div>
                 <p className="font-black text-brand-dark uppercase tracking-tight">{review.userName}</p>
                 <p className="text-[10px] font-black text-brand-orange uppercase tracking-widest">Client Vérifié</p>
-             </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -373,7 +481,7 @@ export default function Home() {
               </div>
            </div>
 
-           <ReviewCarousel />
+           <ReviewSection />
         </div>
       </section>
 
