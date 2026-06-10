@@ -16,7 +16,7 @@ const navigationMenu = [
       { label: "René Pierre", href: "/boutique?category=baby-foot&brand=Ren%C3%A9%20Pierre" },
       { label: "Garlando", href: "/boutique?category=baby-foot&brand=Garlando" },
       { label: "Stella", href: "/boutique?category=baby-foot&brand=Stella" },
-      { label: "Roberto Sport", href: "/boutique?category=baby-foot&brand=Roberto%20Sport" },
+      { label: "Leonhart", href: "/boutique?category=baby-foot&brand=Leonhart" },
     ]
   },
   {
