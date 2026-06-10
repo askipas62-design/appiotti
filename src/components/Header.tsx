@@ -36,7 +36,8 @@ const navigationMenu = [
       { label: "Cornilleau", href: "/boutique?category=ping-pong&brand=Cornilleau" },
       { label: "Sponeta", href: "/boutique?category=ping-pong&brand=Sponeta" },
       { label: "Kettler", href: "/boutique?category=ping-pong&brand=Kettler" },
-      { label: "Butterfly", href: "/boutique?category=ping-pong&brand=Butterfly" },
+      { label: "Joola", href: "/boutique?category=ping-pong&brand=Joola" },
+      { label: "Tibhar", href: "/boutique?category=ping-pong&brand=Tibhar" },
     ]
   },
   {
