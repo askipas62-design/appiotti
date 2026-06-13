@@ -24,11 +24,11 @@ export default function Contact() {
            <motion.h1 
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
-             className="text-5xl md:text-8xl font-black text-brand-dark mb-6 font-display uppercase tracking-tighter"
-           >
-             Contactez <span className="text-brand-orange">Hervé</span>
-           </motion.h1>
-           <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">
+             className="text-3xl md:text-8xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter"
+            >
+              Contactez <span className="text-brand-orange">Hervé</span>
+            </motion.h1>
+            <p className="text-sm md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
              Une question sur un produit ou une commande ? Notre équipe est à votre écoute pour vous conseiller.
            </p>
         </div>
@@ -36,20 +36,20 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
            {/* Sidebar Info */}
            <div className="lg:col-span-2 space-y-8">
-              <div className="bg-brand-dark text-white p-12 rounded-[64px] shadow-2xl relative overflow-hidden h-full border border-white/5">
+              <div className="bg-brand-dark text-white p-6 md:p-12 rounded-[32px] md:rounded-[64px] shadow-2xl relative overflow-hidden h-full border border-white/5">
                  <div className="absolute top-0 right-0 w-48 h-48 bg-brand-yellow rounded-full blur-[100px] opacity-10 -translate-y-1/2 translate-x-1/2" />
                  
-                 <h3 className="text-3xl font-black mb-12 font-display uppercase tracking-tight">Nos Coordonnées</h3>
-                 
-                 <div className="space-y-12">
+        <h3 className="text-2xl md:text-3xl font-black mb-8 md:mb-12 font-display uppercase tracking-tight">Nos Coordonnées</h3>
+                  
+                  <div className="space-y-6 md:space-y-12">
                     <div className="flex gap-6 group">
                        <div className="p-4 bg-white/5 rounded-2xl text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all shadow-lg border border-white/10">
                           <MapPin size={24} />
                        </div>
                        <div>
-                          <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 opacity-60">Notre boutique officielle</h4>
-                          <p className="text-lg font-bold leading-tight font-display uppercase tracking-tight">
-                             18 Route de Marillac<br />16220 Saint-Sornin, France
+                  <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 opacity-60">Notre boutique officielle</h4>
+                          <p className="text-sm md:text-lg font-bold leading-tight font-display uppercase tracking-tight">
+                              18 Route de Marillac<br />16220 Saint-Sornin, France
                           </p>
                        </div>
                     </div>
@@ -60,7 +60,7 @@ export default function Contact() {
                        </div>
                        <div>
                           <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 opacity-60">Appelez-nous</h4>
-                          <p className="text-lg font-bold font-display uppercase tracking-tight">06 48 59 13 86</p>
+                          <p className="text-sm md:text-lg font-bold font-display uppercase tracking-tight">06 48 59 13 86</p>
                        </div>
                     </div>
 
@@ -70,7 +70,7 @@ export default function Contact() {
                        </div>
                        <div>
                           <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 opacity-60">Email direct</h4>
-                          <p className="text-lg font-bold font-display tracking-tight hover:text-brand-orange transition-colors">contact@appiotti.fr</p>
+                          <p className="text-sm md:text-lg font-bold font-display tracking-tight hover:text-brand-orange transition-colors break-all">contact@appiotti.fr</p>
                        </div>
                     </div>
 
@@ -80,7 +80,7 @@ export default function Contact() {
                        </div>
                        <div>
                           <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 opacity-60">Horaires Boutique</h4>
-                          <p className="text-lg font-bold font-display uppercase tracking-tight">Lundi - Vendredi<br />09h00 - 18h00</p>
+                          <p className="text-sm md:text-lg font-bold font-display uppercase tracking-tight">Lundi - Vendredi<br />09h00 - 18h00</p>
                        </div>
                     </div>
                  </div>
@@ -89,10 +89,10 @@ export default function Contact() {
 
            {/* Contact Form */}
            <div className="lg:col-span-3">
-              <div className="bg-white p-12 md:p-20 rounded-[64px] shadow-2xl border border-gray-100 h-full">
-                 <h3 className="text-3xl font-black mb-12 font-display text-brand-dark flex items-center gap-4 uppercase tracking-tighter">
-                    <MessageSquare className="text-brand-orange" size={32} /> Envoyez-nous un message
-                 </h3>
+           <div className="bg-white p-6 md:p-12 rounded-[32px] md:rounded-[64px] shadow-2xl border border-gray-100 h-full">
+                  <h3 className="text-xl md:text-3xl font-black mb-6 md:mb-12 font-display text-brand-dark flex items-center gap-3 md:gap-4 uppercase tracking-tighter">
+                     <MessageSquare className="text-brand-orange shrink-0" size={24} /> Envoyez-nous un message
+                  </h3>
 
                  <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

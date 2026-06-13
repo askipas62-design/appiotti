@@ -70,7 +70,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
             </button>
 
             {/* Product Visual */}
-            <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-12 relative overflow-hidden group">
+            <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-6 md:p-12 relative overflow-hidden group">
                
                {product.image ? (
                  <motion.img 
@@ -102,7 +102,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
             </div>
 
             {/* Product Details */}
-            <div className="w-full md:w-1/2 p-10 md:p-14 flex flex-col justify-center">
+            <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">
@@ -114,10 +114,10 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                     ))}
                   </div>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black text-brand-dark mb-4 font-display uppercase tracking-tight leading-tight">
+                <h2 className="text-xl md:text-4xl font-black text-brand-dark mb-3 md:mb-4 font-display uppercase tracking-tight leading-tight">
                   {product.name}
                 </h2>
-                <div className="text-3xl font-black text-brand-orange mb-6 font-display">
+                <div className="text-2xl md:text-3xl font-black text-brand-orange mb-4 md:mb-6 font-display">
                   {(product.priceHT * 1.2).toFixed(2)}€ <span className="text-xs text-gray-300 font-bold ml-1 uppercase">TTC</span>
                 </div>
                 <p className="text-gray-500 font-medium leading-relaxed mb-8">

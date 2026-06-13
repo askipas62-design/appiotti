@@ -5,17 +5,17 @@ export default function About() {
   return (
     <div className="bg-brand-cream min-h-screen">
       {/* Hero */}
-      <section className="bg-brand-dark text-white py-32 relative overflow-hidden">
+      <section className="bg-brand-dark text-white py-20 md:py-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-orange rounded-full blur-[200px] opacity-10 -translate-y-1/2 translate-x-1/2" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-5xl md:text-8xl font-black mb-8 font-display uppercase tracking-tighter"
+            className="text-4xl md:text-8xl font-black mb-6 md:mb-8 font-display uppercase tracking-tighter"
           >
             Notre <span className="text-brand-orange">Histoire</span>
           </motion.h1>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
             Depuis 2016, Appiotti Game Shop apporte de la joie et du divertissement dans vos espaces de vie.
           </p>
         </div>
@@ -31,13 +31,13 @@ export default function About() {
                 className="space-y-8"
               >
                  <div className="inline-block bg-brand-orange/10 px-4 py-1 rounded-full text-brand-orange font-black text-xs uppercase tracking-widest">L'excellence de proximité</div>
-                 <h2 className="text-4xl md:text-6xl font-black text-brand-dark font-display leading-tight">
-                    Plus qu'une boutique, une passion <span className="text-brand-yellow">partagée</span>.
-                 </h2>
-                 <p className="text-xl text-gray-500 leading-relaxed font-medium italic border-l-8 border-brand-yellow pl-8">
+                  <h2 className="text-3xl md:text-6xl font-black text-brand-dark font-display leading-tight">
+                     Plus qu'une boutique, une passion <span className="text-brand-yellow">partagée</span>.
+                  </h2>
+                  <p className="text-base md:text-xl text-gray-500 leading-relaxed font-medium italic border-l-8 border-brand-yellow pl-6 md:pl-8">
                     "Nous croyons que le jeu est le moteur de la convivialité. Un baby-foot en terrasse ou une partie de ping-pong au soleil crée des souvenirs impérissables."
                  </p>
-                 <p className="text-lg text-gray-500 leading-relaxed font-medium">
+                  <p className="text-sm md:text-lg text-gray-500 leading-relaxed font-medium">
                     Fondé par Hervé APPIOTTI en 2016 à Saint-Sornin, notre shop est né d'une volonté simple : offrir des équipements de loisirs de haute qualité, testés et approuvés par des experts, avec un service humain et transparent.
                  </p>
               </motion.div>
@@ -68,9 +68,9 @@ export default function About() {
       {/* Team/Location */}
       <section className="py-24 bg-brand-dark text-white">
         <div className="container mx-auto px-4">
-           <div className="bg-white/5 rounded-[64px] p-12 md:p-24 border border-white/10 flex flex-col md:flex-row gap-16 items-center">
+            <div className="bg-white/5 rounded-[32px] md:rounded-[64px] p-6 md:p-12 border border-white/10 flex flex-col md:flex-row gap-8 md:gap-16 items-center">
               <div className="md:w-1/3">
-                 <div className="w-64 h-64 bg-brand-orange rounded-[64px] shadow-2xl relative overflow-hidden group border-4 border-white">
+                 <div className="w-48 h-48 md:w-64 md:h-64 bg-brand-orange rounded-[32px] md:rounded-[64px] shadow-2xl relative overflow-hidden group border-4 border-white">
                     <img 
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800" 
                       alt="Hervé Appiotti" 
@@ -79,10 +79,10 @@ export default function About() {
                     />
                  </div>
               </div>
-              <div className="md:w-2/3 space-y-6">
-                 <h3 className="text-4xl font-black font-display uppercase tracking-widest text-brand-orange">Hervé APPIOTTI</h3>
-                 <p className="text-xs font-bold text-brand-yellow uppercase tracking-[0.3em]">Fondateur & Propriétaire</p>
-                 <p className="text-lg text-gray-400 leading-relaxed font-medium">
+               <div className="md:w-2/3 space-y-4 md:space-y-6">
+                  <h3 className="text-2xl md:text-4xl font-black font-display uppercase tracking-widest text-brand-orange">Hervé APPIOTTI</h3>
+                  <p className="text-[10px] md:text-xs font-bold text-brand-yellow uppercase tracking-[0.3em]">Fondateur & Propriétaire</p>
+                  <p className="text-sm md:text-lg text-gray-400 leading-relaxed font-medium">
                     Entrepreneur passionné par l'univers du jeu et du commerce de proximité, Hervé gère Appiotti Game Shop avec un souci constant de la satisfaction client. Basé au cœur de la Charente, il sélectionne personnellement chaque référence de consoles et de jeux de plein air.
                  </p>
                  <div className="flex flex-wrap gap-8 pt-8">

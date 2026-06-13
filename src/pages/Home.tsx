@@ -63,8 +63,8 @@ function ReviewSection() {
   return (
     <>
       {/* Review Form */}
-      <div className="bg-brand-cream/50 p-10 md:p-14 rounded-[48px] border border-brand-orange/10 mb-16 max-w-2xl mx-auto">
-        <h3 className="text-2xl font-black text-brand-dark mb-8 font-display text-center uppercase tracking-tight">
+      <div className="bg-brand-cream/50 p-6 md:p-14 rounded-[32px] md:rounded-[48px] border border-brand-orange/10 mb-12 md:mb-16 max-w-2xl mx-auto">
+        <h3 className="text-xl md:text-2xl font-black text-brand-dark mb-6 md:mb-8 font-display text-center uppercase tracking-tight">
           Laissez votre avis
         </h3>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -131,14 +131,14 @@ function ReviewSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: (idx % 3) * 0.1 }}
-            className="bg-brand-cream/50 p-10 rounded-[48px] border border-brand-orange/5 relative"
+            className="bg-brand-cream/50 p-6 md:p-10 rounded-[24px] md:rounded-[48px] border border-brand-orange/5 relative"
           >
-            <div className="flex gap-1 mb-6">
+            <div className="flex gap-1 mb-4 md:mb-6">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={16} className={i < review.rating ? "fill-brand-yellow text-brand-yellow" : "text-gray-200"} />
               ))}
             </div>
-            <p className="text-brand-dark font-medium italic mb-8 leading-relaxed">"{review.comment}"</p>
+            <p className="text-brand-dark font-medium italic mb-6 md:mb-8 leading-relaxed text-sm md:text-base">"{review.comment}"</p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-brand-orange text-white rounded-2xl flex items-center justify-center font-black">
                 {review.userName.charAt(0)}
@@ -208,7 +208,7 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* 4.1 Hero Banner */}
-      <section ref={heroRef} className="relative min-h-[650px] py-20 flex items-center justify-between overflow-hidden bg-brand-dark px-8 lg:px-20 text-white">
+      <section ref={heroRef} className="relative min-h-[450px] md:min-h-[650px] py-12 md:py-20 flex items-center justify-between overflow-hidden bg-brand-dark px-4 md:px-8 lg:px-20 text-white">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -236,7 +236,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 leading-[0.9] font-display uppercase tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-8xl font-black mb-4 md:mb-6 leading-[0.9] font-display uppercase tracking-tighter"
           >
             LE PARADIS <br /><span className="text-brand-orange">DU JEU</span>
           </motion.h1>
@@ -244,7 +244,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl font-medium text-brand-cream/70 mb-10 leading-snug max-w-lg"
+            className="text-sm md:text-xl font-medium text-brand-cream/70 mb-6 md:mb-10 leading-snug max-w-lg"
           >
             Tout pour des vacances et une maison en fête ! Livraison rapide et service client local basé en Charente.
           </motion.p>
@@ -254,10 +254,10 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link to="/boutique" className="bg-brand-orange text-white px-10 py-4 rounded-2xl font-black hover:scale-105 transition-transform shadow-xl shadow-brand-orange/20 text-lg uppercase tracking-widest text-center">
+            <Link to="/boutique" className="bg-brand-orange text-white px-8 md:px-10 py-3 md:py-4 rounded-2xl font-black hover:scale-105 transition-transform shadow-xl shadow-brand-orange/20 text-sm md:text-lg uppercase tracking-widest text-center">
               Catalogue
             </Link>
-            <Link to="/boutique?badge=PROMO" className="bg-white/10 backdrop-blur-md px-10 py-4 rounded-2xl font-black text-white border border-white/20 shadow-xl hover:scale-105 transition-transform text-lg uppercase tracking-widest text-center">
+            <Link to="/boutique?badge=PROMO" className="bg-white/10 backdrop-blur-md px-8 md:px-10 py-3 md:py-4 rounded-2xl font-black text-white border border-white/20 shadow-xl hover:scale-105 transition-transform text-sm md:text-lg uppercase tracking-widest text-center">
               Offres Flash
             </Link>
           </motion.div>
@@ -304,7 +304,7 @@ export default function Home() {
               <span className="text-brand-orange font-black uppercase tracking-[0.5em] text-[10px]">La Collection Appiotti</span>
               <div className="w-12 h-[2px] bg-brand-orange" />
             </motion.div>
-            <h2 className="text-5xl md:text-8xl font-black text-brand-dark font-display uppercase tracking-tighter text-center leading-[0.9]">
+            <h2 className="text-4xl md:text-8xl font-black text-brand-dark font-display uppercase tracking-tighter text-center leading-[0.9]">
               Explorez <br /><span className="text-brand-orange">Nos Univers</span>
             </h2>
           </div>
@@ -319,7 +319,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <Link to={`/boutique?category=${cat.slug}`} className="group relative block h-[550px] rounded-[60px] overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-brand-orange/20 active:scale-[0.98]">
+                <Link to={`/boutique?category=${cat.slug}`} className="group relative block h-[300px] md:h-[550px] rounded-[32px] md:rounded-[60px] overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-brand-orange/20 active:scale-[0.98]">
                   {/* Category Image */}
                   <img 
                     src={cat.image} 
@@ -335,22 +335,22 @@ export default function Home() {
                   <div className={`absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500`} />
                   
                   {/* Content Overlay */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-end text-center p-12 z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="w-20 h-20 bg-white/10 backdrop-blur-xl rounded-[32px] flex items-center justify-center text-white mb-8 border border-white/20 group-hover:bg-brand-orange group-hover:border-brand-orange transition-all duration-500 shadow-2xl group-hover:rotate-12">
+                  <div className="absolute inset-0 flex flex-col items-center justify-end text-center p-4 md:p-12 z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="w-12 h-12 md:w-20 md:h-20 bg-white/10 backdrop-blur-xl rounded-[20px] md:rounded-[32px] flex items-center justify-center text-white mb-3 md:mb-8 border border-white/20 group-hover:bg-brand-orange group-hover:border-brand-orange transition-all duration-500 shadow-2xl group-hover:rotate-12">
                        {cat.icon}
                     </div>
-                    <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-all duration-700">Découvrir l'univers</span>
-                    <h3 className="text-4xl md:text-5xl font-black text-white mb-3 font-display tracking-tight uppercase leading-none">{cat.name}</h3>
-                    <p className="text-white/80 text-[10px] font-black uppercase tracking-[0.3em] mb-10">{cat.count} articles premium</p>
+                    <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.4em] mb-2 md:mb-4 opacity-0 group-hover:opacity-100 transition-all duration-700">Découvrir l'univers</span>
+                    <h3 className="text-2xl md:text-5xl font-black text-white mb-1 md:mb-3 font-display tracking-tight uppercase leading-none">{cat.name}</h3>
+                    <p className="text-white/80 text-[10px] font-black uppercase tracking-[0.3em] mb-4 md:mb-10">{cat.count} articles premium</p>
                     
-                    <div className="w-full bg-white text-brand-dark py-5 rounded-[24px] font-black text-xs uppercase tracking-[0.2em] group-hover:bg-brand-orange group-hover:text-white transition-all shadow-2xl flex items-center justify-center gap-3">
-                      Voir la collection <ArrowRight size={16} />
+                    <div className="w-full bg-white text-brand-dark py-3 md:py-5 rounded-[16px] md:rounded-[24px] font-black text-[8px] md:text-xs uppercase tracking-[0.2em] group-hover:bg-brand-orange group-hover:text-white transition-all shadow-2xl flex items-center justify-center gap-3">
+                      Voir la collection <ArrowRight size={14} />
                     </div>
                   </div>
 
                   {/* Corner Accent */}
-                  <div className="absolute top-8 right-8 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/40 group-hover:bg-brand-orange group-hover:text-white group-hover:border-transparent transition-all">
-                    <Orbit size={24} />
+                  <div className="absolute top-4 md:top-8 right-4 md:right-8 w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center text-white/40 group-hover:bg-brand-orange group-hover:text-white group-hover:border-transparent transition-all">
+                    <Orbit size={16} />
                   </div>
                 </Link>
               </motion.div>
@@ -375,7 +375,7 @@ export default function Home() {
             >
               <Trophy size={32} />
             </motion.div>
-            <h2 className="text-4xl md:text-6xl font-black text-brand-dark font-display uppercase tracking-tighter text-center leading-none">
+            <h2 className="text-3xl md:text-6xl font-black text-brand-dark font-display uppercase tracking-tighter text-center leading-none">
               Les <span className="text-brand-orange">Plus Vendus</span>
             </h2>
             <p className="mt-4 text-gray-500 font-medium uppercase tracking-[0.2em] text-[10px]">La crème de la crème — validé par la communauté</p>
@@ -411,12 +411,12 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-yellow rounded-full blur-[100px] opacity-10 translate-y-1/2 -translate-x-1/2" />
 
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-8 md:mb-16 gap-4 md:gap-6">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-brand-dark mb-4 font-display uppercase tracking-tighter">
+              <h2 className="text-3xl md:text-5xl font-black text-brand-dark mb-2 md:mb-4 font-display uppercase tracking-tighter">
                 Coups de <span className="text-brand-orange">Cœur</span>
               </h2>
-              <p className="text-xl text-gray-500 font-medium">Sélection spéciale été — nos produits les plus populaires</p>
+              <p className="text-sm md:text-xl text-gray-500 font-medium">Sélection spéciale été — nos produits les plus populaires</p>
             </div>
             <Link to="/boutique" className="text-brand-orange font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:translate-x-2 transition-transform bg-brand-orange/10 px-6 py-3 rounded-full border border-brand-orange/20">
               Voir tout le catalogue <ArrowRight size={16} />
@@ -439,10 +439,10 @@ export default function Home() {
       </section>
 
       {/* 4.5 Pourquoi Appiotti? */}
-      <section className="py-24 bg-brand-dark text-white overflow-hidden">
-        <div className="container mx-auto px-4 text-center mb-20 px-8">
-           <h2 className="text-4xl md:text-6xl font-black mb-4 font-display uppercase tracking-tighter">L'expérience <span className="text-brand-orange">Appiotti</span></h2>
-           <p className="text-brand-cream/50 font-medium max-w-2xl mx-auto uppercase tracking-widest text-xs">Pourquoi nous faire confiance pour vos loisirs ?</p>
+        <section className="py-16 md:py-24 bg-brand-dark text-white overflow-hidden">
+          <div className="container mx-auto px-4 text-center mb-12 md:mb-20">
+             <h2 className="text-3xl md:text-6xl font-black mb-4 font-display uppercase tracking-tighter">L'expérience <span className="text-brand-orange">Appiotti</span></h2>
+             <p className="text-brand-cream/50 font-medium max-w-2xl mx-auto uppercase tracking-widest text-xs">Pourquoi nous faire confiance pour vos loisirs ?</p>
         </div>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -457,10 +457,10 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex flex-col items-center text-center p-10 rounded-[40px] bg-white/5 border border-white/5 hover:bg-white/10 transition-all hover:border-white/10"
+                className="flex flex-col items-center text-center p-6 md:p-10 rounded-[24px] md:rounded-[40px] bg-white/5 border border-white/5 hover:bg-white/10 transition-all hover:border-white/10"
               >
-                <div className={`mb-8 p-5 bg-white/5 rounded-3xl shadow-xl ${item.color}`}>{item.icon}</div>
-                <h4 className="text-xl font-black mb-4 font-display uppercase tracking-tight">{item.title}</h4>
+                <div className={`mb-4 md:mb-8 p-4 md:p-5 bg-white/5 rounded-2xl md:rounded-3xl shadow-xl ${item.color}`}>{item.icon}</div>
+                <h4 className="text-base md:text-xl font-black mb-2 md:mb-4 font-display uppercase tracking-tight">{item.title}</h4>
                 <p className="text-brand-cream/60 leading-relaxed text-sm font-medium">{item.desc}</p>
               </motion.div>
             ))}
@@ -469,12 +469,12 @@ export default function Home() {
       </section>
 
       {/* 4.5.5 Avis Clients Section */}
-      <section className="py-32 bg-white relative">
-        <div className="container mx-auto px-4">
-           <div className="flex flex-col items-center mb-24">
-              <h2 className="text-5xl md:text-7xl font-black text-brand-dark mb-6 font-display uppercase tracking-tighter text-center">
-                Ils nous font <br /><span className="text-brand-orange">Confiance</span>
-              </h2>
+        <section className="py-16 md:py-32 bg-white relative">
+          <div className="container mx-auto px-4">
+             <div className="flex flex-col items-center mb-12 md:mb-24">
+                <h2 className="text-4xl md:text-7xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter text-center">
+                  Ils nous font <br /><span className="text-brand-orange">Confiance</span>
+                </h2>
               <div className="flex items-center gap-2">
                  {[...Array(5)].map((_, i) => <Star key={i} size={24} className="fill-brand-yellow text-brand-yellow" />)}
                  <span className="ml-4 font-black uppercase text-xs tracking-widest text-brand-dark">4.9/5 sur +500 avis</span>
@@ -486,26 +486,26 @@ export default function Home() {
       </section>
 
       {/* 4.6 Flash Sale Banner */}
-      <section className="py-12 bg-gradient-to-r from-brand-orange to-brand-yellow relative overflow-hidden">
+      <section className="py-8 md:py-12 bg-gradient-to-r from-brand-orange to-brand-yellow relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-        <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
-          <div className="text-brand-dark flex flex-col md:flex-row items-center gap-6">
-            <div className="p-5 bg-white/30 backdrop-blur-md rounded-[32px] border border-white/40">
-               <Timer size={48} className="text-brand-dark" />
+        <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-12 text-center lg:text-left">
+          <div className="text-brand-dark flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <div className="p-3 md:p-5 bg-white/30 backdrop-blur-md rounded-[24px] md:rounded-[32px] border border-white/40">
+               <Timer size={32} className="text-brand-dark" />
             </div>
             <div>
-              <h2 className="text-3xl md:text-5xl font-black mb-2 uppercase tracking-tighter leading-none">
+              <h2 className="text-2xl md:text-5xl font-black mb-1 md:mb-2 uppercase tracking-tighter leading-none">
                 VENTE FLASH ÉTÉ
               </h2>
-              <p className="text-xl font-bold opacity-80 uppercase tracking-widest text-xs">Jusqu'à -20% sur les équipements Premium</p>
+              <p className="text-xs md:text-base font-bold opacity-80 uppercase tracking-widest">Jusqu'à -20% sur les équipements Premium</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="bg-brand-dark text-white p-6 rounded-3xl shadow-2xl min-w-[240px]">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full md:w-auto">
+            <div className="bg-brand-dark text-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-2xl w-full md:w-auto">
                <div className="text-[10px] font-black uppercase mb-2 tracking-[0.3em] text-brand-yellow text-center">Fin de l'offre dans :</div>
                <CountdownTimer targetDate={flashSaleEndDate} />
             </div>
-            <Link to="/boutique?category=trampoline" className="bg-brand-dark text-white px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-transform shadow-2xl">
+            <Link to="/boutique?category=trampoline" className="bg-brand-dark text-white px-8 md:px-12 py-4 md:py-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-transform shadow-2xl w-full md:w-auto text-center">
                Profiter de l'offre
             </Link>
           </div>
@@ -513,20 +513,20 @@ export default function Home() {
       </section>
 
       {/* 4.7 Newsletter */}
-      <section className="py-24 bg-brand-cream">
+      <section className="py-16 md:py-24 bg-brand-cream">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-white rounded-[64px] p-12 md:p-24 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] relative overflow-hidden border border-brand-yellow/10 text-center">
+          <div className="bg-white rounded-[32px] md:rounded-[64px] p-6 md:p-24 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] relative overflow-hidden border border-brand-yellow/10 text-center">
              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-orange to-brand-yellow" />
-             
-                 <div className="flex justify-center mb-8">
-                    <div className="w-20 h-20 bg-brand-orange/20 backdrop-blur-md rounded-[32px] flex items-center justify-center text-brand-orange">
-                       <Sparkles size={48} />
+            
+                 <div className="flex justify-center mb-4 md:mb-8">
+                    <div className="w-12 h-12 md:w-20 md:h-20 bg-brand-orange/20 backdrop-blur-md rounded-[24px] md:rounded-[32px] flex items-center justify-center text-brand-orange">
+                       <Sparkles size={32} />
                     </div>
                  </div>
-                 <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-6 font-display uppercase tracking-tighter">
+                 <h2 className="text-3xl md:text-6xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter">
                     Restez dans la partie !
                  </h2>
-             <p className="text-gray-500 text-lg mb-12 max-w-xl mx-auto font-medium">
+             <p className="text-sm md:text-lg text-gray-500 mb-6 md:mb-12 max-w-xl mx-auto font-medium">
                 Inscrivez-vous à notre newsletter et recevez nos offres exclusives, nouveautés et bons plans directement dans votre boîte mail.
              </p>
 
@@ -534,9 +534,9 @@ export default function Home() {
                 <input 
                   type="email" 
                   placeholder="Votre adresse email..." 
-                  className="flex-grow bg-gray-50 border-2 border-gray-100 px-8 py-5 rounded-[24px] focus:outline-none focus:border-brand-orange transition-colors font-bold text-xs"
+                  className="flex-grow bg-gray-50 border-2 border-gray-100 px-6 md:px-8 py-4 md:py-5 rounded-[20px] md:rounded-[24px] focus:outline-none focus:border-brand-orange transition-colors font-bold text-xs"
                 />
-                <button className="bg-brand-dark text-white px-12 py-5 rounded-[24px] font-black text-xs uppercase tracking-widest hover:bg-brand-orange transition-all shadow-xl shadow-brand-dark/10">
+                <button className="bg-brand-dark text-white px-8 md:px-12 py-4 md:py-5 rounded-[20px] md:rounded-[24px] font-black text-xs uppercase tracking-widest hover:bg-brand-orange transition-all shadow-xl shadow-brand-dark/10">
                    S'abonner
                 </button>
              </form>

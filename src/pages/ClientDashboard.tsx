@@ -186,7 +186,7 @@ export default function ClientDashboard() {
               </div>
               <div>
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-orange mb-2 block">Bienvenue chez vous</span>
-                <h1 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter leading-none">
+                <h1 className="text-3xl md:text-6xl font-black font-display uppercase tracking-tighter leading-none">
                   Hello, <span className="text-brand-orange">{user.firstName}</span>
                 </h1>
                 <p className="text-gray-400 text-xs font-bold mt-2 flex items-center gap-2">
@@ -195,7 +195,7 @@ export default function ClientDashboard() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 md:gap-4">
               <button 
                 onClick={() => setActiveTab("orders")}
                 className={`flex items-center gap-2 px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
@@ -271,17 +271,17 @@ export default function ClientDashboard() {
               </div>
 
               {loading && orders.length === 0 ? (
-                <div className="bg-white p-24 rounded-[64px] border border-gray-100 shadow-xl flex flex-col items-center justify-center text-center">
-                  <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }} className="w-16 h-16 border-4 border-brand-orange border-t-transparent rounded-full mb-8" />
+                <div               className="bg-white p-12 md:p-24 rounded-[32px] md:rounded-[64px] border border-gray-100 shadow-xl flex flex-col items-center justify-center text-center">
+                  <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }} className="w-12 h-12 md:w-16 md:h-16 border-4 border-brand-orange border-t-transparent rounded-full mb-6 md:mb-8" />
                   <p className="text-sm font-black uppercase tracking-[0.3em] text-gray-400">Synchronisation des données...</p>
                 </div>
               ) : orders.length === 0 ? (
-                <div className="bg-white p-24 rounded-[64px] shadow-2xl border border-gray-100 text-center">
-                  <div className="w-32 h-32 bg-gray-50 rounded-[48px] flex items-center justify-center text-gray-200 mx-auto mb-10">
-                    <ShoppingBag size={64} />
+                <div className="bg-white p-12 md:p-24 rounded-[32px] md:rounded-[64px] shadow-2xl border border-gray-100 text-center">
+                  <div className="w-20 h-20 md:w-32 md:h-32 bg-gray-50 rounded-[32px] md:rounded-[48px] flex items-center justify-center text-gray-200 mx-auto mb-6 md:mb-10">
+                    <ShoppingBag size={40} />
                   </div>
-                  <h3 className="text-3xl font-black text-brand-dark mb-6 font-display uppercase tracking-tight">Le terrain est vide !</h3>
-                  <p className="text-gray-400 max-w-md mx-auto mb-10 font-medium">Vous n'avez pas encore passé de commande.</p>
+                  <h3 className="text-2xl md:text-3xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tight">Le terrain est vide !</h3>
+                  <p className="text-gray-400 max-w-md mx-auto mb-6 md:mb-10 font-medium text-sm md:text-base">Vous n'avez pas encore passé de commande.</p>
                   <Link to="/boutique" className="inline-flex items-center gap-4 bg-brand-orange text-white px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-brand-orange/20">Explorer la boutique <ArrowRight size={18} /></Link>
                 </div>
               ) : (
@@ -412,11 +412,11 @@ export default function ClientDashboard() {
               exit={{ opacity: 0, y: -20 }}
               className="max-w-3xl mx-auto"
             >
-              <div className="bg-white p-12 md:p-16 rounded-[64px] shadow-2xl border border-gray-100 text-center relative overflow-hidden">
+              <div className="bg-white p-6 md:p-12 rounded-[32px] md:rounded-[64px] shadow-2xl border border-gray-100 text-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/5 rounded-full blur-[100px]" />
                 
-                <h2 className="text-4xl font-black font-display uppercase tracking-tighter text-brand-dark mb-4">Votre <span className="text-brand-orange">Avis</span></h2>
-                <p className="text-gray-400 font-medium mb-12">Partagez votre expérience avec la communauté Appiotti.</p>
+                <h2 className="text-2xl md:text-4xl font-black font-display uppercase tracking-tighter text-brand-dark mb-3 md:mb-4">Votre <span className="text-brand-orange">Avis</span></h2>
+                <p className="text-gray-400 font-medium mb-8 md:mb-12 text-sm md:text-base">Partagez votre expérience avec la communauté Appiotti.</p>
 
                 <form onSubmit={handleSubmitReview} className="space-y-10 relative z-10">
                    <div className="space-y-4">
@@ -516,9 +516,9 @@ export default function ClientDashboard() {
               exit={{ opacity: 0, x: -20 }}
               className="max-w-3xl mx-auto"
             >
-              <div className="bg-white p-12 md:p-16 rounded-[64px] shadow-2xl border border-gray-100 relative overflow-hidden">
-                <div className="flex items-center justify-between mb-12">
-                  <h2 className="text-4xl font-black font-display uppercase tracking-tighter text-brand-dark">Mon <span className="text-brand-orange">Profil</span></h2>
+              <div className="bg-white p-6 md:p-12 rounded-[32px] md:rounded-[64px] shadow-2xl border border-gray-100 relative overflow-hidden">
+                <div className="flex items-center justify-between mb-8 md:mb-12">
+                  <h2 className="text-2xl md:text-4xl font-black font-display uppercase tracking-tighter text-brand-dark">Mon <span className="text-brand-orange">Profil</span></h2>
                   {!editing && (
                     <button onClick={() => setEditing(true)} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-brand-orange transition-all"><Settings size={24} /></button>
                   )}
@@ -575,9 +575,9 @@ export default function ClientDashboard() {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-12"
             >
-              <div className="bg-brand-dark text-white p-12 md:p-20 rounded-[80px] shadow-2xl relative overflow-hidden">
+              <div className="bg-brand-dark text-white p-6 md:p-12 rounded-[32px] md:rounded-[80px] shadow-2xl relative overflow-hidden">
                 <div className="relative z-10 max-w-4xl">
-                   <h2 className="text-4xl md:text-7xl font-black font-display uppercase tracking-tighter leading-none mb-10">Besoin d'<span className="text-brand-orange">Aide ?</span></h2>
+                   <h2 className="text-3xl md:text-7xl font-black font-display uppercase tracking-tighter leading-none mb-6 md:mb-10">Besoin d'<span className="text-brand-orange">Aide ?</span></h2>
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                       {[
                         { icon: <Phone className="text-brand-orange" />, title: "Hervé en direct", value: "+33 6 12 34 56 78", desc: "Un interlocuteur unique pour tout votre projet." },

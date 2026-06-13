@@ -43,10 +43,10 @@ export default function ResetPassword() {
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-12 md:p-16"
+        className="w-full max-w-xl bg-white rounded-[32px] md:rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-6 md:p-12"
       >
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-black text-brand-dark mb-4 font-display uppercase tracking-tighter">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-2xl md:text-5xl font-black text-brand-dark mb-3 md:mb-4 font-display uppercase tracking-tighter">
             {success ? "Félicitations !" : "Espace Sécurisé"}
           </h1>
           <p className="text-gray-500 font-medium">
@@ -115,8 +115,8 @@ export default function ResetPassword() {
           </form>
         )}
 
-        <div className="mt-12 text-center">
-          <div className="flex items-center justify-center gap-2 text-[10px] text-gray-300 uppercase tracking-widest py-8 border-t border-gray-50">
+        <div className="mt-8 md:mt-12 text-center">
+          <div className="flex items-center justify-center gap-2 text-[10px] text-gray-300 uppercase tracking-widest py-6 md:py-8 border-t border-gray-50">
             <ShieldCheck size={14} /> Sécurisé par Appiotti Game Shop
           </div>
         </div>

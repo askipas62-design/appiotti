@@ -229,50 +229,50 @@ export default function AdminDashboard() {
                  </div>
               </div>
 
-              <div className="overflow-x-auto">
-                 <table className="w-full text-left">
-                    <thead>
-                       <tr className="bg-white/5 text-gray-500 font-black uppercase text-[10px] tracking-[0.3em]">
-                          <th className="px-10 py-8">ID</th>
-                          <th className="px-6 py-8">Date</th>
-                          <th className="px-6 py-8">Total</th>
-                          <th className="px-6 py-8">Preuve</th>
-                          <th className="px-6 py-8">Statut</th>
-                          <th className="px-10 py-8 text-right">Actions</th>
-                       </tr>
-                    </thead>
-                    <tbody className="divide-y divide-white/5">
-                       {filteredOrders.map((order) => (
-                         <tr key={order.id} className="hover:bg-white/[0.05] transition-colors group">
-                            <td className="px-10 py-10 font-black font-mono text-brand-green text-lg tracking-tighter">#{order.id.split('-')[1]}</td>
-                            <td className="px-6 py-10 text-sm font-bold text-gray-400">{new Date(order.createdAt).toLocaleDateString("fr-FR")}</td>
-                            <td className="px-6 py-10 font-black text-2xl font-mono tracking-tighter">{(order.totalTTC || 0).toFixed(2)}€</td>
-                            <td className="px-6 py-10">
-                               {order.proofUploaded ? (
-                                  <button 
-                                    onClick={() => setSelectedOrder(order)}
-                                    className="flex items-center gap-3 bg-brand-green/10 text-brand-green px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border border-brand-green/20 hover:bg-brand-green hover:text-brand-dark transition-all"
-                                  >
-                                     <Eye size={16} /> VOIR
-                                  </button>
-                               ) : (
-                                  <span className="text-gray-600 text-[10px] font-black uppercase tracking-widest opacity-50">En attente</span>
-                               )}
-                            </td>
-                            <td className="px-6 py-10">
-                               <span className={`px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest border-2 ${getStatusColor(order.status)}`}>
-                                  {order.status}
-                               </span>
-                            </td>
-                            <td className="px-10 py-10 text-right">
-                               <div className="flex justify-end gap-3">
+               <div className="overflow-x-auto">
+                  <table className="w-full text-left min-w-[640px]">
+                     <thead>
+                        <tr className="bg-white/5 text-gray-500 font-black uppercase text-[10px] tracking-[0.3em]">
+                           <th className="px-4 md:px-10 py-6 md:py-8">ID</th>
+                           <th className="px-4 md:px-6 py-6 md:py-8">Date</th>
+                           <th className="px-4 md:px-6 py-6 md:py-8">Total</th>
+                           <th className="px-4 md:px-6 py-6 md:py-8">Preuve</th>
+                           <th className="px-4 md:px-6 py-6 md:py-8">Statut</th>
+                           <th className="px-4 md:px-10 py-6 md:py-8 text-right">Actions</th>
+                        </tr>
+                     </thead>
+                     <tbody className="divide-y divide-white/5">
+                        {filteredOrders.map((order) => (
+                          <tr key={order.id} className="hover:bg-white/[0.05] transition-colors group">
+                             <td className="px-4 md:px-10 py-6 md:py-10 font-black font-mono text-brand-green text-base md:text-lg tracking-tighter">#{order.id.split('-')[1]}</td>
+                             <td className="px-4 md:px-6 py-6 md:py-10 text-xs md:text-sm font-bold text-gray-400">{new Date(order.createdAt).toLocaleDateString("fr-FR")}</td>
+                             <td className="px-4 md:px-6 py-6 md:py-10 font-black text-lg md:text-2xl font-mono tracking-tighter">{(order.totalTTC || 0).toFixed(2)}€</td>
+                             <td className="px-4 md:px-6 py-6 md:py-10">
+                                {order.proofUploaded ? (
+                                   <button 
+                                     onClick={() => setSelectedOrder(order)}
+                                     className="flex items-center gap-2 md:gap-3 bg-brand-green/10 text-brand-green px-4 md:px-6 py-2 md:py-3 rounded-xl text-[9px] md:text-[10px] font-black uppercase tracking-widest border border-brand-green/20 hover:bg-brand-green hover:text-brand-dark transition-all"
+                                   >
+                                      <Eye size={14} /> VOIR
+                                   </button>
+                                ) : (
+                                   <span className="text-gray-600 text-[9px] md:text-[10px] font-black uppercase tracking-widest opacity-50">En attente</span>
+                                )}
+                             </td>
+                             <td className="px-4 md:px-6 py-6 md:py-10">
+                                <span className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-[8px] md:text-[9px] font-black uppercase tracking-widest border-2 ${getStatusColor(order.status)}`}>
+                                   {order.status}
+                                </span>
+                             </td>
+                             <td className="px-4 md:px-10 py-6 md:py-10 text-right">
+                                <div className="flex justify-end gap-2 md:gap-3">
                                   {updatingId === order.id ? (
                                     <div className="p-4 text-brand-green"><Loader2 className="animate-spin" size={24} /></div>
                                   ) : (
                                     <>
-                                      <button onClick={() => updateStatus(order.id, "Validée")} title="Valider" className="p-3 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-500 hover:text-white rounded-xl transition-all border border-emerald-500/20 shadow-lg active:scale-90"><CheckCircle2 size={20} /></button>
-                                      <button onClick={() => updateStatus(order.id, "Expédiée")} title="Expédier" className="p-3 bg-sky-500/10 hover:bg-sky-500 text-sky-500 hover:text-white rounded-xl transition-all border border-sky-500/20 shadow-lg active:scale-90"><Truck size={20} /></button>
-                                      <button onClick={() => updateStatus(order.id, "Refusée")} title="Refuser" className="p-3 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white rounded-xl transition-all border border-red-500/20 shadow-lg active:scale-90"><XCircle size={20} /></button>
+                                      <button onClick={() => updateStatus(order.id, "Validée")} title="Valider" className="p-2 md:p-3 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-500 hover:text-white rounded-xl transition-all border border-emerald-500/20 shadow-lg active:scale-90"><CheckCircle2 size={16} /></button>
+                                      <button onClick={() => updateStatus(order.id, "Expédiée")} title="Expédier" className="p-2 md:p-3 bg-sky-500/10 hover:bg-sky-500 text-sky-500 hover:text-white rounded-xl transition-all border border-sky-500/20 shadow-lg active:scale-90"><Truck size={16} /></button>
+                                      <button onClick={() => updateStatus(order.id, "Refusée")} title="Refuser" className="p-2 md:p-3 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white rounded-xl transition-all border border-red-500/20 shadow-lg active:scale-90"><XCircle size={16} /></button>
                                     </>
                                   )}
                                </div>
@@ -341,37 +341,37 @@ export default function AdminDashboard() {
                   <table className="w-full text-left">
                      <thead>
                         <tr className="bg-white/5 text-gray-500 font-black uppercase text-[10px] tracking-[0.3em]">
-                           <th className="px-10 py-8">Nom</th>
-                           <th className="px-6 py-8">Catégorie</th>
-                           <th className="px-6 py-8">Prix HT</th>
-                           <th className="px-6 py-8">Stock</th>
-                           <th className="px-10 py-8 text-right">Action</th>
+                        <th className="px-4 md:px-10 py-6 md:py-8">Nom</th>
+                            <th className="px-4 md:px-6 py-6 md:py-8">Catégorie</th>
+                            <th className="px-4 md:px-6 py-6 md:py-8">Prix HT</th>
+                            <th className="px-4 md:px-6 py-6 md:py-8">Stock</th>
+                            <th className="px-4 md:px-10 py-6 md:py-8 text-right">Action</th>
                         </tr>
                      </thead>
                      <tbody className="divide-y divide-white/5">
                         {products.map(p => (
                            <tr key={p.id} className="hover:bg-white/[0.05] transition-colors">
-                              <td className="px-10 py-8">
-                                 <div className="flex items-center gap-6">
-                                    <div className="w-16 h-16 bg-white/5 rounded-2xl overflow-hidden shrink-0 border border-white/10">
-                                       <img src={p.image} alt="" className="w-full h-full object-cover" />
-                                    </div>
-                                    <p className="font-black uppercase tracking-tight">{p.name}</p>
-                                 </div>
-                              </td>
-                              <td className="px-6 py-8">
-                                 <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">{p.category}</span>
-                              </td>
-                              <td className="px-6 py-8 font-mono text-lg font-black">{(p.priceHT || 0).toFixed(2)}€</td>
-                              <td className="px-6 py-8">
-                                 <div className="flex items-center gap-3">
-                                    <div className={`w-3 h-3 rounded-full ${p.stock > 0 ? 'bg-brand-green' : 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)] animate-pulse'}`} />
-                                    <span className={`text-[10px] font-black uppercase tracking-widest ${p.stock > 0 ? 'text-gray-400' : 'text-red-500'}`}>
-                                       {p.stock > 0 ? `${p.stock} en stock` : 'RUPTURE'}
-                                    </span>
-                                 </div>
-                              </td>
-                              <td className="px-10 py-8 text-right">
+                            <td className="px-4 md:px-10 py-6 md:py-8">
+                                  <div className="flex items-center gap-4 md:gap-6">
+                                     <div className="w-12 h-12 md:w-16 md:h-16 bg-white/5 rounded-2xl overflow-hidden shrink-0 border border-white/10">
+                                        <img src={p.image} alt="" className="w-full h-full object-cover" loading="lazy" />
+                                     </div>
+                                     <p className="font-black uppercase tracking-tight text-sm md:text-base">{p.name}</p>
+                                  </div>
+                               </td>
+                               <td className="px-4 md:px-6 py-6 md:py-8">
+                                  <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500">{p.category}</span>
+                               </td>
+                               <td className="px-4 md:px-6 py-6 md:py-8 font-mono text-base md:text-lg font-black">{(p.priceHT || 0).toFixed(2)}€</td>
+                               <td className="px-4 md:px-6 py-6 md:py-8">
+                                  <div className="flex items-center gap-2 md:gap-3">
+                                     <div className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${p.stock > 0 ? 'bg-brand-green' : 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)] animate-pulse'}`} />
+                                     <span className={`text-[9px] md:text-[10px] font-black uppercase tracking-widest ${p.stock > 0 ? 'text-gray-400' : 'text-red-500'}`}>
+                                        {p.stock > 0 ? `${p.stock} en stock` : 'RUPTURE'}
+                                     </span>
+                                  </div>
+                               </td>
+                               <td className="px-4 md:px-10 py-6 md:py-8 text-right">
                                  <button 
                                     onClick={() => toggleProductStock(p)}
                                     disabled={updatingId === p.id}

@@ -105,16 +105,16 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100"
       >
-        <div className="p-12 md:p-16">
-          <div className="text-center mb-12">
+        <div className="p-6 md:p-12">
+          <div className="text-center mb-8 md:mb-12">
             <Link to="/" className="inline-flex items-center gap-2 mb-8 group">
               <div className="w-12 h-12 bg-[#FF6B35] rounded-2xl flex items-center justify-center font-bold text-xl text-white shadow-lg">A</div>
               <span className="text-2xl font-black font-display text-brand-dark uppercase tracking-tight">Appiotti <span className="text-brand-orange">Game Shop</span></span>
             </Link>
-            <h1 className="text-3xl md:text-5xl font-black text-brand-dark mb-4 font-display uppercase tracking-tighter">
+            <h1 className="text-2xl md:text-5xl font-black text-brand-dark mb-3 md:mb-4 font-display uppercase tracking-tighter">
               {view === "login" ? "Bon retour !" : "Créez votre univers"}
             </h1>
-            <p className="text-gray-500 font-medium">
+            <p className="text-sm md:text-base text-gray-500 font-medium">
               {view === "login" ? "Heureux de vous revoir parmi nous." : "Rejoignez la communauté des passionnés de loisirs."}
             </p>
           </div>
@@ -219,7 +219,7 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
                  {view === "login" ? "Inscrivez-vous gratuitement" : "Connectez-vous"}
                </button>
              </p>
-             <div className="flex items-center justify-center gap-2 text-[10px] text-gray-300 uppercase tracking-widest py-8 border-t border-gray-50">
+             <div className="flex items-center justify-center gap-2 text-[10px] text-gray-300 uppercase tracking-widest py-6 md:py-8 border-t border-gray-50">
                 <ShieldCheck size={14} /> Sécurisé par Appiotti Game Shop
              </div>
           </div>

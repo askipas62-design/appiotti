@@ -47,12 +47,12 @@ export default function SafetyAndPayment() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-black text-brand-dark mb-6 font-display uppercase tracking-tighter"
+            className="text-3xl md:text-8xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter"
           >
             Pourquoi le <span className="text-brand-orange">Virement ?</span>
           </motion.h1>
-          <div className="w-24 h-1 bg-brand-orange mx-auto mb-8" />
-          <p className="text-xl text-gray-500 font-medium">Chez Appiotti, la confiance n'est pas un slogan, c'est un engagement personnel.</p>
+          <div className="w-16 md:w-24 h-1 bg-brand-orange mx-auto mb-6 md:mb-8" />
+          <p className="text-sm md:text-xl text-gray-500 font-medium">Chez Appiotti, la confiance n'est pas un slogan, c'est un engagement personnel.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
@@ -63,29 +63,29 @@ export default function SafetyAndPayment() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-[48px] shadow-2xl border border-gray-100 hover:border-brand-orange/20 transition-all group"
+              className="bg-white p-6 md:p-10 rounded-[24px] md:rounded-[48px] shadow-2xl border border-gray-100 hover:border-brand-orange/20 transition-all group"
             >
-              <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
                 {r.icon}
               </div>
-              <h3 className="text-2xl font-black text-brand-dark mb-4 font-display uppercase tracking-tight">{r.title}</h3>
+              <h3 className="text-lg md:text-2xl font-black text-brand-dark mb-2 md:mb-4 font-display uppercase tracking-tight">{r.title}</h3>
               <p className="text-gray-500 leading-relaxed font-medium">{r.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="bg-brand-dark text-white p-12 md:p-20 rounded-[64px] shadow-2xl relative overflow-hidden text-center">
+        <div className="bg-brand-dark text-white p-6 md:p-20 rounded-[32px] md:rounded-[64px] shadow-2xl relative overflow-hidden text-center">
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange rounded-full blur-[100px] opacity-10" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-yellow rounded-full blur-[100px] opacity-10" />
           
-          <h2 className="text-3xl md:text-5xl font-black mb-8 font-display uppercase tracking-tight relative z-10">Une question ? Un doute ?</h2>
-          <p className="text-gray-400 text-lg mb-12 relative z-10">Je suis disponible personnellement pour vous rassurer sur notre processus.</p>
+          <h2 className="text-2xl md:text-5xl font-black mb-6 md:mb-8 font-display uppercase tracking-tight relative z-10">Une question ? Un doute ?</h2>
+          <p className="text-gray-400 text-sm md:text-lg mb-8 md:mb-12 relative z-10">Je suis disponible personnellement pour vous rassurer sur notre processus.</p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
-            <a href="tel:0648591386" className="w-full sm:w-auto bg-brand-orange text-white px-10 py-6 rounded-[24px] font-black text-xs uppercase tracking-widest hover:bg-brand-yellow hover:text-brand-dark transition-all shadow-xl">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 relative z-10">
+            <a href="tel:0648591386" className="w-full sm:w-auto bg-brand-orange text-white px-8 md:px-10 py-4 md:py-6 rounded-[20px] md:rounded-[24px] font-black text-xs uppercase tracking-widest hover:bg-brand-yellow hover:text-brand-dark transition-all shadow-xl text-center">
               Appeler Hervé
             </a>
-            <Link to="/contact" className="w-full sm:w-auto bg-white/10 text-white px-10 py-6 rounded-[24px] font-black text-xs uppercase tracking-widest hover:bg-white/20 transition-all">
+            <Link to="/contact" className="w-full sm:w-auto bg-white/10 text-white px-8 md:px-10 py-4 md:py-6 rounded-[20px] md:rounded-[24px] font-black text-xs uppercase tracking-widest hover:bg-white/20 transition-all text-center">
               Nous contacter
             </Link>
           </div>
