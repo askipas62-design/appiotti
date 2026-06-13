@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Mail, Loader2, ArrowLeft, ShieldCheck, Send } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useToast } from "../components/ui/Toast";
-import { motion } from "motion/react";
+
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -37,10 +37,7 @@ export default function ForgotPassword() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF6B35] rounded-full blur-[200px] opacity-10 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFD23F] rounded-full blur-[200px] opacity-10 translate-y-1/2 -translate-x-1/2" />
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-12 md:p-16"
+      <div className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-12 md:p-16 animate-fade-in-up"
       >
         <div className="text-center mb-12">
           <Link to="/connexion" className="inline-flex items-center gap-2 mb-8">
@@ -92,7 +89,7 @@ export default function ForgotPassword() {
             <ShieldCheck size={14} /> Sécurisé par Appiotti Game Shop
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

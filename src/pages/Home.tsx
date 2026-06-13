@@ -1,4 +1,3 @@
-import { motion, useScroll, useTransform } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Truck, ShieldCheck, Star, Users, Phone, Loader2, Gamepad2, Trophy, Zap, CircleDot, Orbit, Headset, Sparkles, Timer, Mail, MapPin } from "lucide-react";
 import { useEffect, useState, useRef, useMemo } from "react";
@@ -126,11 +125,8 @@ function ReviewSection() {
       {/* Reviews Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {reviews.map((review: any, idx: number) => (
-          <motion.div
+          <div
             key={review.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: (idx % 3) * 0.1 }}
             className="bg-brand-cream/50 p-6 md:p-10 rounded-[24px] md:rounded-[48px] border border-brand-orange/5 relative"
           >
             <div className="flex gap-1 mb-4 md:mb-6">
@@ -148,9 +144,9 @@ function ReviewSection() {
                 <p className="text-[10px] font-black text-brand-orange uppercase tracking-widest">Client Vérifié</p>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </div>
+        </div>
     </>
   );
 }
@@ -159,9 +155,6 @@ export default function Home() {
   const [featuredProducts, setFeaturedProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const bestSellers = useMemo(() => {
     return allProducts
@@ -225,34 +218,23 @@ export default function Home() {
         </div>
 
         <div className="z-10 max-w-2xl relative">
-          <motion.span 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="inline-block bg-brand-orange/20 backdrop-blur-md px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] mb-6 border border-brand-orange/30 text-brand-orange"
+          <span 
+            className="inline-block bg-brand-orange/20 backdrop-blur-md px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] mb-6 border border-brand-orange/30 text-brand-orange animate-slide-in-left"
           >
             ÉDITION LIMITÉE ÉTÉ 2025
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-8xl font-black mb-4 md:mb-6 leading-[0.9] font-display uppercase tracking-tighter"
+          </span>
+          <h1 
+            className="text-4xl sm:text-6xl md:text-8xl font-black mb-4 md:mb-6 leading-[0.9] font-display uppercase tracking-tighter animate-fade-in-up-delay-1"
           >
             LE PARADIS <br /><span className="text-brand-orange">DU JEU</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-sm md:text-xl font-medium text-brand-cream/70 mb-6 md:mb-10 leading-snug max-w-lg"
+          </h1>
+          <p 
+            className="text-sm md:text-xl font-medium text-brand-cream/70 mb-6 md:mb-10 leading-snug max-w-lg animate-fade-in-up-delay-2"
           >
             Tout pour des vacances et une maison en fête ! Livraison rapide et service client local basé en Charente.
-          </motion.p>
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+          </p>
+          <div 
+            className="flex flex-col sm:flex-row gap-4 animate-fade-in-up-delay-3"
           >
             <Link to="/boutique" className="bg-brand-orange text-white px-8 md:px-10 py-3 md:py-4 rounded-2xl font-black hover:scale-105 transition-transform shadow-xl shadow-brand-orange/20 text-sm md:text-lg uppercase tracking-widest text-center">
               Catalogue
@@ -260,14 +242,11 @@ export default function Home() {
             <Link to="/boutique?badge=PROMO" className="bg-white/10 backdrop-blur-md px-8 md:px-10 py-3 md:py-4 rounded-2xl font-black text-white border border-white/20 shadow-xl hover:scale-105 transition-transform text-sm md:text-lg uppercase tracking-widest text-center">
               Offres Flash
             </Link>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8, x: 100 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 h-[80%] w-[45%] items-center justify-center pointer-events-none"
+        <div 
+          className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 h-[80%] w-[45%] items-center justify-center pointer-events-none animate-fade-in-up-delay-4"
         >
           <div className="relative w-full h-full rounded-[48px] overflow-hidden border-8 border-white/10 rotate-3 shadow-2xl">
              <img 
@@ -285,7 +264,7 @@ export default function Home() {
           <div className="absolute -bottom-10 -left-10 bg-brand-yellow p-8 rounded-[32px] shadow-2xl -rotate-6">
              <Sparkles size={48} className="text-brand-dark" />
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* 4.2 Nos 6 Univers - Main Categories Section */}
@@ -295,15 +274,13 @@ export default function Home() {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col items-center mb-20">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <div 
               className="flex items-center gap-4 mb-6"
             >
               <div className="w-12 h-[2px] bg-brand-orange" />
               <span className="text-brand-orange font-black uppercase tracking-[0.5em] text-[10px]">La Collection Appiotti</span>
               <div className="w-12 h-[2px] bg-brand-orange" />
-            </motion.div>
+            </div>
             <h2 className="text-4xl md:text-8xl font-black text-brand-dark font-display uppercase tracking-tighter text-center leading-[0.9]">
               Explorez <br /><span className="text-brand-orange">Nos Univers</span>
             </h2>
@@ -311,13 +288,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((cat, idx) => (
-              <motion.div
+              <div
                 key={cat.slug}
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: idx * 0.1, type: "spring", stiffness: 50 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
+                className="hover:-translate-y-2 transition-transform duration-500"
               >
                 <Link to={`/boutique?category=${cat.slug}`} className="group relative block h-[300px] md:h-[550px] rounded-[32px] md:rounded-[60px] overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-brand-orange/20 active:scale-[0.98]">
                   {/* Category Image */}
@@ -353,7 +326,7 @@ export default function Home() {
                     <Orbit size={16} />
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -368,13 +341,11 @@ export default function Home() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col items-center mb-16">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+            <div 
               className="w-16 h-16 bg-brand-orange/10 rounded-3xl flex items-center justify-center text-brand-orange mb-6"
             >
               <Trophy size={32} />
-            </motion.div>
+            </div>
             <h2 className="text-3xl md:text-6xl font-black text-brand-dark font-display uppercase tracking-tighter text-center leading-none">
               Les <span className="text-brand-orange">Plus Vendus</span>
             </h2>
@@ -383,15 +354,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {bestSellers.map((product, idx) => (
-              <motion.div
+              <div
                 key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                viewport={{ once: true }}
               >
                 <ProductCard product={product} />
-              </motion.div>
+              </div>
             ))}
           </div>
           
@@ -452,17 +419,14 @@ export default function Home() {
               { icon: <Star size={32} />, title: "Qualité Premium", desc: "Chaque produit est personnellement testé par Hervé.", color: "text-brand-yellow" },
               { icon: <Phone size={32} />, title: "Support Local", desc: "Besoin d'aide ? Nous sommes basés à Saint-Sornin en Charente.", color: "text-sky-400" },
             ].map((item, idx) => (
-              <motion.div 
+              <div 
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
                 className="flex flex-col items-center text-center p-6 md:p-10 rounded-[24px] md:rounded-[40px] bg-white/5 border border-white/5 hover:bg-white/10 transition-all hover:border-white/10"
               >
                 <div className={`mb-4 md:mb-8 p-4 md:p-5 bg-white/5 rounded-2xl md:rounded-3xl shadow-xl ${item.color}`}>{item.icon}</div>
                 <h4 className="text-base md:text-xl font-black mb-2 md:mb-4 font-display uppercase tracking-tight">{item.title}</h4>
                 <p className="text-brand-cream/60 leading-relaxed text-sm font-medium">{item.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

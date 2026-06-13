@@ -6,7 +6,7 @@ import {
   Search, Eye, MoreVertical, Filter, Loader2, Download, Truck,
   Star, MessageSquare, Trash2, ShieldCheck, ChevronRight
 } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+
 
 import { adminService } from "../services/adminService";
 import { reviewService } from "../services/reviewService";
@@ -181,29 +181,22 @@ export default function AdminDashboard() {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
            {stats.map((stat, i) => (
-             <motion.div 
-               key={i} 
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: i * 0.1 }}
-               className="bg-white/5 border border-white/10 p-8 rounded-[32px] flex items-center justify-between group hover:bg-white/10 transition-all cursor-default"
-             >
-                <div>
-                   <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-2">{stat.label}</p>
-                   <p className="text-3xl font-black font-mono tracking-tighter">{stat.value}</p>
-                </div>
-                <div className={`p-5 rounded-2xl ${stat.color} shadow-lg transition-transform group-hover:scale-110 shadow-current/20`}>{stat.icon}</div>
-             </motion.div>
+              <div 
+                key={i} 
+                className="bg-white/5 border border-white/10 p-8 rounded-[32px] flex items-center justify-between group hover:bg-white/10 transition-all cursor-default"
+              >
+                 <div>
+                    <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-2">{stat.label}</p>
+                    <p className="text-3xl font-black font-mono tracking-tighter">{stat.value}</p>
+                 </div>
+                 <div className={`p-5 rounded-2xl ${stat.color} shadow-lg transition-transform group-hover:scale-110 shadow-current/20`}>{stat.icon}</div>
+              </div>
            ))}
         </div>
 
-        <AnimatePresence mode="wait">
-          {activeTab === "orders" ? (
-            <motion.div 
+        {activeTab === "orders" ? (
+            <div 
               key="orders"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
               className="bg-white/5 border border-white/10 rounded-[48px] overflow-hidden shadow-2xl"
             >
               <div className="p-8 md:p-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8 bg-white/[0.02]">
@@ -290,13 +283,10 @@ export default function AdminDashboard() {
                     </tbody>
                  </table>
               </div>
-            </motion.div>
+            </div>
           ) : activeTab === "users" ? (
-            <motion.div 
+            <div 
                key="users"
-               initial={{ opacity: 0, scale: 0.98 }}
-               animate={{ opacity: 1, scale: 1 }}
-               exit={{ opacity: 0, scale: 0.98 }}
                className="bg-white/5 border border-white/10 rounded-[48px] overflow-hidden"
             >
                <div className="p-12 border-b border-white/10">
@@ -324,13 +314,10 @@ export default function AdminDashboard() {
                      </div>
                   ))}
                </div>
-            </motion.div>
+            </div>
           ) : activeTab === "products" ? (
-            <motion.div 
+            <div 
                key="products"
-               initial={{ opacity: 0, scale: 0.98 }}
-               animate={{ opacity: 1, scale: 1 }}
-               exit={{ opacity: 0, scale: 0.98 }}
                className="bg-white/5 border border-white/10 rounded-[48px] overflow-hidden"
             >
                <div className="p-12 border-b border-white/10">
@@ -389,19 +376,15 @@ export default function AdminDashboard() {
                      </tbody>
                   </table>
                </div>
-            </motion.div>
+            </div>
           ) : (
-            <motion.div 
+            <div 
                key="reviews"
-               initial={{ opacity: 0, scale: 0.98 }}
-               animate={{ opacity: 1, scale: 1 }}
-               exit={{ opacity: 0, scale: 0.98 }}
                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
                {reviews.map((review) => (
-                 <motion.div 
+                 <div 
                    key={review.id}
-                   layout
                    className="bg-white/5 border border-white/10 p-8 rounded-[40px] relative group hover:bg-white/10 transition-all"
                  >
                     <button 
@@ -432,7 +415,7 @@ export default function AdminDashboard() {
                     <div className="pt-6 border-t border-white/5 flex items-center justify-between">
                        <span className="text-[10px] font-black uppercase tracking-widest text-brand-green">Publié le {new Date(review.createdAt).toLocaleDateString()}</span>
                     </div>
-                 </motion.div>
+                 </div>
                ))}
                
                {reviews.length === 0 && (
@@ -442,24 +425,14 @@ export default function AdminDashboard() {
                     <p className="text-gray-500 max-w-md mx-auto font-medium">Les clients n'ont pas encore partagé leur expérience Appiotti.</p>
                  </div>
                )}
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
       </div>
 
-      <AnimatePresence>
         {selectedOrder && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[#1B1B2F]/95 backdrop-blur-2xl flex items-center justify-center p-8"
+          <div className="fixed inset-0 z-50 bg-[#1B1B2F]/95 backdrop-blur-2xl flex items-center justify-center p-8"
           >
-             <motion.div 
-               initial={{ scale: 0.9, opacity: 0, y: 40 }}
-               animate={{ scale: 1, opacity: 1, y: 0 }}
-               exit={{ scale: 0.9, opacity: 0, y: 40 }}
-               className="bg-white text-brand-dark rounded-[60px] p-12 max-w-2xl w-full relative overflow-hidden shadow-2xl border-4 border-white/20"
+             <div className="bg-white text-brand-dark rounded-[60px] p-12 max-w-2xl w-full relative overflow-hidden shadow-2xl border-4 border-white/20 animate-fade-in-up"
              >
                 <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-green" />
                 <button onClick={() => setSelectedOrder(null)} className="absolute top-10 right-10 p-3 hover:bg-gray-100 rounded-2xl transition-all text-gray-400"><XCircle size={32} /></button>
@@ -501,10 +474,10 @@ export default function AdminDashboard() {
                      Refuser la preuve
                    </button>
                 </div>
-             </motion.div>
-          </motion.div>
+             </div>
+          </div>
         )}
-      </AnimatePresence>
+      
     </div>
   );
 }

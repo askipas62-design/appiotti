@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "motion/react";
 import { HelpCircle, ChevronDown } from "lucide-react";
 
 const faqs = [
@@ -26,24 +25,18 @@ export default function FAQ() {
     <div className="min-h-screen bg-[#FFF8F0] py-20 px-4">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-16">
-          <motion.div 
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mx-auto mb-6"
+          <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mx-auto mb-6"
           >
             <HelpCircle size={32} />
-          </motion.div>
+          </div>
           <h1 className="text-4xl font-black text-brand-dark uppercase tracking-tight mb-4">Foire aux Questions</h1>
           <p className="text-gray-600 font-medium font-mono uppercase text-sm tracking-widest">Tout ce que vous devez savoir</p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div 
+            <div 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
               className="bg-white border-4 border-brand-dark rounded-2xl p-6 shadow-[8px_8px_0px_#1B1B2F] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               <h3 className="text-xl font-black text-brand-dark flex items-center justify-between gap-4 mb-4">
@@ -53,7 +46,7 @@ export default function FAQ() {
               <p className="text-gray-600 leading-relaxed font-medium">
                 {faq.a}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 

@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { History, Award, Heart, ShieldCheck, MapPin, Users } from "lucide-react";
 
 export default function About() {
@@ -8,13 +7,10 @@ export default function About() {
       <section className="bg-brand-dark text-white py-20 md:py-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-orange rounded-full blur-[200px] opacity-10 -translate-y-1/2 translate-x-1/2" />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-4xl md:text-8xl font-black mb-6 md:mb-8 font-display uppercase tracking-tighter"
+          <h1 className="text-4xl md:text-8xl font-black mb-6 md:mb-8 font-display uppercase tracking-tighter"
           >
             Notre <span className="text-brand-orange">Histoire</span>
-          </motion.h1>
+          </h1>
           <p className="text-base md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
             Depuis 2016, Appiotti Game Shop apporte de la joie et du divertissement dans vos espaces de vie.
           </p>
@@ -25,11 +21,7 @@ export default function About() {
       <section className="py-24">
         <div className="container mx-auto px-4">
            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="space-y-8"
-              >
+              <div className="space-y-8">
                  <div className="inline-block bg-brand-orange/10 px-4 py-1 rounded-full text-brand-orange font-black text-xs uppercase tracking-widest">L'excellence de proximité</div>
                   <h2 className="text-3xl md:text-6xl font-black text-brand-dark font-display leading-tight">
                      Plus qu'une boutique, une passion <span className="text-brand-yellow">partagée</span>.
@@ -40,7 +32,7 @@ export default function About() {
                   <p className="text-sm md:text-lg text-gray-500 leading-relaxed font-medium">
                     Fondé par Hervé APPIOTTI en 2016 à Saint-Sornin, notre shop est né d'une volonté simple : offrir des équipements de loisirs de haute qualité, testés et approuvés par des experts, avec un service humain et transparent.
                  </p>
-              </motion.div>
+              </div>
               
               <div className="grid grid-cols-2 gap-6">
                  {[
@@ -49,16 +41,15 @@ export default function About() {
                    { icon: <Heart size={32} />, title: "Passion Hobby", color: "bg-red-500" },
                    { icon: <Award size={32} />, title: "Qualité Pro", color: "bg-brand-yellow" }
                  ].map((item, i) => (
-                   <motion.div 
-                     key={i}
-                     whileHover={{ y: -10 }}
-                     className="bg-white p-10 rounded-[40px] shadow-xl border border-gray-100 flex flex-col items-center text-center group"
-                   >
-                      <div className={`p-4 rounded-2xl ${item.color} text-white mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                         {item.icon}
-                      </div>
-                      <h4 className="font-black text-brand-dark font-display uppercase text-sm tracking-widest">{item.title}</h4>
-                   </motion.div>
+                    <div 
+                      key={i}
+                      className="bg-white p-10 rounded-[40px] shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300"
+                    >
+                       <div className={`p-4 rounded-2xl ${item.color} text-white mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                          {item.icon}
+                       </div>
+                       <h4 className="font-black text-brand-dark font-display uppercase text-sm tracking-widest">{item.title}</h4>
+                    </div>
                  ))}
               </div>
            </div>

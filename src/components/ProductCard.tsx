@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Star, Heart, Trophy, Zap, CircleDot, Orbit, Headset, Gamepad2, RefreshCw, Loader2 } from "lucide-react";
 import { useCart } from "../context/CartContext";
@@ -77,12 +76,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const cardShadow = getShadowColor(product.category);
 
   return (
-    <motion.div
-      whileHover={{ y: -10, scale: 1.02 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`group relative bg-white rounded-[24px] overflow-hidden ${cardShadow} transition-all duration-500 flex flex-col h-full border border-gray-100`}
-    >
+    <div className={`group relative bg-white rounded-[24px] overflow-hidden ${cardShadow} animate-fade-in-up hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 flex flex-col h-full border border-gray-100`}>
       {/* Category Badge */}
       <div className={`absolute top-4 left-4 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold text-white uppercase tracking-tighter bg-brand-orange shadow-lg`}>
         {product?.badge || ""}
@@ -121,9 +115,9 @@ export default function ProductCard({ product }: ProductCardProps) {
               }`}
             >
                {isWishlistLoading ? (
-                 <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
-                   <RefreshCw size={20} />
-                 </motion.div>
+                  <div className="animate-spin-slow">
+                    <RefreshCw size={20} />
+                  </div>
                ) : (
                  <Heart size={20} fill={isFavorite ? "currentColor" : "none"} className={isFavorite ? "" : "group-hover:fill-current"} />
                )}
@@ -184,6 +178,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

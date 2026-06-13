@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Filter, Search, SlidersHorizontal, CircleDot } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
 import ProductCard from "../components/ProductCard";
 import { BabyFootIcon, PingPongIcon, BillardIcon, TrampolineIcon, AccessoriesIcon, ConsoleIcon } from "../components/CategoryIcons";
 import { products as allProducts, type Product } from "../data/products";
@@ -244,18 +243,14 @@ export default function Shop() {
                 ))}
               </div>
             ) : products.length > 0 ? (
-              <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-                <AnimatePresence mode="popLayout">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                   {products.map((product: Product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
-                </AnimatePresence>
-              </motion.div>
+              </div>
             ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="bg-white rounded-[48px] p-20 text-center shadow-xl border border-gray-100"
+              <div
+                className="bg-white rounded-[48px] p-20 text-center shadow-xl border border-gray-100 animate-fade-in"
               >
                 <div className="flex justify-center mb-8">
                   <div className="w-24 h-24 bg-gray-50 rounded-3xl flex items-center justify-center text-gray-200">
@@ -270,7 +265,7 @@ export default function Shop() {
                 >
                   Réinitialiser les filtres
                 </button>
-              </motion.div>
+              </div>
             )}
           </main>
         </div>

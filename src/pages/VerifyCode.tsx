@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { ShieldCheck, Loader2, ArrowLeft, RefreshCw, CheckCircle2 } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useToast } from "../components/ui/Toast";
-import { motion, AnimatePresence } from "motion/react";
+
 
 type CodeType = "signup" | "recovery";
 
@@ -144,10 +144,7 @@ export default function VerifyCode() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF6B35] rounded-full blur-[200px] opacity-10 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFD23F] rounded-full blur-[200px] opacity-10 translate-y-1/2 -translate-x-1/2" />
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-12 md:p-16"
+      <div className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-12 md:p-16 animate-fade-in-up"
       >
         <div className="text-center mb-12">
           <Link to={type === "signup" ? "/inscription" : "/mot-de-passe-oublie"} className="inline-flex items-center gap-2 mb-8">
@@ -169,12 +166,9 @@ export default function VerifyCode() {
           </p>
         </div>
 
-        <AnimatePresence mode="wait">
-          {success ? (
-            <motion.div 
+        {success ? (
+          <div 
               key="success"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
               className="text-center py-8"
             >
               <div className="flex justify-center mb-6">
@@ -189,12 +183,10 @@ export default function VerifyCode() {
               >
                 Continuer
               </button>
-            </motion.div>
+            </div>
           ) : (
-            <motion.div
+            <div
               key="code"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
             >
               <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 mb-8 text-center">
                 <p className="text-sm text-gray-600">
@@ -261,16 +253,15 @@ export default function VerifyCode() {
                   <ArrowLeft size={16} /> Changer d'email
                 </Link>
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
 
         <div className="mt-12 text-center">
           <div className="flex items-center justify-center gap-2 text-[10px] text-gray-300 uppercase tracking-widest py-8 border-t border-gray-50">
             <ShieldCheck size={14} /> Sécurisé par Appiotti Game Shop
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

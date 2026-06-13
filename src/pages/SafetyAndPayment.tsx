@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ShieldCheck, TrendingDown, Clock, MousePointer2, UserCheck, HeartHandshake, PhoneCall, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -44,25 +43,18 @@ export default function SafetyAndPayment() {
         </Link>
 
         <div className="text-center mb-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-8xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter"
+          <h1 className="text-3xl md:text-8xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter"
           >
             Pourquoi le <span className="text-brand-orange">Virement ?</span>
-          </motion.h1>
+          </h1>
           <div className="w-16 md:w-24 h-1 bg-brand-orange mx-auto mb-6 md:mb-8" />
           <p className="text-sm md:text-xl text-gray-500 font-medium">Chez Appiotti, la confiance n'est pas un slogan, c'est un engagement personnel.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {reasons.map((r, i) => (
-            <motion.div 
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
               className="bg-white p-6 md:p-10 rounded-[24px] md:rounded-[48px] shadow-2xl border border-gray-100 hover:border-brand-orange/20 transition-all group"
             >
               <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
@@ -70,7 +62,7 @@ export default function SafetyAndPayment() {
               </div>
               <h3 className="text-lg md:text-2xl font-black text-brand-dark mb-2 md:mb-4 font-display uppercase tracking-tight">{r.title}</h3>
               <p className="text-gray-500 leading-relaxed font-medium">{r.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
 

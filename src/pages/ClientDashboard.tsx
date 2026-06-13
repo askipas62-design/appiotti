@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { motion, AnimatePresence } from "motion/react";
+
 import { 
   User, Package, Clock, MapPin, Mail, ArrowRight, ChevronRight, 
   CheckCircle2, AlertCircle, Info, RefreshCw, LogOut, Settings, 
@@ -156,10 +156,7 @@ export default function ClientDashboard() {
   if (!user) {
     return (
       <div className="container mx-auto px-4 py-24 text-center bg-[#FFF8F0] min-h-screen flex flex-col items-center justify-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white p-16 rounded-[60px] shadow-2xl border-4 border-brand-orange/10 max-w-lg"
+        <div className="bg-white p-16 rounded-[60px] shadow-2xl border-4 border-brand-orange/10 max-w-lg"
         >
           <div className="w-24 h-24 bg-brand-orange/10 rounded-3xl flex items-center justify-center text-brand-orange mx-auto mb-8">
             <User size={48} />
@@ -167,7 +164,7 @@ export default function ClientDashboard() {
           <h2 className="text-4xl font-black font-display uppercase tracking-tighter mb-4 text-brand-dark">Espace Client</h2>
           <p className="text-gray-400 mb-10 font-medium">Connectez-vous pour suivre vos commandes et gérer vos informations personnelles.</p>
           <Link to="/connexion" className="inline-flex items-center gap-3 bg-brand-orange text-white px-10 py-5 rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-brand-orange/20">Se connecter <ArrowRight size={18} /></Link>
-        </motion.div>
+        </div>
       </div>
     );
   }
@@ -249,13 +246,9 @@ export default function ClientDashboard() {
           ))}
         </div>
 
-        <AnimatePresence mode="wait">
-          {activeTab === "orders" && (
-            <motion.div 
+        {activeTab === "orders" && (
+            <div 
               key="orders"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
               className="space-y-12"
             >
               <div className="flex items-center justify-between mb-8">
@@ -272,7 +265,7 @@ export default function ClientDashboard() {
 
               {loading && orders.length === 0 ? (
                 <div               className="bg-white p-12 md:p-24 rounded-[32px] md:rounded-[64px] border border-gray-100 shadow-xl flex flex-col items-center justify-center text-center">
-                  <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }} className="w-12 h-12 md:w-16 md:h-16 border-4 border-brand-orange border-t-transparent rounded-full mb-6 md:mb-8" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-brand-orange border-t-transparent rounded-full mb-6 md:mb-8 animate-spin-slow" />
                   <p className="text-sm font-black uppercase tracking-[0.3em] text-gray-400">Synchronisation des données...</p>
                 </div>
               ) : orders.length === 0 ? (
@@ -287,9 +280,8 @@ export default function ClientDashboard() {
               ) : (
                 <div className="grid grid-cols-1 gap-8">
                   {orders.map((order) => (
-                    <motion.div 
+                    <div 
                       key={order.id}
-                      layout
                       className={`bg-white rounded-[48px] border border-gray-100 shadow-xl overflow-hidden transition-all duration-500 ${
                         expandedOrder === order.id ? "ring-4 ring-brand-orange/10" : "hover:shadow-2xl"
                       }`}
@@ -336,13 +328,8 @@ export default function ClientDashboard() {
                           </div>
                         </div>
 
-                        <AnimatePresence>
-                          {expandedOrder === order.id && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden"
+                        {expandedOrder === order.id && (
+                            <div className="overflow-hidden"
                             >
                                <div className="mt-12 pt-12 border-t-2 border-dashed border-gray-100">
                                  <h4 className="text-lg font-black text-brand-dark font-display uppercase tracking-tight mb-8">Articles commandés</h4>
@@ -393,23 +380,19 @@ export default function ClientDashboard() {
                                    <Link to="/paiement" className="bg-brand-dark text-white px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-brand-orange transition-all shadow-xl">Infos bancaires</Link>
                                  </div>
                                )}
-                            </motion.div>
+                            </div>
                           )}
-                        </AnimatePresence>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               )}
-            </motion.div>
+            </div>
           )}
 
           {activeTab === "review" && (
-            <motion.div 
+            <div 
               key="review"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
               className="max-w-3xl mx-auto"
             >
               <div className="bg-white p-6 md:p-12 rounded-[32px] md:rounded-[64px] shadow-2xl border border-gray-100 text-center relative overflow-hidden">
@@ -472,15 +455,12 @@ export default function ClientDashboard() {
                    </button>
                 </form>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeTab === "favorites" && (
-            <motion.div 
+            <div 
               key="favorites"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
               className="space-y-12"
             >
               <div className="flex items-center justify-between mb-8">
@@ -505,15 +485,12 @@ export default function ClientDashboard() {
                   ))}
                 </div>
               )}
-            </motion.div>
+            </div>
           )}
 
           {activeTab === "profile" && (
-            <motion.div 
+            <div 
               key="profile"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
               className="max-w-3xl mx-auto"
             >
               <div className="bg-white p-6 md:p-12 rounded-[32px] md:rounded-[64px] shadow-2xl border border-gray-100 relative overflow-hidden">
@@ -564,15 +541,12 @@ export default function ClientDashboard() {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeTab === "security" && (
-            <motion.div 
+            <div 
               key="security"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
               className="space-y-12"
             >
               <div className="bg-brand-dark text-white p-6 md:p-12 rounded-[32px] md:rounded-[80px] shadow-2xl relative overflow-hidden">
@@ -593,9 +567,9 @@ export default function ClientDashboard() {
                    </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
+        
       </div>
     </div>
   );

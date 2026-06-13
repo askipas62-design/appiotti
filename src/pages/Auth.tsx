@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Mail, Lock, User, UserPlus, LogIn, ArrowRight, ShieldCheck, Loader2, Eye, EyeOff } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useToast } from "../components/ui/Toast";
-import { motion } from "motion/react";
+
 
 export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }) {
   const [view, setView] = useState<"login" | "signup">(initialMode);
@@ -99,11 +99,9 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF6B35] rounded-full blur-[200px] opacity-10 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFD23F] rounded-full blur-[200px] opacity-10 translate-y-1/2 -translate-x-1/2" />
 
-      <motion.div 
+      <div 
         key={view}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100"
+        className="w-full max-w-xl bg-white rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 animate-fade-in-up"
       >
         <div className="p-6 md:p-12">
           <div className="text-center mb-8 md:mb-12">
@@ -224,7 +222,7 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
              </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

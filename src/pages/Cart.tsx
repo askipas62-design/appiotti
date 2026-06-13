@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, ShieldCheck, CreditCard, Package, Sparkles } from "lucide-react";
 import { useCart } from "../context/CartContext";
-import { motion, AnimatePresence } from "motion/react";
 
 export default function Cart() {
   const { items, updateQuantity, removeFromCart, totalHT, totalTTC, itemCount } = useCart();
@@ -9,10 +8,8 @@ export default function Cart() {
   if (itemCount === 0) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center container mx-auto px-4 bg-brand-cream">
-        <motion.div 
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="bg-white p-8 md:p-16 rounded-[40px] shadow-2xl text-center border border-gray-100 max-w-xl flex flex-col items-center"
+        <div 
+          className="bg-white p-8 md:p-16 rounded-[40px] shadow-2xl text-center border border-gray-100 max-w-xl flex flex-col items-center animate-scale-in"
         >
           <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-orange/10 rounded-[24px] flex items-center justify-center text-brand-orange mb-6 shadow-xl">
              <ShoppingBag size={40} />
@@ -22,7 +19,7 @@ export default function Cart() {
           <Link to="/boutique" className="inline-flex items-center gap-3 bg-brand-dark text-white px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:bg-brand-orange transition-all shadow-2xl">
             Explorer la boutique <ArrowRight size={18} />
           </Link>
-        </motion.div>
+        </div>
       </div>
     );
   }
@@ -35,15 +32,10 @@ export default function Cart() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10">
           {/* Items List */}
           <div className="lg:col-span-2 space-y-3 md:space-y-4">
-            <AnimatePresence>
               {items.map((item) => (
-                <motion.div
+                <div
                   key={item.id}
-                  layout
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  className="bg-white rounded-[24px] md:rounded-[32px] p-4 md:p-6 shadow-lg flex items-center gap-3 md:gap-6 border border-gray-100 hover:border-brand-orange/30 transition-all"
+                  className="bg-white rounded-[24px] md:rounded-[32px] p-4 md:p-6 shadow-lg flex items-center gap-3 md:gap-6 border border-gray-100 hover:border-brand-orange/30 transition-all animate-slide-in-left"
                 >
                   <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-50 rounded-2xl flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden relative">
                      {item.image ? (
@@ -76,9 +68,8 @@ export default function Cart() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </AnimatePresence>
             
             <div className="flex justify-center pt-4 md:pt-6">
                <Link to="/boutique" className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-gray-400 hover:text-brand-orange transition-colors flex items-center gap-2">

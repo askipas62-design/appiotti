@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "motion/react";
 import { Shield } from "lucide-react";
 
 export default function Privacy() {

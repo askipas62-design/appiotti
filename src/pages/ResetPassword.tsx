@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Lock, Loader2, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useToast } from "../components/ui/Toast";
-import { motion } from "motion/react";
+
 
 export default function ResetPassword() {
   const [password, setPassword] = useState("");
@@ -40,10 +40,7 @@ export default function ResetPassword() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF6B35] rounded-full blur-[200px] opacity-10 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFD23F] rounded-full blur-[200px] opacity-10 translate-y-1/2 -translate-x-1/2" />
 
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-xl bg-white rounded-[32px] md:rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-6 md:p-12"
+      <div className="w-full max-w-xl bg-white rounded-[32px] md:rounded-[48px] shadow-2xl overflow-hidden relative border border-gray-100 p-6 md:p-12 animate-scale-in"
       >
         <div className="text-center mb-8 md:mb-12">
           <h1 className="text-2xl md:text-5xl font-black text-brand-dark mb-3 md:mb-4 font-display uppercase tracking-tighter">
@@ -59,13 +56,10 @@ export default function ResetPassword() {
 
         {success ? (
           <div className="flex flex-col items-center justify-center py-12">
-            <motion.div 
-              initial={{ scale: 0 }} 
-              animate={{ scale: 1 }} 
-              className="w-24 h-24 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center mb-6"
+            <div className="w-24 h-24 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center mb-6"
             >
               <CheckCircle2 size={48} />
-            </motion.div>
+            </div>
             <button 
               onClick={() => navigate("/connexion")}
               className="text-brand-orange font-black uppercase tracking-widest text-sm hover:underline"
@@ -120,7 +114,7 @@ export default function ResetPassword() {
             <ShieldCheck size={14} /> Sécurisé par Appiotti Game Shop
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, User, LogOut, LayoutDashboard, Menu, X, Sparkles, Search, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
-import { motion, AnimatePresence } from "motion/react";
 import React, { useState } from "react";
 
 // Structure of navigation categories and their respective brands
@@ -109,12 +108,9 @@ export default function Header() {
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group shrink-0">
-          <motion.div 
-            whileHover={{ rotate: 15 }}
-            className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(255,107,53,0.5)]"
-          >
+          <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(255,107,53,0.5)]">
             <Sparkles className="text-white" size={24} />
-          </motion.div>
+          </div>
           <span className="text-2xl font-black font-display tracking-tight hidden sm:inline">
             Appiotti <span className="text-brand-yellow">Game Shop</span>
           </span>
@@ -189,14 +185,9 @@ export default function Header() {
             <Link to="/panier" className="relative p-2.5 hover:bg-white/10 rounded-full transition-all group">
               <ShoppingCart size={22} className="group-hover:text-brand-orange transition-colors" />
               {itemCount > 0 && (
-                <motion.span 
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  key={itemCount}
-                  className="absolute top-1 right-1 bg-brand-orange text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-black animate-pulse"
-                >
+                <span className="absolute top-1 right-1 bg-brand-orange text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-black animate-pulse">
                   {itemCount}
-                </motion.span>
+                </span>
               )}
             </Link>
 
@@ -242,14 +233,8 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-[#1B1B2F] border-t border-white/10 overflow-hidden"
-          >
+      {isMenuOpen && (
+          <div className="lg:hidden bg-[#1B1B2F] border-t border-white/10 overflow-hidden">
             <div className="container mx-auto px-4 py-6 flex flex-col gap-5 text-lg font-bold">
               {/* Search in Mobile */}
               <form onSubmit={handleSearch} className="relative bg-white/5 rounded-2xl p-3 flex items-center gap-3 border border-white/10">
@@ -278,14 +263,8 @@ export default function Header() {
                       {expandedMobileCat === cat.slug ? <ChevronUp size={16} className="text-brand-orange" /> : <ChevronDown size={16} />}
                     </button>
                     
-                    <AnimatePresence>
                       {expandedMobileCat === cat.slug && (
-                        <motion.div 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="pl-4 mt-2 space-y-2 overflow-hidden flex flex-col border-l border-brand-orange/20"
-                        >
+                          <div className="pl-4 mt-2 space-y-2 overflow-hidden flex flex-col border-l border-brand-orange/20">
                           {cat.brands.map((brand) => (
                             <Link
                               key={`mobile-brand-${brand.label}`}
@@ -303,9 +282,8 @@ export default function Header() {
                           >
                             Voir tout {cat.label} →
                           </Link>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+            </div>
+        )}
                   </div>
                 ))}
               </div>
@@ -330,9 +308,8 @@ export default function Header() {
                 </div>
               )}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                        </div>
+                      )}
     </header>
   );
 }

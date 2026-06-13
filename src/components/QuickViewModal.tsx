@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import { X, ShoppingCart, Heart, Star, Trophy, Zap, CircleDot, Orbit, Headset, Gamepad2, ArrowRight, RefreshCw } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
@@ -44,24 +43,13 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   };
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="absolute inset-0 bg-brand-dark/60 backdrop-blur-md"
-          />
+          <div onClick={onClose} className="absolute inset-0 bg-brand-dark/60 backdrop-blur-md animate-fade-in" />
           
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white w-full max-w-4xl rounded-[40px] shadow-2xl overflow-hidden relative flex flex-col md:flex-row"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="bg-white w-full max-w-4xl rounded-[40px] shadow-2xl overflow-hidden relative flex flex-col md:flex-row animate-scale-in"
+            onClick={(e) => e.stopPropagation()}>
             <button 
               onClick={onClose}
               className="absolute top-6 right-6 z-10 p-2 bg-gray-50 hover:bg-brand-orange hover:text-white rounded-full transition-all"
@@ -73,10 +61,8 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
             <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-6 md:p-12 relative overflow-hidden group">
                
                {product.image ? (
-                 <motion.img 
-                   initial={{ opacity: 0, scale: 0.9 }}
-                   animate={{ opacity: 1, scale: 1 }}
-                   src={product.image} 
+                  <img 
+                    src={product.image} 
                    alt={product.name} 
                    width={500}
                    height={500}
@@ -85,13 +71,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                    className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
                  />
                ) : (
-                 <motion.div 
-                  initial={{ rotate: -10, scale: 0.8 }}
-                  animate={{ rotate: 0, scale: 1 }}
-                  className="text-brand-orange relative z-10 drop-shadow-2xl"
-                 >
-                   {getIcon(product.category)}
-                 </motion.div>
+                  <div className="text-brand-orange relative z-10 drop-shadow-2xl">
+                    {getIcon(product.category)}
+                  </div>
                )}
                
                <div className="absolute bottom-6 left-6 flex gap-2">
@@ -133,9 +115,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   className="w-full bg-brand-dark text-white py-5 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-brand-orange transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-wait"
                 >
                   {isAdding ? (
-                    <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
+                    <div className="animate-spin-slow">
                       <RefreshCw size={18} />
-                    </motion.div>
+                    </div>
                   ) : (
                     <ShoppingCart size={18} />
                   )}
@@ -151,9 +133,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                     }`}
                   >
                     {isWishlistLoading ? (
-                      <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
+                      <div className="animate-spin-slow">
                         <RefreshCw size={16} />
-                      </motion.div>
+                      </div>
                     ) : (
                       <Heart size={16} fill={isFavorite ? "currentColor" : "none"} />
                     )}
@@ -172,9 +154,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       )}
-    </AnimatePresence>
+    </>
   );
 }

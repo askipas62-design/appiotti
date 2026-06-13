@@ -4,7 +4,6 @@ import { ShieldCheck, Copy, Check, Upload, AlertTriangle, ArrowRight, Loader2 } 
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../components/ui/Toast";
-import { motion } from "motion/react";
 import { orderService } from "../services/orderService";
 
 export default function Payment() {
@@ -87,11 +86,9 @@ export default function Payment() {
               </h2>
 
               <div className="space-y-3 relative z-10">
-                <motion.div
+                <div
                   key="motif-virement"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className={`flex flex-col gap-1.5 p-3 rounded-2xl border-2 transition-all duration-500 ${orderCreated ? 'bg-brand-orange/20 border-brand-orange/40' : 'bg-brand-yellow/10 border-brand-yellow/30'}`}
+                  className={`flex flex-col gap-1.5 p-3 rounded-2xl border-2 transition-all duration-500 animate-slide-in-left ${orderCreated ? 'bg-brand-orange/20 border-brand-orange/40' : 'bg-brand-yellow/10 border-brand-yellow/30'}`}
                 >
                   <label className={`text-[8px] uppercase font-black tracking-widest ${orderCreated ? 'text-brand-orange' : 'text-brand-yellow'}`}>
                     Motif du virement {orderCreated ? '(À SAISIR)' : '(VOTRE RÉFÉRENCE)'}
@@ -108,7 +105,7 @@ export default function Payment() {
                   <p className={`text-[7px] font-bold uppercase tracking-widest ${orderCreated ? 'text-brand-orange/80' : 'text-brand-yellow/80'}`}>
                     {orderCreated ? 'Utilisez ce numéro comme référence de votre virement' : 'Ce numéro unique sera associé à votre commande'}
                   </p>
-                </motion.div>
+                </div>
 
                 <div className="flex flex-col gap-1">
                   <label className="text-[8px] uppercase font-bold text-gray-500 tracking-widest">Titulaire du compte</label>
@@ -185,10 +182,8 @@ export default function Payment() {
                 </button>
               </div>
             ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white p-6 rounded-[32px] shadow-2xl border-4 border-[#06D6A0]/20 flex flex-col items-center text-center"
+              <div
+                className="bg-white p-6 rounded-[32px] shadow-2xl border-4 border-[#06D6A0]/20 flex flex-col items-center text-center animate-fade-in-up"
               >
                 <div className="w-14 h-14 bg-[#06D6A0] rounded-2xl flex items-center justify-center text-white mb-4 shadow-xl">
                   <Check size={28} />
@@ -235,7 +230,7 @@ export default function Payment() {
                 <button onClick={() => navigate("/dashboard")} className="mt-3 text-gray-400 font-bold hover:text-[#FF6B35] underline transition-colors uppercase text-[8px] tracking-widest">
                   Plus tard via mon compte
                 </button>
-              </motion.div>
+              </div>
             )}
           </div>
         </div>

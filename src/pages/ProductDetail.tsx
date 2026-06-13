@@ -5,7 +5,6 @@ import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../components/ui/Toast";
-import { motion, AnimatePresence } from "motion/react";
 import ProductCard from "../components/ProductCard";
 
 import { products as allProducts } from "../data/products";
@@ -145,10 +144,8 @@ export default function ProductDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Image */}
             <div className="relative p-4 md:p-8 flex items-center justify-center bg-gray-50">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="relative w-full aspect-square rounded-[24px] overflow-hidden shadow-xl border-2 border-white max-h-[50vh]"
+              <div
+                className="relative w-full aspect-square rounded-[24px] overflow-hidden shadow-xl border-2 border-white max-h-[50vh] animate-fade-in-up"
               >
                 <img
                   src={getImageUrl(product.image || getProductImage(product.category))}
@@ -168,7 +165,7 @@ export default function ProductDetail() {
                     {product.badge}
                   </div>
                 )}
-              </motion.div>
+              </div>
             </div>
 
             {/* Product Info */}
@@ -334,11 +331,7 @@ export default function ProductDetail() {
                 ) : (
                   <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2">
                     {sortedReviews.map((review, idx) => (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        viewport={{ once: true }}
+                      <div
                         key={review.id}
                         className="bg-white p-4 rounded-2xl shadow-md border border-gray-100 flex gap-3"
                       >
@@ -357,7 +350,7 @@ export default function ProductDetail() {
                           </div>
                           <p className="text-gray-500 font-medium text-[11px] leading-snug italic line-clamp-2">"{review.comment}"</p>
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 )}

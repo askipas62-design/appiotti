@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { Mail, Phone, MapPin, MessageSquare, Send, Clock, Loader2, Sparkles } from "lucide-react";
 import React, { useState } from "react";
 import { useToast } from "../components/ui/Toast";
@@ -21,13 +20,10 @@ export default function Contact() {
     <div className="bg-brand-cream min-h-screen pt-12 pb-24">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-20">
-           <motion.h1 
-             initial={{ opacity: 0, y: 30 }}
-             animate={{ opacity: 1, y: 0 }}
-             className="text-3xl md:text-8xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter"
+            <h1 className="text-3xl md:text-8xl font-black text-brand-dark mb-4 md:mb-6 font-display uppercase tracking-tighter"
             >
               Contactez <span className="text-brand-orange">Hervé</span>
-            </motion.h1>
+            </h1>
             <p className="text-sm md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
              Une question sur un produit ou une commande ? Notre équipe est à votre écoute pour vous conseiller.
            </p>
