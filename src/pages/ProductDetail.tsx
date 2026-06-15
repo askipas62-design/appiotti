@@ -6,8 +6,7 @@ import { useWishlist } from "../context/WishlistContext";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../components/ui/Toast";
 import ProductCard from "../components/ProductCard";
-
-import { products as allProducts } from "../data/products";
+import { productService } from "../services/productService";
 import { reviewService } from "../services/reviewService";
 import { getStaticReviewsForProduct } from "../data/staticReviews";
 import { getImageSrc } from "../lib/images";
@@ -60,21 +59,27 @@ export default function ProductDetail() {
   }, [reviews]);
 
   useEffect(() => {
+    if (!id) return;
     window.scrollTo(0, 0);
     setLoading(true);
-    const foundProduct = allProducts.find(p => p.id === id);
-    if (foundProduct) {
-      setProduct(foundProduct);
-      const relatedData = allProducts
-        .filter(p => p.category === foundProduct.category && p.id !== id)
-        .slice(0, 4);
-      setRelated(relatedData);
-      setLoading(false);
-      fetchReviews();
-    } else {
-      setLoading(false);
-      navigate("/boutique");
-    }
+    (async () => {
+      try {
+        const [foundProduct, allProducts] = await Promise.all([
+          productService.getById(id),
+          productService.getAll({ category: undefined }),
+        ]);
+        setProduct(foundProduct);
+        const relatedData = allProducts
+          .filter(p => p.category === foundProduct.category && p.id !== id)
+          .slice(0, 4);
+        setRelated(relatedData);
+        fetchReviews();
+      } catch {
+        navigate("/boutique");
+      } finally {
+        setLoading(false);
+      }
+    })();
   }, [id, navigate]);
 
   const handleSubmitReview = async (e: FormEvent) => {

@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Search, X } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import { BabyFootIcon, PingPongIcon, BillardIcon, TrampolineIcon, AccessoriesIcon, ConsoleIcon } from "../components/CategoryIcons";
-import { products as allProducts, type Product } from "../data/products";
+import { productService } from "../services/productService";
 import { getProductBrand, isSameBrand } from "../lib/catalog";
 
 const normalizeQuery = (value: string) => value.trim().toLowerCase();
@@ -19,6 +19,7 @@ const categories = [
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [allProducts, setAllProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   const category = searchParams.get("category") || "";
@@ -26,21 +27,34 @@ export default function Shop() {
   const query = searchParams.get("q") || "";
   const sortBy = searchParams.get("sort") || "default";
 
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      setLoading(true);
+      try {
+        const filters: any = {};
+        if (category) filters.category = category;
+        if (query) filters.q = query;
+        const data = await productService.getAll(Object.keys(filters).length ? filters : undefined);
+        if (!cancelled) setAllProducts(data);
+      } catch {
+        if (!cancelled) setAllProducts([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [category, query]);
+
   const products = useMemo(() => {
-    const filtered = allProducts.filter(Boolean) as Product[];
-    const q = normalizeQuery(query);
-    let result = filtered.filter((product) => {
-      if (category && product.category !== category) return false;
-      if (brand) {
+    const filtered = allProducts.filter(Boolean);
+    let result = [...filtered];
+    if (brand) {
+      result = result.filter((product) => {
         const productBrand = getProductBrand(product);
-        if (!isSameBrand(productBrand, brand)) return false;
-      }
-      if (q) {
-        const haystack = `${product.name} ${product.desc} ${product.category} ${product.brand || ""}`.toLowerCase();
-        if (!haystack.includes(q)) return false;
-      }
-      return true;
-    });
+        return isSameBrand(productBrand, brand);
+      });
+    }
     if (sortBy === "price-asc") {
       result.sort((a, b) => a.priceHT * 1.2 - b.priceHT * 1.2);
     } else if (sortBy === "price-desc") {
@@ -51,13 +65,7 @@ export default function Shop() {
       result.sort((a, b) => b.rating - a.rating);
     }
     return result;
-  }, [brand, category, query, sortBy]);
-
-  useEffect(() => {
-    setLoading(true);
-    const timer = window.setTimeout(() => setLoading(false), 120);
-    return () => window.clearTimeout(timer);
-  }, [brand, category, query, sortBy]);
+  }, [brand, allProducts, sortBy]);
 
   const setParam = (key: string, value: string) => {
     const next = new URLSearchParams(searchParams);
@@ -72,7 +80,7 @@ export default function Shop() {
       if (p.category) counts[p.category] = (counts[p.category] || 0) + 1;
     }
     return counts;
-  }, []);
+  }, [allProducts]);
 
   const activeTags: { label: string; onRemove: () => void }[] = [];
   if (category) {
@@ -201,7 +209,7 @@ export default function Shop() {
           </div>
         ) : products.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-            {products.map((product: Product) => (
+            {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

@@ -4,28 +4,37 @@ import { join, extname } from 'path';
 
 const PRODUCTS_DIR = './public/images/products';
 const QUALITY = 80;
+const EXTENSIONS = ['.png', '.jpg', '.jpeg'];
 
 async function compressImages() {
   const files = await readdir(PRODUCTS_DIR);
-  const pngFiles = files.filter(f => extname(f).toLowerCase() === '.png');
+  const imageFiles = files.filter(f => EXTENSIONS.includes(extname(f).toLowerCase()));
   
-  console.log(`Found ${pngFiles.length} PNG files to compress...`);
+  console.log(`Found ${imageFiles.length} images to compress...`);
   
   let compressed = 0;
   let skipped = 0;
   
-  for (const file of pngFiles) {
+  for (const file of imageFiles) {
+    const ext = extname(file).toLowerCase();
     const inputPath = join(PRODUCTS_DIR, file);
-    const outputPath = join(PRODUCTS_DIR, file.replace('.png', '.webp'));
-    
+    const webpPath = join(PRODUCTS_DIR, file.replace(ext, '.webp'));
+
+    // Skip if WebP already exists
+    try {
+      await stat(webpPath);
+      skipped++;
+      continue;
+    } catch {}
+
     try {
       const inputStat = await stat(inputPath);
       
       await sharp(inputPath)
         .webp({ quality: QUALITY, effort: 4 })
-        .toFile(outputPath);
+        .toFile(webpPath);
       
-      const outputStat = await stat(outputPath);
+      const outputStat = await stat(webpPath);
       const savings = Math.round((1 - outputStat.size / inputStat.size) * 100);
       
       console.log(`✓ ${file} → ${savings}% smaller (${Math.round(inputStat.size/1024)}KB → ${Math.round(outputStat.size/1024)}KB)`);

@@ -538,7 +538,35 @@ async function startServer() {
 
   app.get("/api/products", async (req, res) => {
     try {
-      res.json(readProducts());
+      let products = readProducts();
+      const { category, q, minPrice, maxPrice } = req.query as Record<string, string | undefined>;
+
+      if (category) {
+        products = products.filter((p: any) => p.category === category);
+      }
+      if (q) {
+        const query = q.toLowerCase();
+        products = products.filter(
+          (p: any) =>
+            p.name?.toLowerCase().includes(query) ||
+            p.desc?.toLowerCase().includes(query) ||
+            p.category?.toLowerCase().includes(query)
+        );
+      }
+      if (minPrice) {
+        const min = parseFloat(minPrice);
+        if (!isNaN(min)) {
+          products = products.filter((p: any) => p.priceHT * 1.2 >= min);
+        }
+      }
+      if (maxPrice) {
+        const max = parseFloat(maxPrice);
+        if (!isNaN(max)) {
+          products = products.filter((p: any) => p.priceHT * 1.2 <= max);
+        }
+      }
+
+      res.json(products);
     } catch (e: any) {
       console.error("[GET /api/products] Error:", e.message);
       res.status(500).json({ error: "Erreur lors de la lecture des produits" });

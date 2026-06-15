@@ -2758,7 +2758,7 @@ export const products: Product[] = [
     badge: "Premium",
     rating: 4.7,
     desc: "Le Valve Index VR Kit est un casque de réalité virtuelle PC haut de gamme offrant une expérience immersive exceptionnelle. Écran 144Hz, audio off-ear, contrôleurs Knuckles à détection digitale.\n⚡ Points forts\n✔️ Rafraîchissement 144Hz – immersion fluide\n✔️ Audio off-ear – sons spatiaux naturels\n✔️ Contrôleurs Knuckles – suivi digital\n✔️ Champ de vision 130° élargi\n✔️ Stations de base SteamVR Tracking 2.0\n⚙️ Résolution : 1440×1600 par œil\nConnectique : DisplayPort 1.2 + USB 3.0",
-    image: "/images/products/valley-index-vr-kit.jpg",
+    image: "/images/products/valve-index-vr-kit.jpg",
     specs: {
       "Type": "Steam Deck",
       "Type d'accessoire": "Casque VR",

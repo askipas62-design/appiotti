@@ -4,7 +4,7 @@ import { useEffect, useState, useRef, useMemo } from "react";
 import ProductCard from "../components/ProductCard";
 import CountdownTimer from "../components/CountdownTimer";
 import { BabyFootIcon, PingPongIcon, BillardIcon, TrampolineIcon, AccessoriesIcon, ConsoleIcon } from "../components/CategoryIcons";
-
+import { productService } from "../services/productService";
 import { reviewService } from "../services/reviewService";
 
 function ReviewSection() {
@@ -159,12 +159,16 @@ export default function Home() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const mod = await import("../data/products");
-      const products = mod.products.filter(Boolean);
-      if (cancelled) return;
-      setAllProducts(products);
-      setFeaturedProducts(products.slice(0, 8));
-      setLoading(false);
+      try {
+        const products = await productService.getAll();
+        if (cancelled) return;
+        setAllProducts(products);
+        setFeaturedProducts(products.slice(0, 8));
+      } catch {
+        if (!cancelled) setAllProducts([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
     })();
     return () => { cancelled = true; };
   }, []);

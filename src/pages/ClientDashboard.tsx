@@ -16,7 +16,7 @@ import { getImageSrc } from "../lib/images";
 
 import { orderService } from "../services/orderService";
 import { reviewService } from "../services/reviewService";
-import { products as allProducts } from "../data/products";
+import { productService } from "../services/productService";
 
 interface Order {
   id: string;
@@ -34,6 +34,7 @@ export default function ClientDashboard() {
   const { addToast } = useToast();
   const navigate = useNavigate();
   const [orders, setOrders] = useState<Order[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"orders" | "favorites" | "profile" | "review" | "security">("orders");
   const [expandedOrder, setExpandedOrder] = useState<string | null>(null);
@@ -55,8 +56,8 @@ export default function ClientDashboard() {
   const getImageUrl = getImageSrc;
 
   const favoriteProducts = useMemo(() => {
-    return allProducts.filter(p => wishlist.includes(p.id));
-  }, [wishlist]);
+    return products.filter(p => wishlist.includes(p.id));
+  }, [wishlist, products]);
 
   const allPurchasedProducts = useMemo(() => {
     const products: any[] = [];
@@ -70,14 +71,18 @@ export default function ClientDashboard() {
     return products;
   }, [orders]);
 
-  const fetchOrders = async () => {
+  const fetchData = async () => {
     if (!user) return;
     setLoading(true);
     try {
-      const data = await orderService.getMyOrders();
-      setOrders(data);
+      const [ordersData, productsData] = await Promise.all([
+        orderService.getMyOrders(),
+        productService.getAll(),
+      ]);
+      setOrders(ordersData);
+      setProducts(productsData);
     } catch (err) {
-      console.error("Fetch orders error:", err);
+      console.error("Fetch data error:", err);
     } finally {
       setLoading(false);
     }
@@ -85,7 +90,7 @@ export default function ClientDashboard() {
 
   useEffect(() => {
     if (user) {
-      fetchOrders();
+      fetchData();
     }
   }, [user]);
 
@@ -335,7 +340,7 @@ export default function ClientDashboard() {
                                  <h4 className="text-lg font-black text-brand-dark font-display uppercase tracking-tight mb-8">Articles commandés</h4>
                                  <div className="space-y-6">
                                    {order.items.map((item, idy) => {
-                                     const productInfo = allProducts.find(p => p.id === item.id);
+                                      const productInfo = products.find(p => p.id === item.id);
                                      const itemImage = item.image || productInfo?.image;
 
                                      return (
