@@ -33,14 +33,9 @@ export default function Shop() {
     let cancelled = false;
     (async () => {
       setLoading(true);
-      try {
-        const data = await productService.getAll();
-        if (!cancelled) setAllProducts(data);
-      } catch {
-        if (!cancelled) setAllProducts([]);
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
+      const products = await productService.getAll();
+      if (!cancelled) setAllProducts(products);
+      if (!cancelled) setLoading(false);
     })();
     return () => { cancelled = true; };
   }, []);

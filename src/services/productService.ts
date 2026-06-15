@@ -14,14 +14,26 @@ function toQueryString(filters?: Record<string, string | number | undefined>): s
 
 export const productService = {
   async getAll(filters?: { category?: string; minPrice?: number; maxPrice?: number; q?: string }): Promise<Product[]> {
-    const res = await fetch(`${API_URL}/api/products${toQueryString(filters)}`);
-    if (!res.ok) throw new Error("Failed to fetch products");
-    return res.json();
+    try {
+      const res = await fetch(`${API_URL}/api/products${toQueryString(filters)}`);
+      if (!res.ok) throw new Error("Failed to fetch products");
+      return await res.json();
+    } catch {
+      const { products: fallback } = await import("../data/products");
+      return fallback.filter(Boolean);
+    }
   },
 
   async getById(id: string): Promise<Product> {
-    const res = await fetch(`${API_URL}/api/products/${id}`);
-    if (!res.ok) throw new Error("Product not found");
-    return res.json();
+    try {
+      const res = await fetch(`${API_URL}/api/products/${id}`);
+      if (!res.ok) throw new Error("Product not found");
+      return await res.json();
+    } catch {
+      const { products: fallback } = await import("../data/products");
+      const product = fallback.find(p => p.id === id);
+      if (!product) throw new Error("Product not found");
+      return product;
+    }
   }
 };
