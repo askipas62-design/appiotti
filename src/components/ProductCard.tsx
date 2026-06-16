@@ -4,7 +4,7 @@ import { ShoppingCart, Star, Heart, Trophy, Zap, CircleDot, Orbit, Headset, Game
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
 import { useToast } from "./ui/Toast";
-import QuickViewModal from "./QuickViewModal";
+
 import { getImageSrc } from "../lib/images";
 
 interface ProductCardProps {
@@ -33,7 +33,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const { toggleWishlist, isInWishlist, processingId } = useWishlist();
   const { addToast } = useToast();
-  const [quickViewOpen, setQuickViewOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
 
   if (!product) return null;
@@ -136,41 +135,26 @@ export default function ProductCard({ product }: ProductCardProps) {
           );
         })()}
 
-         <div className="absolute inset-0 bg-brand-orange/5 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-4 pointer-events-none">
-            <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                setQuickViewOpen(true);
-              }}
-              className="pointer-events-auto px-8 py-3 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-brand-dark transform translate-y-10 group-hover:translate-y-0 transition-all hover:bg-brand-dark hover:text-white shadow-xl"
-            >
-              Vue Rapide
-            </button>
-            <button 
-              onClick={handleWishlist}
-              disabled={isWishlistLoading}
-              className={`pointer-events-auto p-4 rounded-xl transform translate-y-10 group-hover:translate-y-0 transition-all shadow-xl hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-wait ${
-                isFavorite 
-                  ? "bg-brand-orange text-white" 
-                  : "bg-white/90 backdrop-blur-sm text-brand-orange hover:bg-brand-orange hover:text-white"
-              }`}
-            >
-               {isWishlistLoading ? (
-                  <div className="animate-spin-slow">
-                    <RefreshCw size={20} />
-                  </div>
-               ) : (
+         <div className="absolute inset-0 bg-brand-orange/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+             <button 
+               onClick={handleWishlist}
+               disabled={isWishlistLoading}
+               className={`pointer-events-auto p-4 rounded-xl transform translate-y-10 group-hover:translate-y-0 transition-all shadow-xl hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-wait ${
+                 isFavorite 
+                   ? "bg-brand-orange text-white" 
+                   : "bg-white/90 backdrop-blur-sm text-brand-orange hover:bg-brand-orange hover:text-white"
+               }`}
+             >
+                {isWishlistLoading ? (
+                   <div className="animate-spin-slow">
+                     <RefreshCw size={20} />
+                   </div>
+                ) : (
                  <Heart size={20} fill={isFavorite ? "currentColor" : "none"} className={isFavorite ? "" : "group-hover:fill-current"} />
-               )}
-            </button>
-         </div>
+                )}
+             </button>
+          </div>
       </div>
-
-      <QuickViewModal 
-        product={product} 
-        isOpen={quickViewOpen} 
-        onClose={() => setQuickViewOpen(false)} 
-      />
 
       {/* Info Section */}
       <div className="p-4 flex flex-col flex-grow bg-white">
