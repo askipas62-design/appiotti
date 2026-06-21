@@ -50,6 +50,11 @@ const navigationMenu = [
     ]
   },
   {
+    label: "Consoles",
+    slug: "consoles",
+    href: "/boutique?category=consoles",
+  },
+  {
     label: "Accessoires",
     slug: "accessoires",
     href: "/boutique?category=accessoires",

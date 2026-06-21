@@ -3261,7 +3261,401 @@ export const products: Product[] = [
   "Joueurs": "2 ou équipes",
   "Matériau": "Bois stratifié",
   "Usage": "Intérieur",
-  "Contenu": "Vendu seul"
+    "Contenu": "Vendu seul"
+  },
 },
-},
+  {
+    id: "cs-001",
+    name: "Xbox Series X – 1To SSD, 4K 120fps, Next-Gen",
+    category: "consoles",
+    brand: "Microsoft",
+    priceHT: 499.17,
+    stock: 25,
+    rating: 4.8,
+    badge: "Nouveau",
+    desc: "La Xbox Series X est la console la plus puissante de Microsoft. Avec son SSD ultra-rapide de 1 To, son processeur sur mesure et sa capacité à afficher du 4K à 120 fps, elle offre une expérience de jeu next-gen immersive et fluide.\n\nCaractéristiques :\n• Stockage : SSD 1 To\n• Résolution : 4K 120 fps\n• Processeur : Custom Zen 2\n• Ray Tracing : Hardware accéléré\n• Compatibilité : Xbox One, Xbox 360, Xbox (rétrocompatible)\n• Services : Xbox Game Pass Ultimate\n• Connectique : HDMI 2.1, USB 3.2, Ethernet\n• Manette incluse : Xbox Wireless Controller",
+    image: "/images/products/xbox-series-x.webp",
+    specs: {
+      "Stockage": "SSD 1 To",
+      "Résolution": "4K 120 fps",
+      "Processeur": "Custom Zen 2",
+      "Ray Tracing": "Hardware accéléré",
+      "Rétrocompatibilité": "Xbox One, 360, Xbox",
+      "Connectique": "HDMI 2.1, USB 3.2, Ethernet",
+      "Contenu": "Console, manette, câble HDMI, alimentation"
+    }
+  },
+  {
+    id: "cs-002",
+    name: "Xbox Series S 512Go – Next-Gen digitale, compacte",
+    category: "consoles",
+    brand: "Microsoft",
+    priceHT: 291.67,
+    stock: 30,
+    rating: 4.6,
+    desc: "La Xbox Series S est la console next-gen la plus compacte et abordable. Entièrement dématérialisée, elle offre des performances remarquables en 1440p avec un SSD rapide et l'accès à l'écosystème Xbox Game Pass.\n\nCaractéristiques :\n• Stockage : SSD 512 Go\n• Résolution : 1440p (4K upscaling)\n• Processeur : Custom Zen 2\n• Ray Tracing : Supporté\n• Format : Tout numérique (sans lecteur disque)\n• Services : Xbox Game Pass Ultimate\n• Connectique : HDMI 2.1, USB 3.2\n• Manette incluse : Xbox Wireless Controller",
+    image: "/images/products/xbox-series-s-512go.webp",
+    specs: {
+      "Stockage": "SSD 512 Go",
+      "Résolution": "1440p (4K upscaling)",
+      "Processeur": "Custom Zen 2",
+      "Ray Tracing": "Supporté",
+      "Format": "Tout numérique",
+      "Connectique": "HDMI 2.1, USB 3.2",
+      "Contenu": "Console, manette, câble HDMI, alimentation"
+    }
+  },
+  {
+    id: "cs-003",
+    name: "PlayStation 5 Pro – La puissance ultime du gaming",
+    category: "consoles",
+    brand: "Sony",
+    priceHT: 749.17,
+    stock: 15,
+    rating: 4.9,
+    badge: "Nouveau",
+    desc: "La PlayStation 5 Pro repousse les limites du jeu vidéo avec des performances graphiques améliorées, un ray tracing renforcé et un SSD ultra-rapide. Profitez de vos jeux PS5 en 8K et 120 fps pour une immersion totale.\n\nCaractéristiques :\n• Stockage : SSD 2 To\n• Résolution : 8K / 4K 120 fps\n• Ray Tracing : Amélioré (Performance Mode)\n• Processeur : Custom AMD Zen 2\n• Technologie : PSSR (PlayStation Spectral Super Resolution)\n• Rétrocompatibilité : PS5, PS4, PS VR2\n• Connectique : HDMI 2.1, USB-C, Ethernet\n• Manette incluse : DualSense sans fil",
+    image: "/images/products/playstation-5-pro.webp",
+    specs: {
+      "Stockage": "SSD 2 To",
+      "Résolution": "8K / 4K 120 fps",
+      "Ray Tracing": "Amélioré",
+      "Processeur": "Custom AMD Zen 2",
+      "Technologie": "PSSR",
+      "Rétrocompatibilité": "PS5, PS4, PS VR2",
+      "Contenu": "Console, manette DualSense, câble HDMI, alimentation"
+    }
+  },
+  {
+    id: "cs-004",
+    name: "PlayStation 5 Slim Lecteur Disque – Design compact, performances next-gen",
+    category: "consoles",
+    brand: "Sony",
+    priceHT: 499.17,
+    stock: 20,
+    rating: 4.7,
+    desc: "La PlayStation 5 Slim avec lecteur disque est la version compacte et élégante de la PS5. Elle offre les mêmes performances next-gen que le modèle original avec un format réduit et un lecteur Blu-ray 4K intégré.\n\nCaractéristiques :\n• Stockage : SSD 1 To\n• Lecteur : Blu-ray 4K UHD\n• Résolution : 4K 120 fps\n• Ray Tracing : Hardware accéléré\n• Processeur : Custom AMD Zen 2\n• Rétrocompatibilité : PS4, PS VR\n• Connectique : HDMI 2.1, USB-C, Ethernet\n• Manette incluse : DualSense sans fil",
+    image: "/images/products/playstation-5-slim-lecteur-disque.webp",
+    specs: {
+      "Stockage": "SSD 1 To",
+      "Lecteur": "Blu-ray 4K UHD",
+      "Résolution": "4K 120 fps",
+      "Ray Tracing": "Hardware accéléré",
+      "Rétrocompatibilité": "PS4, PS VR",
+      "Connectique": "HDMI 2.1, USB-C, Ethernet",
+      "Contenu": "Console, manette DualSense, câble HDMI, alimentation"
+    }
+  },
+  {
+    id: "cs-005",
+    name: "PlayStation 4 Slim 500Go – La référence gaming accessible",
+    category: "consoles",
+    brand: "Sony",
+    priceHT: 249.17,
+    stock: 35,
+    rating: 4.5,
+    desc: "La PlayStation 4 Slim est la console idéale pour découvrir le vaste catalogue PlayStation à petit prix. Compacte, silencieuse et performante, elle offre des centaines de jeux exclusifs et multi.\n\nCaractéristiques :\n• Stockage : 500 Go HDD\n• Résolution : Full HD 1080p / 4K (streaming)\n• Processeur : Custom AMD Jaguar\n• Connectique : HDMI, USB 3.0, Ethernet\n• Lecteur : Blu-ray / DVD\n• Services : PlayStation Plus, PS Now\n• Manette incluse : DualShock 4",
+    image: "/images/products/playstation-4-slim-500go.webp",
+    specs: {
+      "Stockage": "500 Go HDD",
+      "Résolution": "Full HD 1080p",
+      "Processeur": "Custom AMD Jaguar",
+      "Lecteur": "Blu-ray / DVD",
+      "Connectique": "HDMI, USB 3.0, Ethernet",
+      "Contenu": "Console, manette DualShock 4, câble HDMI, alimentation"
+    }
+  },
+  {
+    id: "cs-006",
+    name: "Nintendo Switch 2 – Nouvelle génération, jeux exclusifs Nintendo",
+    category: "consoles",
+    brand: "Nintendo",
+    priceHT: 416.67,
+    stock: 20,
+    rating: 4.9,
+    badge: "Nouveau",
+    desc: "La Nintendo Switch 2 est la nouvelle console hybride de Nintendo. Plus puissante, avec un écran amélioré et une compatibilité avec les jeux Switch, elle vous permet de jouer à la maison comme en déplacement.\n\nCaractéristiques :\n• Écran : LCD/OLED 8 pouces 1080p\n• Stockage : 256 Go SSD\n• Résolution : 1080p portable / 4K docké\n• Processeur : Custom NVIDIA Tegra\n• Autonomie : 4 à 8 heures\n• Compatibilité : Jeux Nintendo Switch et Switch 2\n• Connectique : USB-C, HDMI\n• Manettes : Joy-Con 2 inclus",
+    image: "/images/products/nintendo-switch-2.webp",
+    specs: {
+      "Écran": "8 pouces 1080p",
+      "Stockage": "256 Go SSD",
+      "Résolution": "1080p portable / 4K docké",
+      "Processeur": "Custom NVIDIA Tegra",
+      "Autonomie": "4 à 8 heures",
+      "Compatibilité": "Switch et Switch 2",
+      "Contenu": "Console, Joy-Con 2, dock, câble HDMI, adaptateur"
+    }
+  },
+  {
+    id: "cs-007",
+    name: "Nintendo Switch OLED – Écran éclatant, jeux hybride",
+    category: "consoles",
+    brand: "Nintendo",
+    priceHT: 333.33,
+    stock: 25,
+    rating: 4.7,
+    desc: "La Nintendo Switch OLED propose un écran OLED 7 pouces aux couleurs éclatantes pour une expérience portable premium. Avec son dock à port LAN, son stockage 64 Go et son large catalogue de jeux, c'est la console familiale par excellence.\n\nCaractéristiques :\n• Écran : OLED 7 pouces\n• Stockage : 64 Go\n• Résolution : 720p portable / 1080p docké\n• Autonomie : 4.5 à 9 heures\n• Dock : Avec port LAN intégré\n• Connectique : USB-C, HDMI\n• Manettes : Joy-Con détachables inclus",
+    image: "/images/products/nintendo-switch-oled.webp",
+    specs: {
+      "Écran": "OLED 7 pouces",
+      "Stockage": "64 Go",
+      "Résolution": "720p portable / 1080p docké",
+      "Autonomie": "4.5 à 9 heures",
+      "Dock": "Avec port LAN",
+      "Connectique": "USB-C, HDMI",
+      "Contenu": "Console, Joy-Con, dock, câble HDMI, adaptateur"
+    }
+  },
+  {
+    id: "cs-008",
+    name: "Steam Deck OLED – Le PC gaming portable ultime",
+    category: "consoles",
+    brand: "Valve",
+    priceHT: 541.67,
+    stock: 15,
+    rating: 4.8,
+    badge: "Nouveau",
+    desc: "Le Steam Deck OLED est la version améliorée du PC gaming portable de Valve. Son écran OLED HDR, son autonomie accrue et son SSD rapide vous permettent d'emporter votre bibliothèque Steam partout.\n\nCaractéristiques :\n• Écran : OLED HDR 7.4 pouces 90 Hz\n• Stockage : SSD 512 Go / 1 To\n• Processeur : Custom AMD APU Zen 2\n• RAM : 16 Go LPDDR5\n• Autonomie : 3 à 12 heures selon usage\n• OS : SteamOS 3 (Linux)\n• Connectique : USB-C, Bluetooth 5.0, Wi-Fi 6E\n• Compatibilité : Steam, Epic, Game Pass via Cloud",
+    image: "/images/products/steam-deck-oled.webp",
+    specs: {
+      "Écran": "OLED HDR 7.4\" 90 Hz",
+      "Stockage": "SSD 512 Go",
+      "Processeur": "Custom AMD APU Zen 2",
+      "RAM": "16 Go LPDDR5",
+      "Autonomie": "3 à 12 heures",
+      "OS": "SteamOS 3",
+      "Contenu": "Console, étui de transport, chargeur"
+    }
+  },
+  {
+    id: "cs-009",
+    name: "Valve Index VR Kit – Immersion VR haut de gamme",
+    category: "consoles",
+    brand: "Valve",
+    priceHT: 999.17,
+    stock: 8,
+    rating: 4.9,
+    desc: "Le Valve Index VR Kit est l'un des systèmes de réalité virtuelle les plus avancés du marché. Avec son casque haute résolution 144 Hz, ses contrôleurs Finger Tracking et ses stations de base 2.0, plongez dans une expérience VR inégalée.\n\nCaractéristiques :\n• Résolution : 1440×1600 par œil\n• Rafraîchissement : 80, 90, 120, 144 Hz\n• Champ de vision : 130°\n• Audio : Intégré haut-parleurs off-ear\n• Tracking : Stations de base SteamVR 2.0\n• Contrôleurs : Index Controllers (finger tracking)\n• Compatibilité : SteamVR, PC Windows\n• Connexion : DisplayPort 1.2, USB 3.0",
+    image: "/images/products/valve-index-vr-kit.webp",
+    specs: {
+      "Résolution": "1440×1600 par œil",
+      "Rafraîchissement": "144 Hz max",
+      "Champ de vision": "130°",
+      "Tracking": "Stations de base 2.0",
+      "Contrôleurs": "Index Controllers",
+      "Compatibilité": "SteamVR, PC Windows",
+      "Contenu": "Casque, contrôleurs ×2, stations ×2, câbles"
+    }
+  },
+  {
+    id: "ac-042",
+    name: "Manette Xbox Carbon Black – Design moderne, confort optimal",
+    category: "accessoires",
+    brand: "Microsoft",
+    priceHT: 49.17,
+    stock: 40,
+    rating: 4.6,
+    desc: "La manette Xbox Carbon Black associe un design élégant et épuré à des fonctionnalités modernes : stick analogique texturé, croix directionnelle hybride et prise en charge du Bluetooth pour jouer sans fil sur Xbox et PC.\n\nCaractéristiques :\n• Connectivité : Xbox Wireless / Bluetooth\n• Compatibilité : Xbox Series X|S, Xbox One, Windows 10/11\n• Autonomie : 30h (piles AA)\n• Prise jack : 3.5 mm pour casque\n• Poids : ~240 g",
+    image: "/images/products/manette-xbox-carbon-black.webp",
+    specs: {
+      "Connectivité": "Xbox Wireless / Bluetooth",
+      "Compatibilité": "Xbox Series X|S, One, PC Windows",
+      "Autonomie": "30h (piles AA)",
+      "Prise jack": "3.5 mm",
+      "Poids": "~240 g",
+      "Contenu": "Manette, 2 piles AA"
+    }
+  },
+  {
+    id: "ac-043",
+    name: "Manette Pro PS5 DualSense Edge – Personnalisation et précision",
+    category: "accessoires",
+    brand: "Sony",
+    priceHT: 199.17,
+    stock: 15,
+    rating: 4.7,
+    badge: "Nouveau",
+    desc: "La DualSense Edge est la manette professionnelle pour PS5. Personnalisez vos sticks, gâchettes et boutons arrière pour un contrôle optimal. Profitez du retour haptique et des gâchettes adaptatives dans un format compétitif.\n\nCaractéristiques :\n• Connectivité : Sans fil / USB-C\n• Compatibilité : PS5, PC Windows\n• Fonctions : Retour haptique, gâchettes adaptatives\n• Personnalisation : Sticks interchangeables, gâchettes ajustables\n• Boutons arrière : 2 palettes programmables\n• Autonomie : 5 à 10 heures\n• Câble tressé USB-C inclut",
+    image: "/images/products/manette-pro-ps5-dualsense-edge.webp",
+    specs: {
+      "Connectivité": "Sans fil / USB-C",
+      "Compatibilité": "PS5, PC Windows",
+      "Fonctions": "Retour haptique, gâchettes adaptatives",
+      "Personnalisation": "Sticks et gâchettes interchangeables",
+      "Boutons arrière": "2 palettes programmables",
+      "Autonomie": "5 à 10 heures",
+      "Contenu": "Manette, câble USB-C, coque de rangement, sticks additionnels"
+    }
+  },
+  {
+    id: "ac-044",
+    name: "Casque Gaming Sans Fil 7.1 Surround – Immersion audio totale",
+    category: "accessoires",
+    brand: "Generic",
+    priceHT: 74.17,
+    stock: 30,
+    rating: 4.4,
+    desc: "Casque gaming sans fil avec son surround 7.1 pour une immersion totale dans vos jeux. Léger, confortable et doté d'un micro antibruit, il est compatible PC, PS5, Xbox et Nintendo Switch.\n\nCaractéristiques :\n• Son : Surround 7.1 virtuel\n• Connectivité : Sans fil 2.4 GHz / Jack 3.5 mm\n• Autonomie : 20 heures\n• Micro : Antibruit flexible\n• Compatibilité : PC, PS5, PS4, Xbox, Switch\n• Poids : ~280 g",
+    image: "/images/products/casque-gaming-sans-fil-7-1-surround.webp",
+    specs: {
+      "Son": "Surround 7.1 virtuel",
+      "Connectivité": "Sans fil 2.4 GHz / Jack 3.5 mm",
+      "Autonomie": "20 heures",
+      "Micro": "Antibruit flexible",
+      "Compatibilité": "PC, PS5, PS4, Xbox, Switch",
+      "Poids": "~280 g",
+      "Contenu": "Casque, dongle USB, câble jack, câble charge"
+    }
+  },
+  {
+    id: "ac-045",
+    name: "Casque Pulse 3D – Audio 3D sans fil pour PS5",
+    category: "accessoires",
+    brand: "Sony",
+    priceHT: 91.67,
+    stock: 20,
+    rating: 4.5,
+    desc: "Le casque Pulse 3D a été spécialement conçu pour la PS5 afin de profiter de l'audio 3D Tempest. Sans fil, confortable et élégant, il offre un son spatial immersif qui vous plonge au cœur de l'action.\n\nCaractéristiques :\n• Audio : 3D Tempest (PS5) / Stéréo\n• Connectivité : Sans fil via adaptateur USB\n• Autonomie : 12 heures\n• Micro : Double micro antibruit\n• Compatibilité : PS5, PS4, PC\n• Poids : ~292 g",
+    image: "/images/products/casque-pulse-3d.webp",
+    specs: {
+      "Audio": "3D Tempest (PS5)",
+      "Connectivité": "Sans fil via adaptateur USB",
+      "Autonomie": "12 heures",
+      "Micro": "Double micro antibruit",
+      "Compatibilité": "PS5, PS4, PC",
+      "Poids": "~292 g",
+      "Contenu": "Casque, adaptateur USB, câble jack, câble charge"
+    }
+  },
+  {
+    id: "ac-046",
+    name: "Station de Charge DualSense – Rechargez 2 manettes PS5",
+    category: "accessoires",
+    brand: "Sony",
+    priceHT: 24.17,
+    stock: 50,
+    rating: 4.6,
+    desc: "La station de charge officielle DualSense permet de recharger jusqu'à 2 manettes PS5 simultanément. Design compact, charge rapide et connecteur USB-C pour une solution de rangement élégante.\n\nCaractéristiques :\n• Compatibilité : Manettes DualSense et DualSense Edge\n• Charge : 2 manettes en simultané\n• Connectique : USB-C\n• Alimentation : via console PS5 ou adaptateur secteur\n• Design : Compact et épuré",
+    image: "/images/products/station-charge-dualsense.webp",
+    specs: {
+      "Compatibilité": "DualSense et DualSense Edge",
+      "Charge": "2 manettes simultanément",
+      "Connectique": "USB-C",
+      "Alimentation": "Console PS5 ou adaptateur",
+      "Design": "Compact",
+      "Contenu": "Station de charge, câble USB"
+    }
+  },
+  {
+    id: "ac-047",
+    name: "Station de Recharge Double PS5/Xbox – Chargez 2 manettes",
+    category: "accessoires",
+    brand: "Generic",
+    priceHT: 19.17,
+    stock: 45,
+    rating: 4.3,
+    desc: "Station de recharge double compatible avec les manettes PS5 DualSense et Xbox Series X|S. Charge rapide et sécurisée avec témoins lumineux LED. Idéale pour les sessions marathon.\n\nCaractéristiques :\n• Compatibilité : DualSense PS5, Xbox Series X|S\n• Charge : 2 manettes simultanément\n• Technologie : Charge rapide\n• LED : Indicateurs de charge\n• Alimentation : USB-C\n• Sûreté : Protection contre les surcharges",
+    image: "/images/products/station-de-recharge-double-ps5-xbox.webp",
+    specs: {
+      "Compatibilité": "DualSense PS5, Xbox Series X|S",
+      "Charge": "2 manettes simultanément",
+      "Technologie": "Charge rapide",
+      "LED": "Indicateurs de charge",
+      "Alimentation": "USB-C",
+      "Contenu": "Station, câble USB, embouts adaptateurs"
+    }
+  },
+  {
+    id: "ac-048",
+    name: "Support Mural Console – Rangement jeux et accessoires",
+    category: "accessoires",
+    brand: "Generic",
+    priceHT: 29.17,
+    stock: 35,
+    rating: 4.2,
+    desc: "Support mural universel pour console de jeu avec rangement intégré pour jeux et accessoires. Design épuré et robuste, compatible avec PS5, Xbox Series X|S et Nintendo Switch.\n\nCaractéristiques :\n• Compatibilité : PS5, Xbox Series X|S, Nintendo Switch\n• Matériau : Acier peint haute résistance\n• Rangement : Espace pour jeux et accessoires\n• Fixation : Murale (vis et chevilles incluses)\n• Ventilation : Ouvertures pour refroidissement\n• Charge maximale : 15 kg",
+    image: "/images/products/support-mural-console-rangement-jeux.webp",
+    specs: {
+      "Compatibilité": "PS5, Xbox Series X|S, Switch",
+      "Matériau": "Acier peint",
+      "Rangement": "Jeux et accessoires",
+      "Fixation": "Murale (kit inclus)",
+      "Ventilation": "Ouvertures de refroidissement",
+      "Contenu": "Support, kit de fixation, notice"
+    }
+  },
+  {
+    id: "ac-049",
+    name: "Tapis de Sol Gaming Anti-Fatigue XL – Confort et style",
+    category: "accessoires",
+    brand: "Generic",
+    priceHT: 37.5,
+    stock: 40,
+    rating: 4.5,
+    desc: "Tapis de sol gaming anti-fatigue format XL pour jouer debout dans un confort optimal. Surface antidérapante, design moderne et motifs gaming. Parfait pour les sessions prolongées.\n\nCaractéristiques :\n• Dimensions : 120 x 60 cm\n• Épaisseur : 15 mm\n• Matériau : Mousse EVA haute densité\n• Surface : Antidérapante et facile à nettoyer\n• Design : Motifs gaming noir/rouge\n• Usage : Jeu debout, bureau, streaming",
+    image: "/images/products/tapis-de-sol-gaming-anti-fatigue-xl.webp",
+    specs: {
+      "Dimensions": "120 x 60 cm",
+      "Épaisseur": "15 mm",
+      "Matériau": "Mousse EVA haute densité",
+      "Surface": "Antidérapante",
+      "Design": "Motifs gaming",
+      "Contenu": "Tapis de sol"
+    }
+  },
+  {
+    id: "ac-050",
+    name: "Pack Accessoires Gaming Complet – Tout pour le gamer",
+    category: "accessoires",
+    brand: "Generic",
+    priceHT: 29.17,
+    stock: 30,
+    rating: 4.3,
+    badge: "Nouveau",
+    desc: "Pack d'accessoires gaming complet comprenant les essentiels pour tout gamer : support de casque, LED strip, grips pour manettes, stickers et bien plus. Idéal pour personnaliser votre setup.\n\nCaractéristiques :\n• Support de casque : Métal avec base antidérapante\n• LED strip : RGB USB, 50 cm\n• Grips : Silicone pour manettes\n• Autres : Stickers, câble tressé, gestionnaire de câbles\n• Compatibilité : Universelle",
+    image: "/images/products/pack-accessoires-gaming-complet.webp",
+    specs: {
+      "Contenu": "Support casque, LED strip, grips, stickers, câble tressé"
+    }
+  },
+  {
+    id: "ac-051",
+    name: "Nintendo Switch 2 Pro Controller – Manette sans fil premium",
+    category: "accessoires",
+    brand: "Nintendo",
+    priceHT: 66.67,
+    stock: 20,
+    rating: 4.7,
+    badge: "Nouveau",
+    desc: "Le Nintendo Switch 2 Pro Controller est la manette sans fil haut de gamme pour jouer sur Nintendo Switch 2 et Switch. Design ergonomique, autonomie longue durée et commandes précises.\n\nCaractéristiques :\n• Connectivité : Sans fil Bluetooth\n• Compatibilité : Switch 2, Switch, PC\n• Autonomie : 40 heures\n• Fonctions : NFC (Amiibo), gyroscope, HD Rumble\n• Prise jack : 3.5 mm\n• Poids : ~260 g",
+    image: "/images/products/nintendo-switch-2-pro-controller.webp",
+    specs: {
+      "Connectivité": "Sans fil Bluetooth",
+      "Compatibilité": "Switch 2, Switch, PC",
+      "Autonomie": "40 heures",
+      "Fonctions": "NFC, gyroscope, HD Rumble",
+      "Prise jack": "3.5 mm",
+      "Poids": "~260 g",
+      "Contenu": "Manette, câble USB-C"
+    }
+  },
+  {
+    id: "ac-052",
+    name: "Steam Deck Dock – Station d'accueil officielle",
+    category: "accessoires",
+    brand: "Valve",
+    priceHT: 74.17,
+    stock: 25,
+    rating: 4.6,
+    desc: "Le Steam Deck Dock officiel de Valve transforme votre Steam Deck en station de jeu complète. Connectez vos écrans, périphériques et alimentation en un seul branchement.\n\nCaractéristiques :\n• Connectique : HDMI 2.0, DisplayPort 1.4, USB 3.1 ×3, Ethernet Gigabit\n• Alimentation : USB-C PD (Power Delivery)\n• Compatibilité : Steam Deck, Steam Deck OLED\n• Résolution : Jusqu'à 4K 60 Hz\n• Format : Station d'accueil compacte\n• Câble : USB-C intégré",
+    image: "/images/products/steam-deck-dock.webp",
+    specs: {
+      "Connectique": "HDMI 2.0, DP 1.4, USB 3.1 ×3, Ethernet",
+      "Alimentation": "USB-C PD",
+      "Compatibilité": "Steam Deck et Steam Deck OLED",
+      "Résolution": "4K 60 Hz",
+      "Format": "Station compacte",
+      "Contenu": "Dock, bloc alimentation"
+    }
+  }
 ];

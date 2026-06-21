@@ -62,3 +62,16 @@ export const AccessoiresIcon = ({ className = "w-full h-full" }: IconProps) => (
     <path d="M12 8v4l2 2" />
   </svg>
 );
+
+export const ConsolesIcon = ({ className = "w-full h-full" }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="6" width="8" height="12" rx="2" />
+    <rect x="14" y="6" width="8" height="12" rx="2" />
+    <circle cx="6" cy="10" r="1" fill="currentColor" stroke="none" />
+    <circle cx="6" cy="14" r="1" fill="currentColor" stroke="none" />
+    <circle cx="18" cy="10" r="1" fill="currentColor" stroke="none" />
+    <circle cx="18" cy="14" r="1" fill="currentColor" stroke="none" />
+    <path d="M2 6h8" />
+    <path d="M14 6h8" />
+  </svg>
+);
