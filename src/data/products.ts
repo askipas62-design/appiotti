@@ -42,17 +42,17 @@ export const products: Product[] = [
   "Niveau": "Professionnel / intensif",
   "Fabrication": "Française 🇫🇷",
   "Stabilité": "Structure renforcée anti-déformation",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-002",
     name: "Baby-foot Stella Home Outdoor – Modèle extérieur ultra résistant",
     category: "baby-foot",
     brand: "Stella",
-    priceHT: 1625.0,
+    priceHT: 1625,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     desc: "Le baby-foot Stella Home Outdoor est spécialement conçu pour une utilisation en extérieur toute l’année. Grâce à ses matériaux résistants aux intempéries (pluie, soleil, UV), il conserve ses performances et son esthétique dans le temps.\nSon design élégant en blanc s’intègre parfaitement dans un jardin, une terrasse ou au bord d’une piscine. Il offre également les sensations de jeu emblématiques Stella : balles sautées, jeu de tête et bandes latérales inclinées pour un gameplay dynamique et authentique.\nFabriqué en France, ce modèle garantit une qualité de fabrication exceptionnelle et une durabilité extrême, idéale pour un usage intensif en famille ou entre amis.\n\n\n• Utilisation : extérieur (toute l’année)\n• Structure : stratifié HPL ultra résistant\n• Pieds : bois massif imputrescible\n• Barres : inox haute résistance\n• Joueurs : aluminium\n• Tapis : PVC (type Gerflex) sur fond rigide\n• Dimensions : env. 158 x 100 x 93 cm\n• Poids : env. 80 kg\n• Options :\n• Poignées (rondes, longues, alu…)\n• Tapis tracé ou non",
     image: "/images/products/bf-002.webp",
     specs: {
@@ -64,15 +64,15 @@ export const products: Product[] = [
   "Tapis": "PVC (type Gerflex) sur fond rigide",
   "Dimensions": "env. 158 x 100 x 93 cm",
   "Poids": "env. 80 kg",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-003",
     name: "Baby-foot Stella Champion Outdoor – Modèle extérieur premium résistant aux intempéries",
     category: "baby-foot",
     brand: "Stella",
-    priceHT: 2250.0,
+    priceHT: 2250,
     stock: 100,
     rating: 4.9,
     desc: "Lebaby-foot Stella Champion Outdoorest un modèle haut de gamme conçu spécialement pour une utilisation en extérieur. Grâce à sa structure ultra résistante et ses matériaux de qualité professionnelle, il peut rester toute l’année sur une terrasse, dans un jardin ou un espace professionnel sans craindre les intempéries.\nSon design blanc moderne s’intègre parfaitement dans tous les environnements, tout en conservant l’ADN des baby-foot Stella : robustesse, sensations de jeu authentiques et précision.\nCe modèle offre une expérience de jeu exceptionnelle avec ses barres en inox, ses joueurs en aluminium et son célèbre système de jeu Stella permettant les balles sautées et les reprises de volée.\n👉 Idéal pour :\n• Terrasses, jardins, hôtels, campings\n• Bars & espaces professionnels\n• Utilisation intensive extérieure\n\n• Utilisation : Extérieur\n• Structure : Stratifié compact HPL ultra résistant\n• Pieds : Bois massif imputrescible (Moabi)\n• Barres : Acier inoxydable\n• Type de barres : Télescopiques\n• Joueurs : Aluminium vissés\n• Tapis : Vinyle / PVC sur fond souple\n• Amortisseurs : Caoutchouc renforcé\n• Dimensions : env. 158 x 100 x 93 cm\n• Poids : env. 100 kg\n• Accessoires : balles incluses\n✔ Résistant pluie / neige / UV✔ Jeu de tête possible (signature Stella)✔ Balles sautées possibles✔ Très grande stabilité",
@@ -89,15 +89,15 @@ export const products: Product[] = [
   "Dimensions": "env. 158 x 100 x 93 cm",
   "Poids": "env. 100 kg",
   "Accessoires": "balles incluses",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bi-001",
     name: "Billard convertible Garlando Virginia 6 & 7 ft – Table de billard & table à manger",
     category: "billard",
     brand: "Garlando",
-    priceHT: 500.0,
+    priceHT: 500,
     stock: 100,
     rating: 4.8,
     desc: "LeGarlando Virginiaest un billard élégant et polyvalent conçu pour s’intégrer parfaitement dans votre intérieur. Grâce à son système convertible, il se transforme facilement en table à manger, vous permettant d’optimiser votre espace sans compromis sur le plaisir du jeu.\nAvec sa finition bois effet noyer et ses coins chromés, il apporte une touche moderne et raffinée à votre salon. Sa structure robuste et ses matériaux de qualité garantissent une excellente stabilité et un confort de jeu optimal.\nDisponible en6 ft et 7 ft, il s’adapte à tous les espaces, que ce soit pour un usage familial ou loisir avancé.\n👉 Idéal pour : maison, salon, salle de jeux, espaces multifonctions.\n\n\n• Tailles disponibles : 6 ft et 7 ft\n• Structure : MDF haute densité (15 mm)\n• Surface de jeu : MDF 22 mm avec tapis type Taclon\n• Couleur : bois effet noyer\n• Coins : chromés\n• Système convertible : option plateau table\n• Pieds : réglables pour surface plane\n• Bandes : profil K-66 haute qualité\n• Poids :• 6 ft : ~110 kg\n• 7 ft : ~125 kg\n\n• Dimensions :• 6 ft : 205 x 115 x 79 cm\n• 7 ft : 225 x 125 x 79 cm",
@@ -113,11 +113,11 @@ export const products: Product[] = [
   "Bandes": "profil K-66 haute qualité",
   "6 ft": "205 x 115 x 79 cm",
   "7 ft": "225 x 125 x 79 cm",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
     options: [
-      { label: "6 ft (205×115×79 cm)", value: "6ft" },
-      { label: "7 ft (225×125×79 cm)", value: "7ft" },
+      {label: "6 ft (205×115×79 cm)", value: "6ft"},
+      {label: "7 ft (225×125×79 cm)", value: "7ft"},
     ],
   },
   {
@@ -139,8 +139,8 @@ export const products: Product[] = [
   "Surface": "MDF 12 mm avec tapis Taclon",
   "Utilisation": "intérieur",
   "Niveau": "débutant / familial",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-003",
@@ -165,8 +165,8 @@ export const products: Product[] = [
   "Bandes": "Caoutchouc profil triangulaire",
   "Système": "récupération des billes par paniers (sans monnayeur)",
   "Utilisation": "intérieur (maison, club, salle de jeux)",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-004",
@@ -189,8 +189,8 @@ export const products: Product[] = [
   "Bandes": "caoutchouc profil K-66 (rebond précis)",
   "Poches": "type américain (filets)",
   "Fonction": "convertible en table à manger",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-005",
@@ -214,8 +214,8 @@ export const products: Product[] = [
   "Système antivol": "oui, avec retenue de la bille de choc.",
   "Accès maintenance": "oui, par ouverture du terrain via deux serrures de service.",
   "Livraison affichée sur la fiche produit": "gratuite, avec délai indiqué de 1 à 3 semaines.",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-006",
@@ -236,15 +236,15 @@ export const products: Product[] = [
   "Système": "monnayeur (pièces ou jetons)",
   "Bandes": "caoutchouc K66 (rebond professionnel)",
   "Pieds": "réglables, structure métal renforcée",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-007",
     name: "Billard Garlando Ambassador 6 ft avec monnayeur – Table professionnelle en ardoise",
     category: "billard",
     brand: "Garlando",
-    priceHT: 2000.0,
+    priceHT: 2000,
     stock: 100,
     rating: 4.2,
     badge: "Sale",
@@ -257,8 +257,8 @@ export const products: Product[] = [
   "Plateau": "ardoise haute qualité (~19 mm)",
   "Système": "monnayeur mécanique ou électronique",
   "Compatible billes": "54 mm et 60,3 mm",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bf-004",
@@ -283,8 +283,8 @@ export const products: Product[] = [
   "Dimensions": "env. 154 x 109 cm",
   "Fabrication": "🇫🇷 Française",
   "Accessoires": "balles incluses",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-005",
@@ -293,7 +293,7 @@ export const products: Product[] = [
     brand: "René Pierre",
     priceHT: 915.83,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     desc: "Lebaby-foot Sixties de René Pierreest une véritable pièce de décoration inspirée des années 60, combinant parfaitementstyle rétro et performance moderne. Avec ses lignes droites, ses finitions vintage et ses détails métalliques élégants, ce modèle rend hommage aux baby-foot emblématiques de l’époque tout en intégrant les standards actuels de qualité.\nFabriqué en France, ce baby-foot offre une expérience de jeu fluide et dynamique grâce à sesbarres télescopiques en acier chromé, sesjoueurs en métal visséset sonterrain en Gerflex avec coins relevéspour un jeu rapide et précis.\nIdéal pour un salon moderne, une salle de jeux ou un espace professionnel, le modèle Sixties est autant un objet déco qu’un véritable baby-foot de café.\n\n\n• Fabrication : 100% française 🇫🇷\n• Structure : Panneaux mélaminés (style vintage)\n• Pieds : Acier thermo-laqué avec renforts\n• Barres : Télescopiques en acier chromé Ø14 mm\n• Joueurs : Métal vissés (chromé / cuivré)\n• Terrain : Gerflex avec coins relevés\n• Retour de balle : Central\n• Dimensions :• 153 x 105 x 95 cm\n\n• Poids : ≈ 70–72 kg\n• Montage : Rapide (~10 min)",
     image: "/images/products/bf-005.webp",
     specs: {
@@ -306,8 +306,8 @@ export const products: Product[] = [
   "Retour de balle": "Central",
   "Poids": "≈ 70–72 kg",
   "Montage": "Rapide (~10 min)",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-006",
@@ -333,8 +333,8 @@ export const products: Product[] = [
   "Poids": "~80 kg",
   "Livraison": "3 à 5 jours",
   "Montage": "Rapide (≈30 min)",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-007",
@@ -350,15 +350,15 @@ export const products: Product[] = [
   "🇫🇷 Fabrication": "France",
   "Dimensions": "environ 153 x 105 x 90 cm",
   "Poids": "environ 73–74 kg",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-008",
     name: "Baby-foot René Pierre Color Chêne Sablé – Design moderne & fabrication française",
     category: "baby-foot",
     brand: "René Pierre",
-    priceHT: 650.0,
+    priceHT: 650,
     stock: 100,
     rating: 4.7,
     badge: "Sale",
@@ -380,15 +380,15 @@ export const products: Product[] = [
   "Accessoires": "balles incluses",
   "Fabrication": "🇫🇷 France",
   "Garantie": "2 ans",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-009",
     name: "Baby-foot René Pierre Leader Châtaignier – Style café authentique, fabrication française",
     category: "baby-foot",
     brand: "René Pierre",
-    priceHT: 625.0,
+    priceHT: 625,
     stock: 100,
     rating: 4.6,
     badge: "Sale",
@@ -406,8 +406,8 @@ export const products: Product[] = [
   "Accessoires": "livré avec 2 balles en liège",
   "Fabrication": "🇫🇷 France (Chalon-sur-Saône)",
   "Garantie": "2 ans",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-010",
@@ -431,15 +431,15 @@ export const products: Product[] = [
   "Système de jeu": "retour central des balles",
   "Effets sonores": "“gamelles” (comme au café)",
   "Utilisation": "intérieur (maison / bureau / pro)",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-011",
     name: "Baby-foot René Pierre Color Noyer Vénice – design premium bois & sensations de café",
     category: "baby-foot",
     brand: "René Pierre",
-    priceHT: 750.0,
+    priceHT: 750,
     stock: 100,
     rating: 4.4,
     desc: "Lebaby-foot Color Noyer Vénice René Pierreest un modèle intérieur haut de gamme qui combine parfaitementdesign moderne et sensations de jeu authentiques. La marque le présente comme un véritableobjet de décoration, conçu pour s’intégrer élégamment dans un salon ou une pièce de vie.\nSa finitionbois noyer Véniceapporte une touche chaleureuse et premium, tout en conservant l’ADN du baby-foot de café :tapis Gerflex,barres télescopiques en acier,joueurs en métalet une excellente stabilité.\nCe modèle offre un jeurapide, fluide et précis, avec une très bonne sensation de contrôle. C’est un produit idéal pour ceux qui recherchent un baby-foot à la foisesthétique, robuste et performant.\n• Type: baby-foot intérieur (style café)\n• Fabrication: 100 % française\n• Structure: bois MDF / panneau mélaminé\n• Finition: noyer Vénice (design premium)\n• Surface de jeu: Gerflex (rapide et silencieux)\n• Barres: télescopiques en acier chromé\n• Joueurs: aluminium / métal vissés\n• Stabilité: très élevée (structure robuste)\n• Montage: livré prémonté (assemblage rapide des pieds)\n• Accessoires: livré avec balles en liège\n• Dimensions approx.: 150 x 105 x 95 cm\n• Poids: ~72 kg",
@@ -457,8 +457,8 @@ export const products: Product[] = [
   "Accessoires": "livré avec balles en liège",
   "Dimensions approx.": "150 x 105 x 95 cm",
   "Poids": "~72 kg",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-012",
@@ -485,8 +485,8 @@ export const products: Product[] = [
   "Fabrication": "fabriqué en France à Chalon-sur-Saône.",
   "Dimensions": "Longueur 223 cm, Largeur 107 cm, Hauteur 93 cm.",
   "Poids": "107 kg.",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-013",
@@ -506,15 +506,15 @@ export const products: Product[] = [
   "Surface": "linoléum / Gerflex",
   "Résistance": "pluie / UV / humidité",
   "Poids": "~60–70 kg",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-014",
     name: "Baby-foot extérieur Tahiti René Pierre – résistant, durable, idéal jardin",
     category: "baby-foot",
     brand: "René Pierre",
-    priceHT: 1000.0,
+    priceHT: 1000,
     stock: 100,
     rating: 4.1,
     badge: "Sale",
@@ -528,9 +528,9 @@ export const products: Product[] = [
   "Surface": "linoléum blanc",
   "Dimensions": "156 x 107 x 93 cm",
   "Poids": "~78 kg",
-  "Contenu": "2 balles incluses"
-
-},
+  "Contenu": "2 balles incluses",
+  },
+  },
   {
     id: "pp-001",
     name: "Table de ping-pong TIBHAR Smash 28 Black Line – compétition premium au design élégant",
@@ -538,7 +538,7 @@ export const products: Product[] = [
     brand: "TIBHAR",
     priceHT: 583.33,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     desc: "LaTIBHAR Smash 28 Black Lineest une table de compétition haut de gamme qui allie performance et design premium.\nSon plateau de28 mm offre un rebond ultra précis, conforme aux standards ITTF.\nSon design noir élégant en fait une table unique, parfaite pour :\n• clubs premium\n• salles modernes\n• installations haut de gamme\n👉 Une table qui impressionne autant par son look que par ses performances.\n• Plateau :28 mm (compétition)\n• Norme :ITTF (compétition officielle)\n• Structure : acier renforcé A60\n• Couleur :noir premium\n• Système : demi-tables indépendantes\n• Utilisation : intérieur\n• Filet : non inclus",
     image: "/images/products/pp-001.webp",
     specs: {
@@ -549,8 +549,8 @@ export const products: Product[] = [
   "Système": "demi-tables indépendantes",
   "Utilisation": "intérieur",
   "Filet": "non inclus",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-002",
@@ -570,15 +570,15 @@ export const products: Product[] = [
   "Mobilité": "demi-tables indépendantes",
   "Utilisation": "intérieur",
   "Niveau": "club / compétition",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-003",
     name: "Table de ping-pong TIBHAR 3000 – stable, précise, idéale usage régulier intérieur",
     category: "ping-pong",
     brand: "TIBHAR",
-    priceHT: 175.0,
+    priceHT: 175,
     stock: 100,
     rating: 4.8,
     desc: "LaTIBHAR 3000est une table intérieure conçue pour un usage régulier à domicile.\nSon plateau enbois de 19 mmoffre un rebond précis et agréable, idéal pour progresser tout en prenant du plaisir. Sa structure robuste assure une excellente stabilité.\nFacile à plier et à déplacer grâce à ses roulettes, elle permet également un entraînement en solo.\n👉 Parfaite pour :\n• maison\n• salle de jeux\n• entraînement régulier\n• Plateau :19 mm bois (indoor)\n• Surface : panneau de particules haute qualité\n• Structure : acier robuste\n• Roues : pivotantes pour transport facile\n• Mode solo : oui (playback)\n• Filet : inclus\n• Utilisation : intérieur uniquement",
@@ -591,8 +591,8 @@ export const products: Product[] = [
   "Mode solo": "oui (playback)",
   "Filet": "inclus",
   "Utilisation": "intérieur uniquement",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-004",
@@ -612,8 +612,8 @@ export const products: Product[] = [
   "Installation": "fixe / ancrable au sol",
   "Poids": "~120 kg",
   "Utilisation": "extérieur permanent",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-005",
@@ -635,15 +635,15 @@ export const products: Product[] = [
   "Mode solo": "oui",
   "Pieds réglables": "oui",
   "Utilisation": "intérieur + extérieur",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-006",
     name: "Table de ping-pong TIBHAR 9000W – qualité compétition, norme ITTF, ultra stable",
     category: "ping-pong",
     brand: "TIBHAR",
-    priceHT: 1000.0,
+    priceHT: 1000,
     stock: 100,
     rating: 4.5,
     badge: "Sale",
@@ -657,8 +657,8 @@ export const products: Product[] = [
   "Système pliable": "oui",
   "Utilisation": "intérieur",
   "Niveau": "club / compétition",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-007",
@@ -678,15 +678,15 @@ export const products: Product[] = [
   "Montage": "ultra rapide",
   "Utilisation": "intérieur uniquement",
   "Design": "moderne (noir / gris / accents orange)&nbsp;",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-008",
     name: "Table de ping-pong extérieure JOOLA Nova Pro – design moderne, résistante et élégante",
     category: "ping-pong",
     brand: "JOOLA",
-    priceHT: 375.0,
+    priceHT: 375,
     stock: 100,
     rating: 4.3,
     desc: "LaJOOLA Nova Procombine design moderne et performance pour une utilisation extérieure optimale.\nSon plateau enaluminium composite de 6 mm garantit un rebond régulier et une résistance aux intempéries, idéal pour jouer toute l’année.\nSa structure robuste, ses roues et ses pieds réglables assurent une stabilité parfaite sur tous les terrains.\n👉 Une table parfaite pour allierstyle, plaisir et durabilité.\n• Plateau :6 mm aluminium composite outdoor\n• Résistance : pluie / soleil / humidité\n• Roues :8 grandes roulettes verrouillables\n• Mode solo : oui (demi-table relevable)\n• Pieds réglables : oui (terrain irrégulier)\n• Filet : inclus et résistant aux intempéries\n• Utilisation : extérieur toute l’année",
@@ -699,8 +699,8 @@ export const products: Product[] = [
   "Pieds réglables": "oui (terrain irrégulier)",
   "Filet": "inclus et résistant aux intempéries",
   "Utilisation": "extérieur toute l’année",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-009",
@@ -721,8 +721,8 @@ export const products: Product[] = [
   "Roues": "mobilité facile",
   "Utilisation": "extérieur toute l’année",
   "Dimensions standard compétition": "274 x 152,5 x 76 cm",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-010",
@@ -743,17 +743,17 @@ export const products: Product[] = [
   "Filet": "inclus et résistant aux intempéries",
   "Montage": "~15 minutes",
   "Utilisation": "extérieur toute l’année",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-011",
     name: "Table de ping-pong extérieure JOOLA Aluterna – résistante aux intempéries, idéale jardin & terrasse",
     category: "ping-pong",
     brand: "JOOLA",
-    priceHT: 375.0,
+    priceHT: 375,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     desc: "LaJOOLA Aluternaest une table de ping-pong conçue pour l’extérieur, parfaite pour profiter du jeu en plein air.\nSon plateau enaluminium composite de 6 mm résiste aux intempériestout en offrant un rebond agréable. Sa structure robuste assure une excellente stabilité.\nFacile à plier et à déplacer, elle permet également un entraînement en solo.\n👉 Idéale pour les jardins, terrasses et moments en famille.\n• Plateau :6 mm aluminium composite (extérieur)\n• Résistance :100% intempéries (pluie, soleil)\n• Structure : acier peint ultra robuste\n• Roues : 4 roues verrouillables par moitié\n• Mode solo : oui (demi-table relevable)\n• Pieds réglables : oui (terrain irrégulier)\n• Dimensions : 274 x 152,5 x 76 cm\n• Poids : ~67 kg\n• Utilisation : extérieur",
     image: "/images/products/pp-011.webp",
     specs: {
@@ -766,15 +766,15 @@ export const products: Product[] = [
   "Dimensions": "274 x 152,5 x 76 cm",
   "Poids": "~67 kg",
   "Utilisation": "extérieur",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-012",
     name: "Table de ping-pong JOOLA Black 13i – Design noir premium, plateau 12 mm, pliable",
     category: "ping-pong",
     brand: "JOOLA",
-    priceHT: 175.0,
+    priceHT: 175,
     stock: 100,
     rating: 4.9,
     desc: "LaJOOLA Black 13ise distingue par sondesign noir élégant et moderne, idéale pour ceux qui veulent une table esthétique sans sacrifier la performance.\nSon plateau de12 mm offre un rebond régulier, parfait pour un usage loisir à domicile. Sa structure pliable permet un rangement facile et un entraînement en solo.\n👉 Une table parfaite pour allierstyle, plaisir et accessibilité.\n• Plateau :12 mm MDF(rebond homogène)\n• Design : noir premium moderne\n• Système pliable : oui (2 parties séparées)\n• Mode solo : oui\n• Roulettes : avec freins\n• Pieds réglables : oui\n• Sécurité : double anti-basculement\n• Montage : ~15 min (préassemblée à 95%)\n• Utilisation : intérieur",
@@ -789,8 +789,8 @@ export const products: Product[] = [
   "Sécurité": "double anti-basculement",
   "Montage": "~15 min (préassemblée à 95%)",
   "Utilisation": "intérieur",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-013",
@@ -813,8 +813,8 @@ export const products: Product[] = [
   "Utilisation": "intérieur",
   "Montage": "~15 min",
   "Poids": "~52 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-014",
@@ -836,8 +836,8 @@ export const products: Product[] = [
   "Poids": "~88–95 kg",
   "Norme": "EN 14468-1 (clubs / écoles)",
   "Filet": "inclus (selon version)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-015",
@@ -861,8 +861,8 @@ export const products: Product[] = [
   "Filet": "inclus",
   "Utilisation": "intérieur",
   "Montage": "95% préassemblé (≈15 min)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-016",
@@ -885,8 +885,8 @@ export const products: Product[] = [
   "Normes": "conforme ITTF (compétition)",
   "Couleur": "bleu compétition",
   "Filet": "inclus (selon version)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-017",
@@ -908,8 +908,8 @@ export const products: Product[] = [
   "Norme": "EN 14468-1 Classe A",
   "Certification": "ITTF",
   "Filet": "non inclu",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-018",
@@ -932,8 +932,8 @@ export const products: Product[] = [
   "Système": "plateaux séparés (pro)",
   "Sécurité": "double anti-basculement",
   "Norme": "EN 14468-1 Classe A (haut niveau)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-019",
@@ -956,8 +956,8 @@ export const products: Product[] = [
   "Système": "SMS (Smart Manual System)",
   "Dimensions": "274 x 152,5 x 76 cm (officiel)",
   "Filet": "fixe avec tension",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-020",
@@ -979,8 +979,8 @@ export const products: Product[] = [
   "Système": "SMS (Smart Manual System)",
   "Dimensions": "274 x 152,5 x 76 cm (standard compétition)",
   "Filet": "fixe et réglable",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-021",
@@ -989,7 +989,7 @@ export const products: Product[] = [
     brand: "Garlando",
     priceHT: 333.33,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     desc: "LaGarlando Training Outdoorest une table de ping-pong conçue pour un usage familial et occasionnel en extérieur.\nSonplateau 4 mmpermet un bon confort de jeu pour les loisirs, tandis que sa structure pliable avec verrouillage automatique la rend très pratique à utiliser.\nElle permet également de s’entraîner seul en relevant un plateau, ce qui en fait un excellent choix pour progresser.\n👉Pourquoi choisir ce modèle ?\n✔ Facile à utiliser et à ranger✔ Bonne qualité pour débuter✔ Utilisation extérieure✔ Fonction entraînement solo✔ Prix très accessible\nLa meilleure table pour commencer sans se ruiner.\n• Utilisation : extérieur\n• Plateau :résine stratifiée 4 mm\n• Cadre : profil acier 36 mm\n• Structure : tubes acier 25 mm\n• Poids :≈ 52 kg\n• Roues : 4 doubles roues Ø125 mm\n• Système : verrouillage automatique\n• Filet : fixe\n• Dimensions : 274 x 152,5 x 76 cm",
     image: "/images/products/pp-021.webp",
     specs: {
@@ -1002,8 +1002,8 @@ export const products: Product[] = [
   "Système": "verrouillage automatique",
   "Filet": "fixe",
   "Dimensions": "274 x 152,5 x 76 cm",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-022",
@@ -1025,8 +1025,8 @@ export const products: Product[] = [
   "Système": "SMS (Smart Manual System)",
   "Dimensions": "274 x 152,5 x 76 cm",
   "Filet": "fixe et réglable",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-023",
@@ -1049,8 +1049,8 @@ export const products: Product[] = [
   "Système": "ECS (déverrouillage ergonomique)",
   "Filet": "fixe réglable",
   "Pliable": "oui",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-024",
@@ -1073,15 +1073,15 @@ export const products: Product[] = [
   "Filet": "fixe en métal (anti-vandalisme)",
   "Fixation": "ancrage au sol",
   "Norme": "EN 14468-1 Classe B",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-025",
     name: "Table de ping-pong Sponeta S8-37W – Compétition ITTF & accessibilité fauteuil roulant",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 750.0,
+    priceHT: 750,
     stock: 100,
     rating: 4.6,
     desc: "LaSponeta S8-37W Indoorest une table de compétition haut de gamme conçue pour offrirperformance et accessibilité.\nSonplateau 25 mmgarantit un rebond parfait conforme aux standards internationaux. Sa conception permet également une utilisation adaptée aux personnes en fauteuil roulant, ce qui en fait un choix idéal pour clubs et structures inclusives.\n👉Pourquoi choisir ce modèle ?\n✔ Norme ITTF (compétition officielle)✔ Plateau 25 mm ultra performant✔ Accessibilité fauteuil roulant✔ Stabilité extrême✔ Design compact & professionnel\nUne table élite, pensée pour tous.\n• Utilisation : intérieur uniquement\n• Plateau :25 mm bois premium\n• Norme : ITTF / EN 14468-1\n• Structure : acier 60 x 40 mm\n• Poids : ~109–125 kg\n• Roues : Ø125 mm avec freins\n• Système : vérins à gaz + verrouillage auto\n• Playback : oui\n• Dimensions : standard compétition (274 x 152,5 x 76 cm)",
@@ -1096,8 +1096,8 @@ export const products: Product[] = [
   "Système": "vérins à gaz + verrouillage auto",
   "Playback": "oui",
   "Dimensions": "standard compétition (274 x 152,5 x 76 cm)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-026",
@@ -1119,8 +1119,8 @@ export const products: Product[] = [
   "Système": "verrouillage + ressorts à gaz",
   "Réglage hauteur": "jusqu’à 30 mm",
   "Dimensions": "274 x 152,5 x 76 cm",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-027",
@@ -1143,8 +1143,8 @@ export const products: Product[] = [
   "Réglage hauteur": "jusqu’à 25 mm",
   "Playback": "oui",
   "Dimensions": "274 x 152,5 x 76 cm",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-028",
@@ -1166,8 +1166,8 @@ export const products: Product[] = [
   "Roues": "2 par plateau (transport vertical)",
   "Système": "verrouillage sécurisé",
   "Dimensions": "274 x 152,5 x 76 cm&nbsp;",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-029",
@@ -1188,8 +1188,8 @@ export const products: Product[] = [
   "Roues": "4 roues Ø100 mm avec frein",
   "Playback": "oui",
   "Dimensions": "274 x 152,5 x 76 cm (standard international)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-030",
@@ -1210,17 +1210,17 @@ export const products: Product[] = [
   "Système": "verrouillage sécurisé",
   "Playback": "oui",
   "Niveau": "intermédiaire → avancé",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-031",
     name: "Table de ping-pong extérieure Sponeta S3-80e – Stabilité premium & qualité supérieure",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 350.0,
+    priceHT: 350,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     badge: "Sale",
     desc: "LaSponeta S3-80e Outdoorest une table de ping-pong conçue pour les utilisateurs exigeants recherchantstabilité, durabilité et qualité de jeu supérieure.\nSonplateau en résine mélamine 5 mmoffre un excellent rebond, tandis que sa structure renforcée garantit une stabilité optimale même lors d’une utilisation intensive.\nElle est entièrement résistante aux intempéries, ce qui la rend idéale pour une installation permanente en extérieur.\n👉Pourquoi choisir ce modèle ?\n✔ Plateau 5 mm performant✔ Structure renforcée (très stable)✔ Résistance totale aux intempéries✔ Idéal usage intensif✔ Qualité allemande\nUn excellent choix pour jouer sérieusement à domicile.\n• Utilisation : Extérieur (weatherproof)\n• Plateau :Résine mélamine 5 mm\n• Cadre : profil acier 36 mm\n• Châssis : structure renforcée (40 mm)\n• Roues : 4 roues doubles Ø128 mm\n• Poids : ~60 kg (très stable)\n• Système :SMS (sécurité + verrouillage)\n• Playback : oui\n• Dimensions : 274 x 152,5 x 76 cm\n• Réglage hauteur : jusqu’à 30 mm (sol irrégulier)",
     image: "/images/products/pp-031.webp",
@@ -1235,15 +1235,15 @@ export const products: Product[] = [
   "Playback": "oui",
   "Dimensions": "274 x 152,5 x 76 cm",
   "Réglage hauteur": "jusqu’à 30 mm (sol irrégulier)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-032",
     name: "Table de ping-pong extérieure Sponeta S3-72e – Stabilité avancée & qualité supérieure",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 325.0,
+    priceHT: 325,
     stock: 100,
     rating: 4.9,
     badge: "Sale",
@@ -1259,8 +1259,8 @@ export const products: Product[] = [
   "Playback": "oui",
   "Dimensions": "274 x 152,5 x 76 cm",
   "Rangement": "porte raquettes + balles",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-033",
@@ -1283,8 +1283,8 @@ export const products: Product[] = [
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
   "Poids": "~53 kg",
   "Accessoires": "porte raquettes + balles",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-034",
@@ -1307,8 +1307,8 @@ export const products: Product[] = [
   "Poids": "~51 kg",
   "Dimensions": "standard compétition 274 x 152,5 x 76 cm",
   "Accessoires": "support raquettes + balles intégré",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-035",
@@ -1330,8 +1330,8 @@ export const products: Product[] = [
   "Système pliable": "oui",
   "Playback": "oui (entraînement solo)",
   "Niveau": "débutant → intermédiaire loisir",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-036",
@@ -1352,15 +1352,15 @@ export const products: Product[] = [
   "Système pliable": "oui",
   "Playback": "oui (entraînement solo)",
   "Niveau": "débutant / loisir",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-037",
     name: "Table de ping-pong extérieure Sponeta S1-13e – Stable, résistante et idéale famille",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 250.0,
+    priceHT: 250,
     stock: 100,
     rating: 4.4,
     badge: "Sale",
@@ -1378,15 +1378,15 @@ export const products: Product[] = [
   "Dimensions": "274 x 152,5 x 76 cm",
   "Poids": "~47,5 kg",
   "Niveau": "Débutant → loisir régulier",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-038",
     name: "Table de ping-pong extérieure Sponeta S1-12e – Idéale débutants & résistante aux intempéries",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 250.0,
+    priceHT: 250,
     stock: 100,
     rating: 4.3,
     badge: "Nouveau",
@@ -1404,15 +1404,15 @@ export const products: Product[] = [
   "Dimensions": "274 x 152,5 x 76 cm",
   "Poids": "~50 kg",
   "Niveau": "Débutant / loisir",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-039",
     name: "Table de ping-pong extérieure Sponeta SDL RAW – Design premium & résistante aux intempéries",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 1050.0,
+    priceHT: 1050,
     stock: 100,
     rating: 4.2,
     desc: "LaSponeta SDL RAW Outdoor 274-9900-Lest une table de ping-pong extérieure haut de gamme qui alliedesign moderne et performance durable.\nSon plateau enrésine de mélamine 10 mm, conçu pour résister aux intempéries, garantit une excellente qualité de jeu, même en extérieur. Sa surface anti-reflet permet de jouer confortablement même en plein soleil.\nSa structure robuste et ses finitions premium en font une table idéale pour une utilisation intensive dans un jardin, une terrasse ou un espace professionnel.\n👉Pourquoi choisir ce modèle ?\n✔ Résistance totale aux intempéries✔ Design premium unique (édition RAW)✔ Structure ultra stable✔ Idéal usage extérieur intensif✔ Fabrication allemande\nLe choix parfait pour un extérieur élégant et sportif.\n• Utilisation :Extérieur (Outdoor)\n• Plateau :Résine de mélamine 10 mm (weatherproof)\n• Surface : Anti-reflet (jeu confortable au soleil)\n• Couleur : Gris design (RAW Edition)\n• Structure : Tubes acier renforcés (60 mm / 45 mm)\n• Roues : 4 roues pivotantes (Ø 125 mm), 2 avec freins\n• Réglage : Ajustement hauteur jusqu’à 25 mm\n• Système :SMS (Smart Manual System)\n• Fonction playback : Oui (entraînement solo)\n• Rangement : Porte-raquettes + balles intégré\n• Montage : Livrée quasi montée",
@@ -1429,15 +1429,15 @@ export const products: Product[] = [
   "Fonction playback": "Oui (entraînement solo)",
   "Rangement": "Porte-raquettes + balles intégré",
   "Montage": "Livrée quasi montée",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-040",
     name: "Table de ping-pong Sponeta SDL RAW Indoor – Édition Design & qualité compétition (22 mm)",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 900.0,
+    priceHT: 900,
     stock: 100,
     rating: 4.1,
     desc: "LaSponeta SDL RAW Indoor 273-9900-Lest une table de ping-pong qui combinedesign haut de gamme et performance sportive.\nAvec sa finition grise moderne et son style épuré, elle s’intègre parfaitement dans un intérieur contemporain. Sonplateau 22 mmassure un excellent rebond, idéal pour un jeu dynamique et précis.\nSa structure robuste et son systèmeSmart Manual System (SMS)garantissent sécurité, stabilité et facilité d’utilisation.\n👉Pourquoi choisir ce modèle ?\n✔ Design premium unique✔ Qualité de jeu proche compétition✔ Structure ultra stable✔ Mode entraînement solo✔ Fabrication allemande haut de gamme\nUn produit parfait pour allier sport et élégance.\n• Utilisation : Intérieur uniquement\n• Plateau :3tecWOOD premium – 22 mm\n• Couleur : Gris design\n• Dimensions (jeu) : 274 x 185 x 76 cm\n• Dimensions pliée : 185 x 64 x 159 cm\n• Poids : 104 kg\n• Structure : Tubes acier renforcés (60 mm / 45 mm)\n• Roues : 4 roues pivotantes avec freins\n• Système :SMS (Smart Manual System)\n• Fonction playback : Oui (entraînement solo)\n• Rangement : Porte-raquettes + balles intégré\n• Niveau : Intermédiaire → avancé",
@@ -1455,17 +1455,17 @@ export const products: Product[] = [
   "Fonction playback": "Oui (entraînement solo)",
   "Rangement": "Porte-raquettes + balles intégré",
   "Niveau": "Intermédiaire → avancé",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-041",
     name: "Table de ping-pong intérieure Sponeta SDL PRO – Plateau 25 mm qualité compétition",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 900.0,
+    priceHT: 900,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     badge: "Sale",
     desc: "Découvrez une expérience de jeu exceptionnelle avec laSponeta SDL PRO Indoor 273-9800-L, conçue pour les joueurs exigeants et les passionnés de ping-pong.\nSonplateau de 25 mmoffre un rebond ultra précis, comparable aux tables utilisées en compétition. Sa structure robuste garantit une stabilité parfaite, même lors de parties intensives.\nSon système pliable permet un rangement facile et la possibilité de s’entraîner seul.\n👉Pourquoi choisir ce modèle ?\n✔ Qualité de jeu professionnelle✔ Structure ultra stable✔ Design moderne et élégant✔ Facile à plier et déplacer✔ Idéal usage intensif\nUne table pensée pour la performance et le plaisir du jeu.\n\n• Utilisation : Intérieur uniquement\n• Épaisseur plateau :25 mm (qualité compétition)\n• Couleur : Bleu / Noir (selon version)\n• Cadre : Structure renforcée haute stabilité\n• Système pliable : Oui (position playback possible)\n• Roues : Oui, avec système de verrouillage\n• Filet : Inclus et réglable\n• Sécurité : Système de verrouillage automatique\n• Transport : Facile grâce aux roulettes\n• Niveau : Avancé à professionnel",
     image: "/images/products/pp-041.webp",
@@ -1480,30 +1480,30 @@ export const products: Product[] = [
   "Sécurité": "Système de verrouillage automatique",
   "Transport": "Facile grâce aux roulettes",
   "Niveau": "Avancé à professionnel",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-042",
     name: "Table de ping-pong Sponeta SDL Black Outdoor – Design premium & qualité professionnelle",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 1050.0,
+    priceHT: 1050,
     stock: 100,
     rating: 4.9,
     desc: "LaSponeta SDL Black Outdoorest une table de ping-pong haut de gamme qui allie design moderne et performance professionnelle.Fabriquée en Allemagne, elle garantit robustesse, stabilité et durabilité exceptionnelle.\nSon plateau en résine mélamine de 10 mm assure un excellent rebond et une résistance totale aux intempéries (pluie, soleil, gel).\nGrâce au système de pliage sécurisé SMS, la table est facile à utiliser et à ranger. Elle est également livrée prémontée pour une mise en service rapide.\nSon design noir élégant en fait un véritable élément premium pour votre extérieur.\n🔧 • Plateau extérieur résistant (10 mm)\n• Surface anti-reflet\n• Structure acier robuste (60 mm)\n• 4 roues pivotantes dont 2 avec frein\n• Pieds réglables (jusqu’à 25 mm)\n• Système de pliage sécurisé (SMS)\n• Rangement intégré (raquettes + balles)\n• Dimensions : 274 x 185 x 76 cm",
     image: "/images/products/pp-042.webp",
     specs: {
   "Dimensions": "274 x 185 x 76 cm",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-043",
     name: "Table de ping-pong intérieure Sponeta SDL Black – design premium, 22 mm",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 875.0,
+    priceHT: 875,
     stock: 100,
     rating: 4.8,
     desc: "LaSponeta SDL Black Indoorest une table de ping-pong haut de gamme issue de laDesign Line, conçue pour les amateurs de produits élégants et performants.\nSon plateau en bois22 mm 3tecWOOD premiumoffre un rebond de haute qualité, proche du niveau compétition.\nCe modèle se distingue par sondesign minimaliste noir et gris, avec des finitions modernes qui en font un véritable objet décoratif dans un intérieur contemporain.\n👉 Elle intègre également :\n• tiroirs de rangement intégrés (raquettes + accessoires)\n• support de balles discret\n• système de verrouillage sécurisé (SMS)\n• structure renforcée avec pieds massifs\n👉 Idéale pour :\n• intérieur haut de gamme\n• maisons modernes / loft\n• clients premium\n• hôtels / espaces design\n👉 Positionnement :➡️table ping-pong = meuble design + sport 🔥\n\n\n• Utilisation : intérieur uniquement\n• Plateau :bois 22 mm (3tecWOOD premium)\n• Dimensions :274 x 152,5 x 76 cm\n• Structure : acier renforcé (60 mm + 45 mm)\n• Roues :• 4 roulettes pivotantes\n• 2 avec frein\n\n• Fonction playback (jeu solo)\n• Système pliable sécurisé (SMS)\n• Rangement intégré (raquettes + balles)",
@@ -1513,8 +1513,8 @@ export const products: Product[] = [
   "Plateau": "bois 22 mm (3tecWOOD premium)",
   "Dimensions": "274 x 152,5 x 76 cm",
   "Structure": "acier renforcé (60 mm + 45 mm)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-044",
@@ -1533,15 +1533,15 @@ export const products: Product[] = [
   "Système": "pliable (compact)",
   "Fonction": "position solo",
   "Filet": "fixe (reste monté)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-045",
     name: "Table de ping-pong extérieure Sponeta S 2-72 e",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 250.0,
+    priceHT: 250,
     stock: 100,
     rating: 4.6,
     badge: "Nouveau",
@@ -1555,8 +1555,8 @@ export const products: Product[] = [
   "Cadre": "profil L-36 mm",
   "Fonction": "position solo (entraînement seul)",
   "Accessoires": "porte raquettes et balles intégré",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-046",
@@ -1576,8 +1576,8 @@ export const products: Product[] = [
   "Filet": "acier galvanisé 4 mm (ultra robuste)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
   "Poids": "≈ 123 kg (très lourd = stabilité max)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-047",
@@ -1596,8 +1596,8 @@ export const products: Product[] = [
   "Cadre": "profil 50 mm renforcé + structure double",
   "Structure": "acier galvanisé + peinture poudre",
   "Dimensions": "274 x 152,5 x 76 cm (officiel)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-048",
@@ -1614,15 +1614,15 @@ export const products: Product[] = [
   "Plateau": "bois 22 mm (rebond haut niveau)",
   "Cadre": "profil 60 mm (ultra stable)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-049",
     name: "Table de ping-pong intérieure Sponeta S 6-12 i – 22 mm, entraînement intensif, niveau club",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 400.0,
+    priceHT: 400,
     stock: 100,
     rating: 4.2,
     badge: "Populaire",
@@ -1633,8 +1633,8 @@ export const products: Product[] = [
   "Plateau": "bois 22 mm (très haut niveau de rebond)",
   "Cadre": "profil métallique 40 mm (très stable)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-050",
@@ -1653,8 +1653,8 @@ export const products: Product[] = [
   "Cadre": "profil métallique 50 mm (stabilité élevée)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
   "Structure": "acier avec revêtement poudré",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-051",
@@ -1663,7 +1663,7 @@ export const products: Product[] = [
     brand: "Sponeta",
     priceHT: 332.5,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     desc: "LaSponeta S 4-73 Eest la version la plus avancée de la gamme S4, conçue pour les joueurs exigeants recherchant une table extérieure performante et durable.\nElle est équipée d’un plateau en résine mélamine de5 mm, offrant un bon rebond tout en garantissant une résistance totale aux intempéries (pluie, UV, humidité).\nGrâce à son cadre métallique renforcé de50 mm, elle offre une stabilité supérieure aux autres modèles S4, idéale pour un usage intensif.\nSon système de pliage sécurisé permet une manipulation simple, et le mode playback permet de s’entraîner seul efficacement.\n👉 Idéale pour :\n• jardin\n• familles exigeantes\n• joueurs réguliers\n• clubs amateurs\n👉 Positionnement :➡️le haut de gamme S4 outdoor (quasi niveau S5)\n\n\n• Utilisation :extérieur (100% weatherproof)\n• Plateau :résine mélamine 5 mm\n• Revêtement anti-reflets\n• Cadre :profil métallique 50 mm (ultra stable)\n• Dimensions :274 x 152,5 x 76 cm (norme officielle)\n• Poids :≈ 59 – 66 kg\n• 4 roues doubles pivotantes (Ø 128 mm)\n• Système de pliage sécuriséSMS\n• Modejeu solo (playback)\n• Pieds réglables (jusqu’à 30 mm)\n• Porte raquettes et balles intégré\n• Filet inclus",
     image: "/images/products/pp-051.webp",
     specs: {
@@ -1672,15 +1672,15 @@ export const products: Product[] = [
   "Cadre": "profil métallique 50 mm (ultra stable)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
   "Poids": "≈ 59 – 66 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-052",
     name: "Table de ping-pong extérieure Sponeta S 4-72 E – 5 mm, pliable, stabilité renforcée",
     category: "ping-pong",
     brand: "Sponeta",
-    priceHT: 350.0,
+    priceHT: 350,
     stock: 100,
     rating: 4.9,
     desc: "LaSponeta S 4-72 Eest une table de ping-pong extérieure conçue pour les joueurs réguliers souhaitant une qualité supérieure à un prix maîtrisé.\nPositionnée au cœur de la gamme S4, elle offre un excellent compromis entre robustesse, stabilité et confort de jeu.\nSon plateau en résine mélamine de5 mmassure une bonne qualité de rebond tout en garantissant une résistance totale aux intempéries (pluie, humidité, UV).\nSa structure renforcée avec cadre métallique de50 mmaméliore nettement la stabilité par rapport aux modèles d’entrée de gamme.\nGrâce à son système de pliage sécurisé et sa position playback, elle est parfaite pour jouer seul ou à plusieurs.\n👉 Idéale pour :\n• jardin\n• familles exigeantes\n• joueurs réguliers\n• clubs amateurs\n👉 Positionnement :➡️le meilleur équilibre S4 entre prix et performance\n\n\n• Utilisation :extérieur (100% résistant météo)\n• Plateau :résine mélamine 5 mm\n• Cadre :profil métallique 50 mm (stabilité renforcée)\n• Dimensions :274 x 152,5 x 76 cm (norme officielle)\n• Poids :≈ 59 – 65 kg\n• 4 roues doubles pivotantes (Ø 128 mm)\n• Structure acier (tube carré 30 x 30 mm)\n• Système de pliage sécurisé (Compact / SMS)\n• Modejeu solo (playback)\n• Pieds réglables (jusqu’à 30 mm)\n• Porte raquettes et balles intégré\n• Filet inclus",
@@ -1691,8 +1691,8 @@ export const products: Product[] = [
   "Cadre": "profil métallique 50 mm (stabilité renforcée)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
   "Poids": "≈ 59 – 65 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-053",
@@ -1705,8 +1705,8 @@ export const products: Product[] = [
     desc: "LaSponeta S 4-70 Eest une table de ping-pong extérieure conçue pour les joueurs réguliers recherchant un excellent rapport qualité/prix.\nIssue de la gamme S4, elle s’adresse aux utilisateurs ayant un niveau intermédiaire à avancé, souhaitant une table robuste et durable pour un usage en extérieur.\nSon plateau en résine mélamine de5 mmassure un bon rebond tout en étant parfaitement résistant aux intempéries (pluie, soleil, humidité).\nGrâce à son système de pliage sécurisé et sa position playback, elle permet aussi bien de jouer à deux que de s’entraîner seul.\n👉 Idéale pour :\n• jardin\n• familles\n• joueurs réguliers\n• clubs amateurs\n\n👉 Positionnée comme :➡️table outdoor performante à prix accessible\n\n\n• Utilisation :extérieur (weatherproof)\n• Plateau :résine mélamine 5 mm\n• Revêtement anti-reflets\n• Cadre métallique :profil 50 mm (haute stabilité)\n• Dimensions :274 x 152,5 x 76 cm (norme officielle)\n• Poids :≈ 59 – 65 kg\n• 4 roues doubles pivotantes (Ø 128 mm)\n• Système de pliage sécuriséSMS\n• Modejeu solo (playback)\n• Pieds réglables (jusqu’à 30 mm)\n• Porte raquettes et balles intégré\n• Filet inclus",
     image: "/images/products/pp-053.webp",
     specs: {
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-054",
@@ -1725,8 +1725,8 @@ export const products: Product[] = [
   "Cadre métallique": "50 mm (très stable)",
   "Dimensions": "274 x 152,5 x 76 cm (norme officielle)",
   "Poids": "≈ 70 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-055",
@@ -1745,8 +1745,8 @@ export const products: Product[] = [
   "Cadre métallique": "50 mm (stabilité renforcée)",
   "Dimensions": "274 x 152,5 x 76 cm (norme ITTF)",
   "Poids": "≈ 90 – 92 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-056",
@@ -1762,8 +1762,8 @@ export const products: Product[] = [
     specs: {
   "Dimensions": "274 x 152,5 x 76 cm",
   "Poids": "env. 68 – 75 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "bf-015",
@@ -1780,8 +1780,8 @@ export const products: Product[] = [
   "Poids": "≈ 120 kg (ultra stable)",
   "Structure": "MDF mélaminé haute densité",
   "Surface de jeu": "≈ 111 x 68 cm",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-016",
@@ -1797,16 +1797,15 @@ export const products: Product[] = [
   "Dimensions": "143 x 74 x 92 cm",
   "Surface de jeu": "111 x 68 cm",
   "Poids": "72 kg",
-  "Contenu": "4 balles incluses"
-},
+  "Contenu": "4 balles incluses",
   },
-
+  },
   {
     id: "bf-017",
     name: "Baby-foot Leonhart Soccer Home – Table premium design pour maison intérieur & extérieur",
     category: "baby-foot",
     brand: "Leonhart",
-    priceHT: 1000.0,
+    priceHT: 1000,
     stock: 100,
     rating: 4.2,
     desc: "Lebaby-foot Leonhart Soccer Homeest conçu pour offrir une expérience de jeu premium à domicile, tout en conservant un design moderne et élégant parfaitement adapté à un salon ou une salle de jeu.\nInspiré des modèles professionnels Leonhart, il offre une jouabilité fluide et précise, idéale pour les parties en famille comme pour les joueurs exigeants. Sa construction robuste garantit une excellente stabilité et une durabilité optimale.\nCe modèle se distingue par sa polyvalence : il peut être utilisé aussi bien en intérieur qu’en extérieur (terrasse, jardin), grâce à sa surface résistante et ses matériaux de qualité.\n👉 C’est le baby-foot parfait pour :\n• maison moderne\n• famille\n• usage régulier\n• compromis parfait entre loisir et qualité pro\n👉 Il combineesthétique + performance, ce qui en fait un choix idéal pour intégrer un baby-foot dans un espace de vie\n\n• Dimensions :143 x 74 x 92 cm\n• Surface de jeu :120 x 68 cm\n• Utilisation : intérieur + extérieur\n• Structure robuste en MDF monobloc\n• Pieds en métal solides\n• Barres télescopiques (sécurité enfants)\n• Poignées ergonomiques antidérapantes\n• Joueurs en plastique haute densité avec tête lestée\n• Jeu fluide et précis\n• Design moderne adapté salon",
@@ -1815,8 +1814,8 @@ export const products: Product[] = [
   "Dimensions": "143 x 74 x 92 cm",
   "Surface de jeu": "120 x 68 cm",
   "Utilisation": "intérieur + extérieur",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-018",
@@ -1830,8 +1829,8 @@ export const products: Product[] = [
     desc: "Lebaby-foot Leonhart Sportest une table haut de gamme conçue pour les joueurs souhaitant progresser et se rapprocher des sensations de compétition.\nFabriqué en Allemagne, ce modèle reprend l’ADN du célèbre Tournament ITSF, avec une qualité de fabrication exceptionnelle, mais dans une version plus accessible. Il offre une précision de jeu remarquable, idéale pour l’entraînement et les parties intensives.\nGrâce à sa structure robuste et ses composants professionnels, le Leonhart Sport garantit un jeu fluide, rapide et précis. C’est le choix parfait pour transformer votre maison en véritable espace de compétition.\n👉 Positionnement clé :\n• entre loisir et compétition\n• parfait pour progresser sérieusement\n👉 Comme le souligne Leonhart, c’est un modèle conçu pour“s’entraîner comme en compétition”\n\n• Fabricationallemande 🇩🇪\n• Structure robuste et durable\n• Barres professionnelles avec roulements (jeu fluide)\n• Joueurs équilibrés (meilleur contrôle)\n• Surface de jeu haute précision\n• Table adaptée à un usage intensif\n• Idéale pour entraînement régulier\n• Design moderne et premium\n• Version simplifiée du modèle Tournament\n• Convient pour maison, club ou salle de jeu\n👉 Important :\n• Moins équipé que le Tournament\n• Mais même qualité de base Leonhart",
     image: "/images/products/bf-018.webp",
     specs: {
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-019",
@@ -1840,22 +1839,22 @@ export const products: Product[] = [
     brand: "Leonhart",
     priceHT: 1583.33,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     badge: "Nouveau",
     desc: "Lebaby-foot Leonhart Tournament ITSFest une référence mondiale dans le domaine du football de table. Conçu en Allemagne, ce modèle est utilisé dans les compétitions officielles et reconnu pour sa précision, sa stabilité et sa qualité de jeu exceptionnelle.\nAvec son poids de plus de100 kg, cette table offre une stabilité parfaite, même lors des parties les plus intenses. Les barres professionnelles montées sur roulements à billes garantissent une fluidité de jeu incomparable.\nLes joueurs équilibrés avec tête lestée permettent un contrôle précis de la balle, tandis que les buts arrondis offrent des trajectoires plus dynamiques et réalistes. Ce baby-foot est conçu pour les passionnés exigeants, les clubs et les compétitions.\n👉 C’est tout simplementle baby-foot des champions du monde\n\n• Tablehomologuée ITSF (compétition officielle)\n• Dimensions :143 x 74 x 92 cm\n• Poids : env.110 kg\n• Structure ultra robuste (qualité professionnelle)\n• Barres sortantes compétition avec roulements à billes\n• Joueurs avec tête lestée (contrôle précis)\n• Buts arrondis pour effet de balle amélioré\n• Gardien avec mobilité avancée\n• Jeu rapide, fluide et précis\n• Fabrication allemande 🇩🇪",
     image: "/images/products/bf-019.webp",
     specs: {
   "Dimensions": "143 x 74 x 92 cm",
   "Poids": "env. 110 kg",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "tr-001",
     name: "Trampoline extérieur Kettler Jump 365 – 365 cm, filet de sécurité, usage familial",
     category: "trampoline",
     brand: "Kettler",
-    priceHT: 175.0,
+    priceHT: 175,
     stock: 100,
     rating: 4.9,
     badge: "Sale",
@@ -1866,8 +1865,8 @@ export const products: Product[] = [
   "Charge maximale": "150 kg",
   "Hauteur cadre": "env. 90 cm",
   "Hauteur totale avec filet": "env. 273 cm",
-  "Contenu": "Tout le nécessaire pour sauter inclus"
-},
+  "Contenu": "Tout le nécessaire pour sauter inclus",
+  },
   },
   {
     id: "pp-057",
@@ -1883,8 +1882,8 @@ export const products: Product[] = [
   "Dimensions": "274 x 152,5 x 76 cm",
   "Dimensions pliée": "env. 155 x 165 x 74 cm",
   "Poids": "env. 45 – 50 kg&nbsp;",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-058",
@@ -1901,23 +1900,23 @@ export const products: Product[] = [
   "Dimensions": "274 x 152,5 x 76 cm",
   "Dimensions pliée": "env. 152,5 x 72 x 155 cm",
   "Poids": "env. 60 – 75 kg",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-059",
     name: "Table de ping-pong extérieure Kettler Eden – Fixe, ultra résistante, usage intensif",
     category: "ping-pong",
     brand: "Kettler",
-    priceHT: 875.0,
+    priceHT: 875,
     stock: 100,
     rating: 4.6,
     desc: "Latable de ping-pong Kettler Eden Outdoorest conçue pour un usage intensif en extérieur, idéale pour les parcs, écoles, hôtels ou jardins privés recherchant une solution durable et sécurisée.\nContrairement aux tables classiques, ce modèle estfixe (non pliable)et peut être solidement ancré au sol, garantissant une stabilité maximale et une résistance exceptionnelle face à une utilisation fréquente ou au vandalisme.\nSon plateau en résine mélamine de10 mmoffre une excellente qualité de jeu tout en étant totalement résistant aux intempéries : pluie, UV et variations de température.\nSa structure en acier galvanisé avec revêtement poudré assure une longévité optimale, même dans des conditions extérieures extrêmes.\n👉 C’est une alternative premium aux tables en béton, avec un design moderne et une meilleure qualité de rebond.\n\n🇫🇷 Français\n• Table extérieure100 % résistante aux intempéries\n• Modèlefixe (stationnaire, non pliable)\n• Plateau en résine mélamine10 mm\n• Résistance à l’humidité, UV et variations climatiques\n• Structure en acier galvanisé + revêtement poudre\n• Construction ultra robuste (usage intensif / public)\n• Possibilité d’ancrage au sol pour sécurité maximale\n• Filet métallique fixeanti-vandalisme\n• Surface renforcée avec double structure\n• Dimensions : env.274 x 152,5 x 76 cm\n• Livraison en kit (montage requis)",
     image: "/images/products/pp-059.webp",
     specs: {
   "Dimensions": "env. 274 x 152,5 x 76 cm",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-060",
@@ -1935,8 +1934,8 @@ export const products: Product[] = [
   "Dimensions en position de rangement": "185 x 64 x 159 cm",
   "Poids": "113 kg",
   "Fabrication": "Made in Germany",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-061",
@@ -1955,8 +1954,8 @@ export const products: Product[] = [
   "Utilisation": "extérieur / intérieur",
   "Roues": "4 doubles roues pivotantes",
   "Système": "pliage Smart Manual System (SMS)",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-062",
@@ -1974,8 +1973,8 @@ export const products: Product[] = [
   "Utilisation": "extérieur (jardin, terrasse)",
   "Structure": "pliable",
   "Roues": "transport facile",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "bi-008",
@@ -1993,8 +1992,8 @@ export const products: Product[] = [
   "Structure": "acier + ardoise HPL",
   "Utilisation": "intérieur &amp; extérieur",
   "Accessoires inclus": "queues, billes, triangle, craies, brosse",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-009",
@@ -2008,8 +2007,8 @@ export const products: Product[] = [
     image: "/images/products/bi-009.webp",
     specs: {
   "👉 Résultat": "vrai billard, pas un gadget décoratif",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "bi-010",
@@ -2018,7 +2017,7 @@ export const products: Product[] = [
     brand: "Cornilleau",
     priceHT: 2499.17,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     badge: "Nouveau",
     desc: "🎯 Le billard extérieur qui devient une table design\nLeCornilleau Classic In & Outdoorest bien plus qu’un billard :👉 il se transforme entable à manger élégantegrâce à ses plateaux en option.\n➡️ C’est un produitultra premium + ultra utile.\n✔️ Utilisation intérieur & extérieur✔️ Résistant aux chocs, pluie, UV et froid✔️ Convertible en table repas (argument clé 🔥)\n⚡ Qualité de jeu (très important)\n✔️ Plateau HPL 12 mm → roulement précis type billard pro✔️ Bandes en caoutchouc naturel → rebond réaliste✔️ Surface parfaitement plane + pieds réglables\n👉 Résultat :vraie expérience billard, pas gadget.\n• Dimensions : 215 x 120 x 78 cm\n• Poids : ≈ 102 kg\n• Structure : acier + ardoise composite HPL\n• Réglage pieds : 5 cm\n• Garantie : 5 ans / réparabilité 20 ans\n🎁 Accessoires inclus\n✔️ 2 queues✔️ Jeu de billes✔️ Triangle + losange✔️ Craies + brosse\n➡️ Produit prêt à jouer directement\n⭐ Pourquoi choisir ce billard ?\n• ✔️ Produitultra premium (image de marque)\n• ✔️ 2-en-1 (billard + table) → énorme argument\n• ✔️ Design moderne (marché Allemagne 🔥)\n• ✔️ Utilisable toute l’année\n• ✔️ Très différenciant sur ton site",
     image: "/images/products/bi-010.webp",
@@ -2029,8 +2028,8 @@ export const products: Product[] = [
   "Structure": "acier + ardoise composite HPL",
   "Réglage pieds": "5 cm",
   "Garantie": "5 ans / réparabilité 20 ans",
-  "Contenu": "Queues, billes, triangle, craies et brosse inclus"
-},
+  "Contenu": "Queues, billes, triangle, craies et brosse inclus",
+  },
   },
   {
     id: "tr-002",
@@ -2052,15 +2051,15 @@ export const products: Product[] = [
   "Charge max": "≈ 100–120 kg",
   "Structure": "robuste &amp; testée en laboratoire",
   "Montage": "≈ 1h30 à 2 personnes⭐ Pourquoi choisir ce trampoline ?",
-  "Contenu": "Tout le nécessaire pour sauter inclus"
-},
+  "Contenu": "Tout le nécessaire pour sauter inclus",
+  },
   },
   {
     id: "pp-063",
     name: "Table de ping-pong Cornilleau 200X Outdoor – Fiable, résistante & idéale jardin",
     category: "ping-pong",
     brand: "Cornilleau",
-    priceHT: 350.0,
+    priceHT: 350,
     stock: 100,
     rating: 4.8,
     desc: "🌧️ La valeur sûre pour jouer en extérieur\nLaCornilleau 200X Outdoorest une table conçue pour offrirfiabilité, simplicité et durabilité, idéale pour une utilisation régulière en extérieur.\n👉 C’est le choix parfait pour ceux qui veulentun bon produit sans monter trop en prix.\n✔️ Plateau 5 mm → bon rebond loisir✔️ Structure Aluzinc → anticorrosion ultra durable✔️ Résiste à la pluie, au soleil et au gel✔️ Garantie 10 ans → gros argument confiance\n⚡ Points forts\n✔️ Revêtement anti-reflet → jeu confortable en plein soleil✔️ 8 points de verrouillage → sécurité optimale✔️ 2 freins → stabilité pendant le jeu✔️ Pieds réglables → s’adapte à tous les terrains✔️ Rangement raquettes + balles intégré\n• Plateau : résine stratifiée 5 mm\n• Encadrement : 40 mm Aluzinc\n• Utilisation : extérieur (jardin, terrasse)\n• Roues : doubles roues pour déplacement facile\n• Sécurité : 8 verrous\n• Garantie : 10 ans / réparabilité 20 ans\n⭐ Pourquoi choisir ce modèle ?\n• ✔️ Excellent rapport qualité/prix 🔥\n• ✔️ Parfait pour usage régulier\n• ✔️ Très robuste extérieur\n• ✔️ Facile à vendre (marché Allemagne)\n• ✔️ Produit rassurant (marque Cornilleau leader)",
@@ -2072,8 +2071,8 @@ export const products: Product[] = [
   "Roues": "doubles roues pour déplacement facile",
   "Sécurité": "8 verrous",
   "Garantie": "10 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-064",
@@ -2092,8 +2091,8 @@ export const products: Product[] = [
   "Utilisation": "extérieur (jardin, terrasse, Airbnb…)",
   "Sécurité": "16 verrous + freins",
   "Garantie": "10 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-065",
@@ -2111,15 +2110,15 @@ export const products: Product[] = [
   "Poids": "≈ 90 kg",
   "Utilisation": "extérieur intensif",
   "Garantie": "10 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-066",
     name: "Table de ping-pong Cornilleau Challenger Outdoor – Idéale débutant & extérieur",
     category: "ping-pong",
     brand: "Cornilleau",
-    priceHT: 300.0,
+    priceHT: 300,
     stock: 100,
     rating: 4.5,
     badge: "Populaire",
@@ -2132,8 +2131,8 @@ export const products: Product[] = [
   "Sécurité": "8 verrous",
   "Roues": "déplacement facile",
   "Garantie": "10 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-067",
@@ -2152,8 +2151,8 @@ export const products: Product[] = [
   "Utilisation": "extérieur (jardin, terrasse, camping)",
   "Sécurité": "système centralisé + freins",
   "Garantie": "10 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-068",
@@ -2172,8 +2171,8 @@ export const products: Product[] = [
   "Utilisation": "extérieur (jardin, terrasse, camping)",
   "Garantie": "10 ans",
   "Niveau": "loisir / famille",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-069",
@@ -2194,8 +2193,8 @@ export const products: Product[] = [
   "Poids": "≈ 95–100 kg",
   "Filet": "réglable hauteur + tension",
   "Garantie": "3 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-070",
@@ -2217,17 +2216,17 @@ export const products: Product[] = [
   "Freins": "4 roues avec blocage",
   "Roues": "indoor haute qualité",
   "Garantie": "3 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-071",
     name: "Table de ping-pong Cornilleau 500 Indoor – Niveau club & performance",
     category: "ping-pong",
     brand: "Cornilleau",
-    priceHT: 500.0,
+    priceHT: 500,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     badge: "Nouveau",
     desc: "🏓 Passez au niveau supérieur à domicile\nLaCornilleau 500 Indoorest conçue pour les joueurs exigeants qui veulent une qualité de jeu proche des conditions de club.\n👉 On entre ici dans unevraie table performance.\n✔️ Plateau 22 mm → rebond type compétition✔️ Encadrement 50 mm → stabilité maximale✔️ 16 points de verrouillage → sécurité haut niveau✔️ Utilisation intensive possible (structure renforcée)\n• Dimensions : 274 x 152,5 x 76 cm\n• Plateau : 22 mm aggloméré (niveau club)\n• Cadre : 50 mm Aluzinc (très robuste)\n• Sécurité : 16 verrous automatiques\n• Roues : doubles, déplacement fluide\n• Freins : 2 roues bloquantes\n• Rangement : balles + accessoires intégrés\n• Garantie : 3 ans / réparabilité 20 ans\n⭐ Pourquoi choisir ce modèle ?\n• ✔️ Qualité proche club (gros argument vente)\n• ✔️ Idéal joueurs réguliers\n• ✔️ Très solide → longue durée de vie\n• ✔️ Sécurité maximale (famille + enfants)\n• ✔️ Fabrication française 🇫🇷",
     image: "/images/products/pp-071.webp",
@@ -2240,15 +2239,15 @@ export const products: Product[] = [
   "Freins": "2 roues bloquantes",
   "Rangement": "balles + accessoires intégrés",
   "Garantie": "3 ans / réparabilité 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-072",
     name: "Table de ping-pong Cornilleau 100 Indoor – Idéale débutant & famille",
     category: "ping-pong",
     brand: "Cornilleau",
-    priceHT: 250.0,
+    priceHT: 250,
     stock: 100,
     rating: 4.9,
     desc: "🏓 La table idéale pour débuter et s’amuser à la maison\nLaCornilleau 100 Indoorest une table de ping-pong conçue pour les premiers échanges, parfaite pour une utilisation en famille ou entre amis.\n👉 Elle offre un excellent compromis entrequalité de jeu, sécurité et prix accessible.\n✔️ Plateau 18 mm → bon rebond pour progresser✔️ Structure stable (cadre 35 mm) → meilleure planéité✔️ 8 points de verrouillage → sécurité optimale✔️ Système COMPACT → rangement facile et sécurisé\n• Plateau : aggloméré 18 mm\n• Encadrement : 35 mm Aluzinc\n• Sécurité : 8 points de verrouillage\n• Rangement : Compact Technology\n• Roues : déplacement facile\n• Accessoires : rangement balles intégré\n• Garantie : 3 ans / réparable 20 ans\n⭐ Pourquoi choisir cette table ?\n• ✔️ Parfaite pour débutants\n• ✔️ Idéale famille / loisirs\n• ✔️ Sécurisée pour enfants\n• ✔️ Très bon rapport qualité/prix\n• ✔️ Fabrication française 🇫🇷",
@@ -2261,8 +2260,8 @@ export const products: Product[] = [
   "Roues": "déplacement facile",
   "Accessoires": "rangement balles intégré",
   "Garantie": "3 ans / réparable 20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "pp-073",
@@ -2283,8 +2282,8 @@ export const products: Product[] = [
   "Sécurité": "16 verrous + système COMPACT",
   "Garantie": "3 ans",
   "Réparable": "20 ans",
-  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus"
-},
+  "Contenu": "Filet, raquettes, balles et porte-raquettes inclus",
+  },
   },
   {
     id: "bf-020",
@@ -2306,10 +2305,9 @@ export const products: Product[] = [
   "Terrain": "Gerflex haute qualité",
   "Accessoires": "10 balles incluses",
   "Garantie": "5 ans (réparable 20 ans)",
-  "Contenu": "10 balles incluses"
-},
+  "Contenu": "10 balles incluses",
   },
-
+  },
   {
     id: "bf-021",
     name: "Baby-foot Bonzini B90 Collector PSG Premium – Édition luxe Paris Saint-Germain (pièce d’exception Made in France)",
@@ -2328,15 +2326,15 @@ export const products: Product[] = [
   "Joueurs": "aluminium chromé",
   "Barres": "télescopiques acier",
   "Retour de balle": "latéral",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-022",
     name: "Baby-foot Bonzini B60 Rustique avec monnayeur – Modèle café professionnel",
     category: "baby-foot",
     brand: "Bonzini",
-    priceHT: 2500.0,
+    priceHT: 2500,
     stock: 100,
     rating: 4.4,
     desc: "🍻 Le vrai baby-foot de bar – authentique & indestructible\nLeBonzini B60 Originalest LE baby-foot emblématique des cafés depuis les années 60.C’est le modèle utilisé dans les bars, hôtels et salles de jeux.\n👉 Contrairement au B90 :➡️ il possède unmonnayeur intégré→ parfait pour usage commercial.\n✔️ Expérience authentique de café✔️ Monnayeur (20c / 50c / 1€ configurable)✔️ Ultra robuste (usage intensif)✔️ Retour de balle central✔️ Accès caisse + rangement intégré\n👉 C’est le modèle idéal pourgagner de l’argent + attirer du monde\n• Dimensions : 150 x 100 x 95 cm\n• Poids : ≈ 90 kg\n• Structure : hêtre massif + multiplis\n• Barres : télescopiques acier chromé\n• Joueurs : aluminium vissés\n• Monnayeur : intégré (configurable)\n• Retour de balle : central\n• Accès caisse : fond ouvrant\n⭐ Pourquoi choisir le B60 ?\n• ✔️ Modèle utilisé dans lesbars depuis +60 ans\n• ✔️ Peut générer des revenus (monnayeur)\n• ✔️ Durée de vie :30 à 40 ans\n• ✔️ Ultra solide (usage intensif)\n• ✔️ Image authentique → très vendeur",
@@ -2351,8 +2349,8 @@ export const products: Product[] = [
   "Retour de balle": "central",
   "Accès caisse": "fond ouvrant",
   "✔️ Durée de vie": "30 à 40 ans",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-023",
@@ -2375,15 +2373,15 @@ export const products: Product[] = [
   "Retour de balle": "central",
   "Accès caisse": "fond ouvrant",
   "✔️ Durée de vie": "30 à 40 ans",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-024",
     name: "Baby-foot Bonzini B90 Caméléon Iridescent – Design changeant haut de gamme (édition déco exclusive)",
     category: "baby-foot",
     brand: "Bonzini",
-    priceHT: 3250.0,
+    priceHT: 3250,
     stock: 100,
     rating: 4.2,
     badge: "Sale",
@@ -2399,8 +2397,8 @@ export const products: Product[] = [
   "Terrain": "tapis gris clair",
   "Rampes": "finition argentée",
   "Retour de balle": "des deux côtés",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-025",
@@ -2421,10 +2419,9 @@ export const products: Product[] = [
   "Joueurs": "aluminium peints à la main",
   "Retour de balle": "des deux côtés",
   "Accessoires": "6 balles incluses",
-  "Contenu": "6 balles incluses"
-},
+  "Contenu": "6 balles incluses",
   },
-
+  },
   {
     id: "bf-026",
     name: "Baby-foot Bonzini B90 Tapis Gris & Rampes Noires – Design moderne haut de gamme",
@@ -2432,7 +2429,7 @@ export const products: Product[] = [
     brand: "Bonzini",
     priceHT: 1583.33,
     stock: 100,
-    rating: 4.0,
+    rating: 4,
     badge: "Populaire",
     desc: "🎯 Le baby-foot iconique revisité en version design moderne\nLeBonzini B90 Tapis Gris & Rampes Noiresest une version élégante et contemporaine du mythique baby-foot français.Son contraste bois naturel + noir + terrain gris en fait une piècehaut de gamme parfaite pour intérieur moderne.\n👉 C’est le modèle idéal si tu veuxallier décoration + performance.\n⚡ Points forts\n✔️ Design moderne (gris & noir ultra tendance)✔️ Structure enhêtre massif premium✔️ Sensations de jeu professionnelles✔️ Ultra robuste (usage intensif possible)✔️ Parfait pour maison, bureau ou espace premium\n• Dimensions : 150 x 100 x 95 cm\n• Poids : environ 80 kg\n• Structure : hêtre massif monobloc haute qualité\n• Terrain : tapis gris moderne\n• Rampes : noires (finition design)\n• Barres : télescopiques acier chromé\n• Joueurs : aluminium peints à la main\n• Retour de balle : des deux côtés\n• Accessoires : 6 balles incluses\n⭐ Pourquoi choisir ce modèle ?\n• ✔️ Lookbeaucoup plus moderne que le B90 classique\n• ✔️ Très apprécié en entreprise / bureaux / showroom\n• ✔️ Parfait pour clientèle allemande (design épuré)\n• ✔️ Objet déco + loisir premium",
     image: "/images/products/bf-026.webp",
@@ -2446,8 +2443,8 @@ export const products: Product[] = [
   "Joueurs": "aluminium peints à la main",
   "Retour de balle": "des deux côtés",
   "Accessoires": "6 balles incluses",
-  "Contenu": "6 balles incluses"
-},
+  "Contenu": "6 balles incluses",
+  },
   },
   {
     id: "bf-027",
@@ -2468,8 +2465,8 @@ export const products: Product[] = [
   "Joueurs": "aluminium avec pieds optimisés compétition",
   "Stabilité": "renforts acier + pieds réglables",
   "Homologation": "ITSF (compétitions officielles)",
-  "Contenu": "2 balles incluses"
-},
+  "Contenu": "2 balles incluses",
+  },
   },
   {
     id: "bf-028",
@@ -2491,8 +2488,8 @@ export const products: Product[] = [
   "Buts": "aluminium poli",
   "Pieds": "bois massif démontables",
   "Accessoires": "6 balles incluses",
-  "Contenu": "6 balles incluses"
-},
+  "Contenu": "6 balles incluses",
+  },
   },
   {
     id: "ac-001",
@@ -2511,8 +2508,8 @@ export const products: Product[] = [
   "Marque": "Aramith",
   "Usage": "Compétition / Loisir intensif",
   "Contenu": "16 billes + accessoires",
-  "Nettoyant": "Aramith 250ml inclus"
-},
+  "Nettoyant": "Aramith 250ml inclus",
+  },
   },
   {
     id: "ac-002",
@@ -2531,8 +2528,8 @@ export const products: Product[] = [
   "Craies": "Master vertes (x2)",
   "Plateau": "Pour 16 billes",
   "Marque": "SUPREME",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-003",
@@ -2551,8 +2548,8 @@ export const products: Product[] = [
   "Marque": "Aramith",
   "Compatibilité": "Lumière noire UV",
   "Contenu": "16 billes + accessoires fluo",
-  "Effet": "Fluorescent sous UV"
-},
+  "Effet": "Fluorescent sous UV",
+  },
   },
   {
     id: "ac-004",
@@ -2571,8 +2568,8 @@ export const products: Product[] = [
   "Poudre": "25g incluse",
   "Marque": "Carrom Art",
   "Usage": "Loisir et compétition",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-005",
@@ -2592,27 +2589,8 @@ export const products: Product[] = [
   "Accessoires": "Triangle, craies, brosse, nettoyant",
   "Porte-queues": "6 clips",
   "Dimensions coffret": "108 x 38,5 x 14 cm",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
   },
-  {
-    id: "ac-009",
-    name: "Lot de 12 Balles de Baby-Foot Liège – Qualité Professionnelle",
-    category: "accessoires",
-    brand: "SUPREME",
-    priceHT: 9.17,
-    stock: 100,
-    rating: 4.3,
-    desc: "Lot de 12 balles de baby-foot en liège de qualité professionnelle. Ces balles offrent un rebond régulier et une excellente durabilité pour des parties intenses.\n\nConçues spécialement pour le baby-foot, elles garantissent un roulement fluide et précis sur toutes les surfaces de jeu. Le liège assure une bonne accroche et un rebond naturel.\n\nIdéal pour l'entraînement comme pour les parties en famille ou entre amis.\n\nCaractéristiques :\n• Matériau : Liège de haute qualité\n• Quantité : 12 balles\n• Diamètre : 35 mm\n• Usage : Intérieur et extérieur\n• Compatibilité : Tous types de baby-foot",
-    image: "/images/products/ac-009.webp",
-    specs: {
-  "Matériau": "Liège de haute qualité",
-  "Quantité": "12 balles",
-  "Diamètre": "35 mm",
-  "Usage": "Intérieur et extérieur",
-  "Compatibilité": "Tous types de baby-foot",
-  "Contenu": "Vendu seul"
-},
   },
   {
     id: "ac-010",
@@ -2631,65 +2609,8 @@ export const products: Product[] = [
   "Compatibilité": "Baby-foot Petiot (modèles standard)",
   "Fixation": "Système de serrage intégré",
   "Entretien": "Nettoyage à l'eau simple",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
   },
-  {
-    id: "ac-011",
-    name: "Porte-Craie Boule Caoutchouc Rouge – Accessoire Billard",
-    category: "accessoires",
-    brand: "SUPREME",
-    priceHT: 1.06,
-    stock: 50,
-    rating: 4.1,
-    desc: "Porte-craie boule en caoutchouc rouge, un accessoire de billard simple, efficace et particulièrement apprécié pour son excellent rapport praticité/durabilité.\n\nConçu pour maintenir la craie à portée de main pendant les parties, il s'adresse aux joueurs recherchant une solution fonctionnelle et accessible pour optimiser leur confort de jeu.\n\nCe modèle se distingue par sa forme sphérique en caoutchouc souple, garantissant une bonne résistance aux chocs et à l'usure quotidienne. Sa texture antidérapante permet une manipulation facile et sécurisée.\n\n• Couleur : rouge\n• Dimensions intérieures : 2x2 cm\n• Pour craie carré type Master ou Triangle\n• Craie non fournie",
-    image: "/images/products/ac-011.webp",
-    specs: {
-  "Couleur": "Rouge",
-  "Dimensions intérieures": "2x2 cm",
-  "Compatibilité craie": "Master / Triangle",
-  "Matériau": "Caoutchouc",
-  "Craie": "Non fournie",
-  "Contenu": "Vendu seul"
-},
-  },
-  {
-    id: "ac-012",
-    name: "Porte-Craie Billard Standard – Noir, Accessoire Joueur",
-    category: "accessoires",
-    brand: "SUPREME",
-    priceHT: 1.46,
-    stock: 62,
-    rating: 4.0,
-    desc: "Porte-craie de billard Standard : simple, pratique et efficace. Gardez votre craie toujours accessible pour un jeu fluide, régulier et sans interruption.\n\nCompact et discret, il permet de ranger la craie facilement tout en évitant de la poser sur les bandes ou sur la table. Cet accessoire améliore le confort de jeu en réduisant les interruptions liées à la recherche de craie.\n\n• Couleur : noir\n• Dimensions intérieures : 2x2 cm\n• Compatible toutes marques de craies carrées\n• Vendu sans craie",
-    image: "/images/products/ac-012.webp",
-    specs: {
-  "Couleur": "Noir",
-  "Dimensions intérieures": "2x2 cm",
-  "Compatibilité craie": "Toutes marques",
-  "Craie": "Non fournie",
-  "Contenu": "Vendu seul"
-},
-  },
-  {
-    id: "ac-013",
-    name: "Porte-Craie Master Rouge – Avec Craie Incluse",
-    category: "accessoires",
-    brand: "Tweeten Fibre",
-    priceHT: 3.33,
-    stock: 20,
-    rating: 4.4,
-    badge: "Populaire",
-    desc: "Porte-craie Master, un accessoire de billard conçu pour les joueurs recherchant une solution simple, efficace et durable pour garder leur craie toujours accessible.\n\nPensé pour résister à une utilisation régulière, ce porte-craie se distingue par une conception robuste et un design épuré. Sa structure assure un maintien correct de la craie tout en permettant une insertion et un retrait rapides.\n\n• Couleur : rouge\n• Dimensions intérieures : 2x2 cm\n• Vendu avec une craie Master incluse",
-    image: "/images/products/ac-013.webp",
-    specs: {
-  "Couleur": "Rouge",
-  "Dimensions intérieures": "2x2 cm",
-  "Compatibilité craie": "Master",
-  "Marque": "Tweeten Fibre",
-  "Craie": "Incluse",
-  "Contenu": "Vendu seul"
-},
   },
   {
     id: "ac-014",
@@ -2708,8 +2629,8 @@ export const products: Product[] = [
   "Craies": "Master vertes (x2)",
   "Plateau": "Pour 16 billes",
   "Marque": "SUPREME",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-015",
@@ -2729,8 +2650,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-016",
@@ -2750,8 +2671,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-017",
@@ -2771,8 +2692,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-018",
@@ -2792,8 +2713,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-019",
@@ -2813,8 +2734,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-020",
@@ -2834,8 +2755,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-021",
@@ -2855,8 +2776,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-022",
@@ -2876,8 +2797,8 @@ export const products: Product[] = [
   "Modes de jeu": "301, 501, Cricket, entraînement",
   "Alimentation": "USB-C",
   "Marque": "Granboard",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-023",
@@ -2897,8 +2818,8 @@ export const products: Product[] = [
   "Segments": "Ultra-sensibles",
   "Écran": "LED intégré",
   "Marque": "Granboard",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-024",
@@ -2918,8 +2839,8 @@ export const products: Product[] = [
   "Nombre de billes": "16",
   "Matière": "Résine phénolique",
   "Marque": "DynaSpheres",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-025",
@@ -2939,8 +2860,8 @@ export const products: Product[] = [
   "Nombre de billes": "16",
   "Matière": "Résine phénolique",
   "Marque": "DynaSpheres",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-026",
@@ -2960,8 +2881,8 @@ export const products: Product[] = [
   "Nombre de billes": "16",
   "Matière": "Résine phénolique",
   "Marque": "DynaSpheres",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-027",
@@ -2981,8 +2902,8 @@ export const products: Product[] = [
   "Nombre de billes": "16",
   "Matière": "Résine phénolique",
   "Marque": "DynaSpheres",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-028",
@@ -3001,8 +2922,8 @@ export const products: Product[] = [
   "Nombre de billes": "16",
   "Matière": "Résine phénolique",
   "Marque": "DynaSpheres",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-029",
@@ -3021,8 +2942,8 @@ export const products: Product[] = [
   "Afficheur": "Lumineux",
   "Compatibilité": "Toutes disciplines",
   "Installation": "Murale",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-030",
@@ -3041,8 +2962,8 @@ export const products: Product[] = [
   "Afficheur": "LED",
   "Compatibilité": "Toutes disciplines",
   "Portée": "10 mètres",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-031",
@@ -3062,8 +2983,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Peradon",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-032",
@@ -3083,8 +3004,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Baize Master",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-033",
@@ -3104,8 +3025,8 @@ export const products: Product[] = [
   "Matériau": "Aluminium",
   "Fermeture": "Serrures à clé",
   "Marque": "Baize Master",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-034",
@@ -3124,8 +3045,8 @@ export const products: Product[] = [
   "Modes de jeu": "301, 501, Cricket",
   "Affichage": "LED",
   "Marque": "Karella",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-035",
@@ -3144,8 +3065,8 @@ export const products: Product[] = [
   "Couleur": "Noir",
   "Matériau": "Bois laqué",
   "Fixation": "Murale",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-036",
@@ -3164,8 +3085,8 @@ export const products: Product[] = [
   "Bois": "Chêne clair",
   "Style": "Classique",
   "Fixation": "Murale",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-037",
@@ -3184,15 +3105,15 @@ export const products: Product[] = [
   "Couleur": "Blanc",
   "Design": "Moderne",
   "Fixation": "Sol / mural",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-038",
     name: "Tapis Setax Magno Champion 7 ft",
     category: "accessoires",
     brand: "Setax",
-    priceHT: 140.0,
+    priceHT: 140,
     stock: 12,
     rating: 4.6,
     badge: "Nouveau",
@@ -3204,8 +3125,8 @@ export const products: Product[] = [
   "Marque": "Setax",
   "Qualité": "Champion",
   "Coloris": "Vert",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-039",
@@ -3224,8 +3145,8 @@ export const products: Product[] = [
   "Style": "Moderne / Industriel",
   "Éclairage": "Homogène",
   "Installation": "Plafond",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-040",
@@ -3244,8 +3165,8 @@ export const products: Product[] = [
   "Style": "Design épuré",
   "Éclairage": "Homogène",
   "Installation": "Plafond",
-  "Contenu": "Vendu seul"
-},
+  "Contenu": "Vendu seul",
+  },
   },
   {
     id: "ac-041",
@@ -3264,9 +3185,9 @@ export const products: Product[] = [
   "Joueurs": "2 ou équipes",
   "Matériau": "Bois stratifié",
   "Usage": "Intérieur",
-    "Contenu": "Vendu seul"
+  "Contenu": "Vendu seul",
   },
-},
+  },
   {
     id: "cs-001",
     name: "Xbox Series X – 1To SSD, 4K 120fps, Next-Gen",
@@ -3279,14 +3200,14 @@ export const products: Product[] = [
     desc: "La Xbox Series X est la console la plus puissante de Microsoft. Avec son SSD ultra-rapide de 1 To, son processeur sur mesure et sa capacité à afficher du 4K à 120 fps, elle offre une expérience de jeu next-gen immersive et fluide.\n\nCaractéristiques :\n• Stockage : SSD 1 To\n• Résolution : 4K 120 fps\n• Processeur : Custom Zen 2\n• Ray Tracing : Hardware accéléré\n• Compatibilité : Xbox One, Xbox 360, Xbox (rétrocompatible)\n• Services : Xbox Game Pass Ultimate\n• Connectique : HDMI 2.1, USB 3.2, Ethernet\n• Manette incluse : Xbox Wireless Controller",
     image: "/images/products/xbox-series-x.webp",
     specs: {
-      "Stockage": "SSD 1 To",
-      "Résolution": "4K 120 fps",
-      "Processeur": "Custom Zen 2",
-      "Ray Tracing": "Hardware accéléré",
-      "Rétrocompatibilité": "Xbox One, 360, Xbox",
-      "Connectique": "HDMI 2.1, USB 3.2, Ethernet",
-      "Contenu": "Console, manette, câble HDMI, alimentation"
-    }
+  "Stockage": "SSD 1 To",
+  "Résolution": "4K 120 fps",
+  "Processeur": "Custom Zen 2",
+  "Ray Tracing": "Hardware accéléré",
+  "Rétrocompatibilité": "Xbox One, 360, Xbox",
+  "Connectique": "HDMI 2.1, USB 3.2, Ethernet",
+  "Contenu": "Console, manette, câble HDMI, alimentation",
+  },
   },
   {
     id: "cs-002",
@@ -3299,14 +3220,14 @@ export const products: Product[] = [
     desc: "La Xbox Series S est la console next-gen la plus compacte et abordable. Entièrement dématérialisée, elle offre des performances remarquables en 1440p avec un SSD rapide et l'accès à l'écosystème Xbox Game Pass.\n\nCaractéristiques :\n• Stockage : SSD 512 Go\n• Résolution : 1440p (4K upscaling)\n• Processeur : Custom Zen 2\n• Ray Tracing : Supporté\n• Format : Tout numérique (sans lecteur disque)\n• Services : Xbox Game Pass Ultimate\n• Connectique : HDMI 2.1, USB 3.2\n• Manette incluse : Xbox Wireless Controller",
     image: "/images/products/xbox-series-s-512go.webp",
     specs: {
-      "Stockage": "SSD 512 Go",
-      "Résolution": "1440p (4K upscaling)",
-      "Processeur": "Custom Zen 2",
-      "Ray Tracing": "Supporté",
-      "Format": "Tout numérique",
-      "Connectique": "HDMI 2.1, USB 3.2",
-      "Contenu": "Console, manette, câble HDMI, alimentation"
-    }
+  "Stockage": "SSD 512 Go",
+  "Résolution": "1440p (4K upscaling)",
+  "Processeur": "Custom Zen 2",
+  "Ray Tracing": "Supporté",
+  "Format": "Tout numérique",
+  "Connectique": "HDMI 2.1, USB 3.2",
+  "Contenu": "Console, manette, câble HDMI, alimentation",
+  },
   },
   {
     id: "cs-003",
@@ -3320,14 +3241,14 @@ export const products: Product[] = [
     desc: "La PlayStation 5 Pro repousse les limites du jeu vidéo avec des performances graphiques améliorées, un ray tracing renforcé et un SSD ultra-rapide. Profitez de vos jeux PS5 en 8K et 120 fps pour une immersion totale.\n\nCaractéristiques :\n• Stockage : SSD 2 To\n• Résolution : 8K / 4K 120 fps\n• Ray Tracing : Amélioré (Performance Mode)\n• Processeur : Custom AMD Zen 2\n• Technologie : PSSR (PlayStation Spectral Super Resolution)\n• Rétrocompatibilité : PS5, PS4, PS VR2\n• Connectique : HDMI 2.1, USB-C, Ethernet\n• Manette incluse : DualSense sans fil",
     image: "/images/products/playstation-5-pro.webp",
     specs: {
-      "Stockage": "SSD 2 To",
-      "Résolution": "8K / 4K 120 fps",
-      "Ray Tracing": "Amélioré",
-      "Processeur": "Custom AMD Zen 2",
-      "Technologie": "PSSR",
-      "Rétrocompatibilité": "PS5, PS4, PS VR2",
-      "Contenu": "Console, manette DualSense, câble HDMI, alimentation"
-    }
+  "Stockage": "SSD 2 To",
+  "Résolution": "8K / 4K 120 fps",
+  "Ray Tracing": "Amélioré",
+  "Processeur": "Custom AMD Zen 2",
+  "Technologie": "PSSR",
+  "Rétrocompatibilité": "PS5, PS4, PS VR2",
+  "Contenu": "Console, manette DualSense, câble HDMI, alimentation",
+  },
   },
   {
     id: "cs-004",
@@ -3340,14 +3261,14 @@ export const products: Product[] = [
     desc: "La PlayStation 5 Slim avec lecteur disque est la version compacte et élégante de la PS5. Elle offre les mêmes performances next-gen que le modèle original avec un format réduit et un lecteur Blu-ray 4K intégré.\n\nCaractéristiques :\n• Stockage : SSD 1 To\n• Lecteur : Blu-ray 4K UHD\n• Résolution : 4K 120 fps\n• Ray Tracing : Hardware accéléré\n• Processeur : Custom AMD Zen 2\n• Rétrocompatibilité : PS4, PS VR\n• Connectique : HDMI 2.1, USB-C, Ethernet\n• Manette incluse : DualSense sans fil",
     image: "/images/products/playstation-5-slim-lecteur-disque.webp",
     specs: {
-      "Stockage": "SSD 1 To",
-      "Lecteur": "Blu-ray 4K UHD",
-      "Résolution": "4K 120 fps",
-      "Ray Tracing": "Hardware accéléré",
-      "Rétrocompatibilité": "PS4, PS VR",
-      "Connectique": "HDMI 2.1, USB-C, Ethernet",
-      "Contenu": "Console, manette DualSense, câble HDMI, alimentation"
-    }
+  "Stockage": "SSD 1 To",
+  "Lecteur": "Blu-ray 4K UHD",
+  "Résolution": "4K 120 fps",
+  "Ray Tracing": "Hardware accéléré",
+  "Rétrocompatibilité": "PS4, PS VR",
+  "Connectique": "HDMI 2.1, USB-C, Ethernet",
+  "Contenu": "Console, manette DualSense, câble HDMI, alimentation",
+  },
   },
   {
     id: "cs-005",
@@ -3360,13 +3281,13 @@ export const products: Product[] = [
     desc: "La PlayStation 4 Slim est la console idéale pour découvrir le vaste catalogue PlayStation à petit prix. Compacte, silencieuse et performante, elle offre des centaines de jeux exclusifs et multi.\n\nCaractéristiques :\n• Stockage : 500 Go HDD\n• Résolution : Full HD 1080p / 4K (streaming)\n• Processeur : Custom AMD Jaguar\n• Connectique : HDMI, USB 3.0, Ethernet\n• Lecteur : Blu-ray / DVD\n• Services : PlayStation Plus, PS Now\n• Manette incluse : DualShock 4",
     image: "/images/products/playstation-4-slim-500go.webp",
     specs: {
-      "Stockage": "500 Go HDD",
-      "Résolution": "Full HD 1080p",
-      "Processeur": "Custom AMD Jaguar",
-      "Lecteur": "Blu-ray / DVD",
-      "Connectique": "HDMI, USB 3.0, Ethernet",
-      "Contenu": "Console, manette DualShock 4, câble HDMI, alimentation"
-    }
+  "Stockage": "500 Go HDD",
+  "Résolution": "Full HD 1080p",
+  "Processeur": "Custom AMD Jaguar",
+  "Lecteur": "Blu-ray / DVD",
+  "Connectique": "HDMI, USB 3.0, Ethernet",
+  "Contenu": "Console, manette DualShock 4, câble HDMI, alimentation",
+  },
   },
   {
     id: "cs-006",
@@ -3380,14 +3301,14 @@ export const products: Product[] = [
     desc: "La Nintendo Switch 2 est la nouvelle console hybride de Nintendo. Plus puissante, avec un écran amélioré et une compatibilité avec les jeux Switch, elle vous permet de jouer à la maison comme en déplacement.\n\nCaractéristiques :\n• Écran : LCD/OLED 8 pouces 1080p\n• Stockage : 256 Go SSD\n• Résolution : 1080p portable / 4K docké\n• Processeur : Custom NVIDIA Tegra\n• Autonomie : 4 à 8 heures\n• Compatibilité : Jeux Nintendo Switch et Switch 2\n• Connectique : USB-C, HDMI\n• Manettes : Joy-Con 2 inclus",
     image: "/images/products/nintendo-switch-2.webp",
     specs: {
-      "Écran": "8 pouces 1080p",
-      "Stockage": "256 Go SSD",
-      "Résolution": "1080p portable / 4K docké",
-      "Processeur": "Custom NVIDIA Tegra",
-      "Autonomie": "4 à 8 heures",
-      "Compatibilité": "Switch et Switch 2",
-      "Contenu": "Console, Joy-Con 2, dock, câble HDMI, adaptateur"
-    }
+  "Écran": "8 pouces 1080p",
+  "Stockage": "256 Go SSD",
+  "Résolution": "1080p portable / 4K docké",
+  "Processeur": "Custom NVIDIA Tegra",
+  "Autonomie": "4 à 8 heures",
+  "Compatibilité": "Switch et Switch 2",
+  "Contenu": "Console, Joy-Con 2, dock, câble HDMI, adaptateur",
+  },
   },
   {
     id: "cs-007",
@@ -3400,14 +3321,14 @@ export const products: Product[] = [
     desc: "La Nintendo Switch OLED propose un écran OLED 7 pouces aux couleurs éclatantes pour une expérience portable premium. Avec son dock à port LAN, son stockage 64 Go et son large catalogue de jeux, c'est la console familiale par excellence.\n\nCaractéristiques :\n• Écran : OLED 7 pouces\n• Stockage : 64 Go\n• Résolution : 720p portable / 1080p docké\n• Autonomie : 4.5 à 9 heures\n• Dock : Avec port LAN intégré\n• Connectique : USB-C, HDMI\n• Manettes : Joy-Con détachables inclus",
     image: "/images/products/nintendo-switch-oled.webp",
     specs: {
-      "Écran": "OLED 7 pouces",
-      "Stockage": "64 Go",
-      "Résolution": "720p portable / 1080p docké",
-      "Autonomie": "4.5 à 9 heures",
-      "Dock": "Avec port LAN",
-      "Connectique": "USB-C, HDMI",
-      "Contenu": "Console, Joy-Con, dock, câble HDMI, adaptateur"
-    }
+  "Écran": "OLED 7 pouces",
+  "Stockage": "64 Go",
+  "Résolution": "720p portable / 1080p docké",
+  "Autonomie": "4.5 à 9 heures",
+  "Dock": "Avec port LAN",
+  "Connectique": "USB-C, HDMI",
+  "Contenu": "Console, Joy-Con, dock, câble HDMI, adaptateur",
+  },
   },
   {
     id: "cs-008",
@@ -3421,14 +3342,14 @@ export const products: Product[] = [
     desc: "Le Steam Deck OLED est la version améliorée du PC gaming portable de Valve. Son écran OLED HDR, son autonomie accrue et son SSD rapide vous permettent d'emporter votre bibliothèque Steam partout.\n\nCaractéristiques :\n• Écran : OLED HDR 7.4 pouces 90 Hz\n• Stockage : SSD 512 Go / 1 To\n• Processeur : Custom AMD APU Zen 2\n• RAM : 16 Go LPDDR5\n• Autonomie : 3 à 12 heures selon usage\n• OS : SteamOS 3 (Linux)\n• Connectique : USB-C, Bluetooth 5.0, Wi-Fi 6E\n• Compatibilité : Steam, Epic, Game Pass via Cloud",
     image: "/images/products/steam-deck-oled.webp",
     specs: {
-      "Écran": "OLED HDR 7.4\" 90 Hz",
-      "Stockage": "SSD 512 Go",
-      "Processeur": "Custom AMD APU Zen 2",
-      "RAM": "16 Go LPDDR5",
-      "Autonomie": "3 à 12 heures",
-      "OS": "SteamOS 3",
-      "Contenu": "Console, étui de transport, chargeur"
-    }
+  "Écran": "OLED HDR 7.4\" 90 Hz",
+  "Stockage": "SSD 512 Go",
+  "Processeur": "Custom AMD APU Zen 2",
+  "RAM": "16 Go LPDDR5",
+  "Autonomie": "3 à 12 heures",
+  "OS": "SteamOS 3",
+  "Contenu": "Console, étui de transport, chargeur",
+  },
   },
   {
     id: "cs-009",
@@ -3441,14 +3362,14 @@ export const products: Product[] = [
     desc: "Le Valve Index VR Kit est l'un des systèmes de réalité virtuelle les plus avancés du marché. Avec son casque haute résolution 144 Hz, ses contrôleurs Finger Tracking et ses stations de base 2.0, plongez dans une expérience VR inégalée.\n\nCaractéristiques :\n• Résolution : 1440×1600 par œil\n• Rafraîchissement : 80, 90, 120, 144 Hz\n• Champ de vision : 130°\n• Audio : Intégré haut-parleurs off-ear\n• Tracking : Stations de base SteamVR 2.0\n• Contrôleurs : Index Controllers (finger tracking)\n• Compatibilité : SteamVR, PC Windows\n• Connexion : DisplayPort 1.2, USB 3.0",
     image: "/images/products/valve-index-vr-kit.webp",
     specs: {
-      "Résolution": "1440×1600 par œil",
-      "Rafraîchissement": "144 Hz max",
-      "Champ de vision": "130°",
-      "Tracking": "Stations de base 2.0",
-      "Contrôleurs": "Index Controllers",
-      "Compatibilité": "SteamVR, PC Windows",
-      "Contenu": "Casque, contrôleurs ×2, stations ×2, câbles"
-    }
+  "Résolution": "1440×1600 par œil",
+  "Rafraîchissement": "144 Hz max",
+  "Champ de vision": "130°",
+  "Tracking": "Stations de base 2.0",
+  "Contrôleurs": "Index Controllers",
+  "Compatibilité": "SteamVR, PC Windows",
+  "Contenu": "Casque, contrôleurs ×2, stations ×2, câbles",
+  },
   },
   {
     id: "ac-042",
@@ -3461,13 +3382,13 @@ export const products: Product[] = [
     desc: "La manette Xbox Carbon Black associe un design élégant et épuré à des fonctionnalités modernes : stick analogique texturé, croix directionnelle hybride et prise en charge du Bluetooth pour jouer sans fil sur Xbox et PC.\n\nCaractéristiques :\n• Connectivité : Xbox Wireless / Bluetooth\n• Compatibilité : Xbox Series X|S, Xbox One, Windows 10/11\n• Autonomie : 30h (piles AA)\n• Prise jack : 3.5 mm pour casque\n• Poids : ~240 g",
     image: "/images/products/manette-xbox-carbon-black.webp",
     specs: {
-      "Connectivité": "Xbox Wireless / Bluetooth",
-      "Compatibilité": "Xbox Series X|S, One, PC Windows",
-      "Autonomie": "30h (piles AA)",
-      "Prise jack": "3.5 mm",
-      "Poids": "~240 g",
-      "Contenu": "Manette, 2 piles AA"
-    }
+  "Connectivité": "Xbox Wireless / Bluetooth",
+  "Compatibilité": "Xbox Series X|S, One, PC Windows",
+  "Autonomie": "30h (piles AA)",
+  "Prise jack": "3.5 mm",
+  "Poids": "~240 g",
+  "Contenu": "Manette, 2 piles AA",
+  },
   },
   {
     id: "ac-043",
@@ -3481,14 +3402,14 @@ export const products: Product[] = [
     desc: "La DualSense Edge est la manette professionnelle pour PS5. Personnalisez vos sticks, gâchettes et boutons arrière pour un contrôle optimal. Profitez du retour haptique et des gâchettes adaptatives dans un format compétitif.\n\nCaractéristiques :\n• Connectivité : Sans fil / USB-C\n• Compatibilité : PS5, PC Windows\n• Fonctions : Retour haptique, gâchettes adaptatives\n• Personnalisation : Sticks interchangeables, gâchettes ajustables\n• Boutons arrière : 2 palettes programmables\n• Autonomie : 5 à 10 heures\n• Câble tressé USB-C inclut",
     image: "/images/products/manette-pro-ps5-dualsense-edge.webp",
     specs: {
-      "Connectivité": "Sans fil / USB-C",
-      "Compatibilité": "PS5, PC Windows",
-      "Fonctions": "Retour haptique, gâchettes adaptatives",
-      "Personnalisation": "Sticks et gâchettes interchangeables",
-      "Boutons arrière": "2 palettes programmables",
-      "Autonomie": "5 à 10 heures",
-      "Contenu": "Manette, câble USB-C, coque de rangement, sticks additionnels"
-    }
+  "Connectivité": "Sans fil / USB-C",
+  "Compatibilité": "PS5, PC Windows",
+  "Fonctions": "Retour haptique, gâchettes adaptatives",
+  "Personnalisation": "Sticks et gâchettes interchangeables",
+  "Boutons arrière": "2 palettes programmables",
+  "Autonomie": "5 à 10 heures",
+  "Contenu": "Manette, câble USB-C, coque de rangement, sticks additionnels",
+  },
   },
   {
     id: "ac-044",
@@ -3501,14 +3422,14 @@ export const products: Product[] = [
     desc: "Casque gaming sans fil avec son surround 7.1 pour une immersion totale dans vos jeux. Léger, confortable et doté d'un micro antibruit, il est compatible PC, PS5, Xbox et Nintendo Switch.\n\nCaractéristiques :\n• Son : Surround 7.1 virtuel\n• Connectivité : Sans fil 2.4 GHz / Jack 3.5 mm\n• Autonomie : 20 heures\n• Micro : Antibruit flexible\n• Compatibilité : PC, PS5, PS4, Xbox, Switch\n• Poids : ~280 g",
     image: "/images/products/casque-gaming-sans-fil-7-1-surround.webp",
     specs: {
-      "Son": "Surround 7.1 virtuel",
-      "Connectivité": "Sans fil 2.4 GHz / Jack 3.5 mm",
-      "Autonomie": "20 heures",
-      "Micro": "Antibruit flexible",
-      "Compatibilité": "PC, PS5, PS4, Xbox, Switch",
-      "Poids": "~280 g",
-      "Contenu": "Casque, dongle USB, câble jack, câble charge"
-    }
+  "Son": "Surround 7.1 virtuel",
+  "Connectivité": "Sans fil 2.4 GHz / Jack 3.5 mm",
+  "Autonomie": "20 heures",
+  "Micro": "Antibruit flexible",
+  "Compatibilité": "PC, PS5, PS4, Xbox, Switch",
+  "Poids": "~280 g",
+  "Contenu": "Casque, dongle USB, câble jack, câble charge",
+  },
   },
   {
     id: "ac-045",
@@ -3521,14 +3442,14 @@ export const products: Product[] = [
     desc: "Le casque Pulse 3D a été spécialement conçu pour la PS5 afin de profiter de l'audio 3D Tempest. Sans fil, confortable et élégant, il offre un son spatial immersif qui vous plonge au cœur de l'action.\n\nCaractéristiques :\n• Audio : 3D Tempest (PS5) / Stéréo\n• Connectivité : Sans fil via adaptateur USB\n• Autonomie : 12 heures\n• Micro : Double micro antibruit\n• Compatibilité : PS5, PS4, PC\n• Poids : ~292 g",
     image: "/images/products/casque-pulse-3d.webp",
     specs: {
-      "Audio": "3D Tempest (PS5)",
-      "Connectivité": "Sans fil via adaptateur USB",
-      "Autonomie": "12 heures",
-      "Micro": "Double micro antibruit",
-      "Compatibilité": "PS5, PS4, PC",
-      "Poids": "~292 g",
-      "Contenu": "Casque, adaptateur USB, câble jack, câble charge"
-    }
+  "Audio": "3D Tempest (PS5)",
+  "Connectivité": "Sans fil via adaptateur USB",
+  "Autonomie": "12 heures",
+  "Micro": "Double micro antibruit",
+  "Compatibilité": "PS5, PS4, PC",
+  "Poids": "~292 g",
+  "Contenu": "Casque, adaptateur USB, câble jack, câble charge",
+  },
   },
   {
     id: "ac-046",
@@ -3541,32 +3462,13 @@ export const products: Product[] = [
     desc: "La station de charge officielle DualSense permet de recharger jusqu'à 2 manettes PS5 simultanément. Design compact, charge rapide et connecteur USB-C pour une solution de rangement élégante.\n\nCaractéristiques :\n• Compatibilité : Manettes DualSense et DualSense Edge\n• Charge : 2 manettes en simultané\n• Connectique : USB-C\n• Alimentation : via console PS5 ou adaptateur secteur\n• Design : Compact et épuré",
     image: "/images/products/station-charge-dualsense.webp",
     specs: {
-      "Compatibilité": "DualSense et DualSense Edge",
-      "Charge": "2 manettes simultanément",
-      "Connectique": "USB-C",
-      "Alimentation": "Console PS5 ou adaptateur",
-      "Design": "Compact",
-      "Contenu": "Station de charge, câble USB"
-    }
+  "Compatibilité": "DualSense et DualSense Edge",
+  "Charge": "2 manettes simultanément",
+  "Connectique": "USB-C",
+  "Alimentation": "Console PS5 ou adaptateur",
+  "Design": "Compact",
+  "Contenu": "Station de charge, câble USB",
   },
-  {
-    id: "ac-047",
-    name: "Station de Recharge Double PS5/Xbox – Chargez 2 manettes",
-    category: "accessoires",
-    brand: "Generic",
-    priceHT: 19.17,
-    stock: 45,
-    rating: 4.3,
-    desc: "Station de recharge double compatible avec les manettes PS5 DualSense et Xbox Series X|S. Charge rapide et sécurisée avec témoins lumineux LED. Idéale pour les sessions marathon.\n\nCaractéristiques :\n• Compatibilité : DualSense PS5, Xbox Series X|S\n• Charge : 2 manettes simultanément\n• Technologie : Charge rapide\n• LED : Indicateurs de charge\n• Alimentation : USB-C\n• Sûreté : Protection contre les surcharges",
-    image: "/images/products/station-de-recharge-double-ps5-xbox.webp",
-    specs: {
-      "Compatibilité": "DualSense PS5, Xbox Series X|S",
-      "Charge": "2 manettes simultanément",
-      "Technologie": "Charge rapide",
-      "LED": "Indicateurs de charge",
-      "Alimentation": "USB-C",
-      "Contenu": "Station, câble USB, embouts adaptateurs"
-    }
   },
   {
     id: "ac-048",
@@ -3579,13 +3481,13 @@ export const products: Product[] = [
     desc: "Support mural universel pour console de jeu avec rangement intégré pour jeux et accessoires. Design épuré et robuste, compatible avec PS5, Xbox Series X|S et Nintendo Switch.\n\nCaractéristiques :\n• Compatibilité : PS5, Xbox Series X|S, Nintendo Switch\n• Matériau : Acier peint haute résistance\n• Rangement : Espace pour jeux et accessoires\n• Fixation : Murale (vis et chevilles incluses)\n• Ventilation : Ouvertures pour refroidissement\n• Charge maximale : 15 kg",
     image: "/images/products/support-mural-console-rangement-jeux.webp",
     specs: {
-      "Compatibilité": "PS5, Xbox Series X|S, Switch",
-      "Matériau": "Acier peint",
-      "Rangement": "Jeux et accessoires",
-      "Fixation": "Murale (kit inclus)",
-      "Ventilation": "Ouvertures de refroidissement",
-      "Contenu": "Support, kit de fixation, notice"
-    }
+  "Compatibilité": "PS5, Xbox Series X|S, Switch",
+  "Matériau": "Acier peint",
+  "Rangement": "Jeux et accessoires",
+  "Fixation": "Murale (kit inclus)",
+  "Ventilation": "Ouvertures de refroidissement",
+  "Contenu": "Support, kit de fixation, notice",
+  },
   },
   {
     id: "ac-049",
@@ -3598,13 +3500,13 @@ export const products: Product[] = [
     desc: "Tapis de sol gaming anti-fatigue format XL pour jouer debout dans un confort optimal. Surface antidérapante, design moderne et motifs gaming. Parfait pour les sessions prolongées.\n\nCaractéristiques :\n• Dimensions : 120 x 60 cm\n• Épaisseur : 15 mm\n• Matériau : Mousse EVA haute densité\n• Surface : Antidérapante et facile à nettoyer\n• Design : Motifs gaming noir/rouge\n• Usage : Jeu debout, bureau, streaming",
     image: "/images/products/tapis-de-sol-gaming-anti-fatigue-xl.webp",
     specs: {
-      "Dimensions": "120 x 60 cm",
-      "Épaisseur": "15 mm",
-      "Matériau": "Mousse EVA haute densité",
-      "Surface": "Antidérapante",
-      "Design": "Motifs gaming",
-      "Contenu": "Tapis de sol"
-    }
+  "Dimensions": "120 x 60 cm",
+  "Épaisseur": "15 mm",
+  "Matériau": "Mousse EVA haute densité",
+  "Surface": "Antidérapante",
+  "Design": "Motifs gaming",
+  "Contenu": "Tapis de sol",
+  },
   },
   {
     id: "ac-050",
@@ -3618,8 +3520,8 @@ export const products: Product[] = [
     desc: "Pack d'accessoires gaming complet comprenant les essentiels pour tout gamer : support de casque, LED strip, grips pour manettes, stickers et bien plus. Idéal pour personnaliser votre setup.\n\nCaractéristiques :\n• Support de casque : Métal avec base antidérapante\n• LED strip : RGB USB, 50 cm\n• Grips : Silicone pour manettes\n• Autres : Stickers, câble tressé, gestionnaire de câbles\n• Compatibilité : Universelle",
     image: "/images/products/pack-accessoires-gaming-complet.webp",
     specs: {
-      "Contenu": "Support casque, LED strip, grips, stickers, câble tressé"
-    }
+  "Contenu": "Support casque, LED strip, grips, stickers, câble tressé",
+  },
   },
   {
     id: "ac-051",
@@ -3633,14 +3535,14 @@ export const products: Product[] = [
     desc: "Le Nintendo Switch 2 Pro Controller est la manette sans fil haut de gamme pour jouer sur Nintendo Switch 2 et Switch. Design ergonomique, autonomie longue durée et commandes précises.\n\nCaractéristiques :\n• Connectivité : Sans fil Bluetooth\n• Compatibilité : Switch 2, Switch, PC\n• Autonomie : 40 heures\n• Fonctions : NFC (Amiibo), gyroscope, HD Rumble\n• Prise jack : 3.5 mm\n• Poids : ~260 g",
     image: "/images/products/nintendo-switch-2-pro-controller.webp",
     specs: {
-      "Connectivité": "Sans fil Bluetooth",
-      "Compatibilité": "Switch 2, Switch, PC",
-      "Autonomie": "40 heures",
-      "Fonctions": "NFC, gyroscope, HD Rumble",
-      "Prise jack": "3.5 mm",
-      "Poids": "~260 g",
-      "Contenu": "Manette, câble USB-C"
-    }
+  "Connectivité": "Sans fil Bluetooth",
+  "Compatibilité": "Switch 2, Switch, PC",
+  "Autonomie": "40 heures",
+  "Fonctions": "NFC, gyroscope, HD Rumble",
+  "Prise jack": "3.5 mm",
+  "Poids": "~260 g",
+  "Contenu": "Manette, câble USB-C",
+  },
   },
   {
     id: "ac-052",
@@ -3653,12 +3555,12 @@ export const products: Product[] = [
     desc: "Le Steam Deck Dock officiel de Valve transforme votre Steam Deck en station de jeu complète. Connectez vos écrans, périphériques et alimentation en un seul branchement.\n\nCaractéristiques :\n• Connectique : HDMI 2.0, DisplayPort 1.4, USB 3.1 ×3, Ethernet Gigabit\n• Alimentation : USB-C PD (Power Delivery)\n• Compatibilité : Steam Deck, Steam Deck OLED\n• Résolution : Jusqu'à 4K 60 Hz\n• Format : Station d'accueil compacte\n• Câble : USB-C intégré",
     image: "/images/products/steam-deck-dock.webp",
     specs: {
-      "Connectique": "HDMI 2.0, DP 1.4, USB 3.1 ×3, Ethernet",
-      "Alimentation": "USB-C PD",
-      "Compatibilité": "Steam Deck et Steam Deck OLED",
-      "Résolution": "4K 60 Hz",
-      "Format": "Station compacte",
-      "Contenu": "Dock, bloc alimentation"
-    }
-  }
+  "Connectique": "HDMI 2.0, DP 1.4, USB 3.1 ×3, Ethernet",
+  "Alimentation": "USB-C PD",
+  "Compatibilité": "Steam Deck et Steam Deck OLED",
+  "Résolution": "4K 60 Hz",
+  "Format": "Station compacte",
+  "Contenu": "Dock, bloc alimentation",
+  },
+  },
 ];
