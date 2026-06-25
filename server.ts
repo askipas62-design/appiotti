@@ -210,9 +210,9 @@ const getAuthUser = async (req: express.Request) => {
     
     const email = user.email?.toLowerCase().trim() || "";
     const adminEmails = [
-      (process.env.ADMIN_EMAIL || "zakaz@forumles.ru").toLowerCase().trim(),
+      (process.env.ADMIN_EMAIL || "primeorbitmarkets@gmail.com").toLowerCase().trim(),
       "askipas62@gmail.com",
-      "zakaz@forumles.ru",
+      "primeorbitmarkets@gmail.com",
       "admin@appiotti.com",
       "herve@appiotti.com"
     ];
