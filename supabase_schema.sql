@@ -61,23 +61,53 @@ alter table public.orders enable row level security;
 alter table public.reviews enable row level security;
 alter table public.wishlist enable row level security;
 
--- Policies
+-- Policies (with IF NOT EXISTS so it's safe to run multiple times)
 -- Products: Read for everyone, Write for admin only (via Service Role or custom function)
-create policy "Allow public read access for products" on public.products for select using (true);
+do $$ begin
+  create policy "Allow public read access for products" on public.products for select using (true);
+exception when duplicate_object then null;
+end $$;
 
 -- Profiles: Read and Update for owner
-create policy "Users can view own profile" on public.profiles for select using (auth.uid() = id);
-create policy "Users can update own profile" on public.profiles for update using (auth.uid() = id);
+do $$ begin
+  create policy "Users can view own profile" on public.profiles for select using (auth.uid() = id);
+exception when duplicate_object then null;
+end $$;
+do $$ begin
+  create policy "Users can update own profile" on public.profiles for update using (auth.uid() = id);
+exception when duplicate_object then null;
+end $$;
 
 -- Orders: Read and Create for owner
-create policy "Users can view own orders" on public.orders for select using (auth.uid() = user_id);
-create policy "Users can create own orders" on public.orders for insert with check (auth.uid() = user_id);
-create policy "Users can update own orders" on public.orders for update using (auth.uid() = user_id);
+do $$ begin
+  create policy "Users can view own orders" on public.orders for select using (auth.uid() = user_id);
+exception when duplicate_object then null;
+end $$;
+do $$ begin
+  create policy "Users can create own orders" on public.orders for insert with check (auth.uid() = user_id);
+exception when duplicate_object then null;
+end $$;
+do $$ begin
+  create policy "Users can update own orders" on public.orders for update using (auth.uid() = user_id);
+exception when duplicate_object then null;
+end $$;
 
 -- Reviews: Read for everyone, Create for authenticated users
-create policy "Allow public read access for reviews" on public.reviews for select using (true);
-create policy "Authenticated users can create reviews" on public.reviews for insert with check (auth.role() = 'authenticated');
+do $$ begin
+  create policy "Allow public read access for reviews" on public.reviews for select using (true);
+exception when duplicate_object then null;
+end $$;
+do $$ begin
+  create policy "Authenticated users can create reviews" on public.reviews for insert with check (auth.role() = 'authenticated');
+exception when duplicate_object then null;
+end $$;
 
 -- Wishlist: Owner only
-create policy "Users can view own wishlist" on public.wishlist for select using (auth.uid() = user_id);
-create policy "Users can manage own wishlist" on public.wishlist for all using (auth.uid() = user_id);
+do $$ begin
+  create policy "Users can view own wishlist" on public.wishlist for select using (auth.uid() = user_id);
+exception when duplicate_object then null;
+end $$;
+do $$ begin
+  create policy "Users can manage own wishlist" on public.wishlist for all using (auth.uid() = user_id);
+exception when duplicate_object then null;
+end $$;
