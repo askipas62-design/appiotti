@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Mail, Lock, User, UserPlus, LogIn, ArrowRight, ShieldCheck, Loader2, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, User, UserPlus, LogIn, ArrowRight, ShieldCheck, Loader2, Eye, EyeOff, KeyRound, Send } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useToast } from "../components/ui/Toast";
 import { isAdminEmail } from "../config/admin";
@@ -14,12 +14,32 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
   const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [codeMode, setCodeMode] = useState(false);
   
   const { addToast } = useToast();
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/client/dashboard";
+
+  const handleCodeLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) {
+      addToast("Veuillez entrer votre email.", "error");
+      return;
+    }
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOtp({ email });
+      if (error) throw error;
+      addToast("Un code de connexion à 6 chiffres vous a été envoyé par email.", "success");
+      navigate(`/verifier-code?type=email&email=${encodeURIComponent(email)}`, { replace: true });
+    } catch (err: any) {
+      addToast("Erreur lors de l'envoi du code. Veuillez réessayer.", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -137,7 +157,7 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
             </p>
           </div>
 
-          <form onSubmit={view === "login" ? handleLogin : handleSignup} className="space-y-6">
+          <form onSubmit={codeMode ? handleCodeLogin : (view === "login" ? handleLogin : handleSignup)} className="space-y-6">
             {view === "signup" && (
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -186,9 +206,17 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
               </div>
             </div>
 
+            {codeMode ? (
+              <div className="bg-brand-orange/5 border border-brand-orange/20 rounded-2xl p-5 text-center">
+                <KeyRound size={32} className="mx-auto text-brand-orange mb-3" />
+                <p className="text-sm font-bold text-brand-dark mb-1">Connexion par code</p>
+                <p className="text-xs text-gray-500">Un code à 6 chiffres sera envoyé à votre email.</p>
+              </div>
+            ) : (
             <div className="space-y-2">
               <div className="flex justify-between items-center px-4">
                 <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Mot de passe</label>
+                <Link to="/mot-de-passe-oublie" className="text-[10px] font-bold text-brand-orange hover:underline">Mot de passe oublié ?</Link>
               </div>
               <div className="relative">
                 <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300" size={20} />
@@ -209,21 +237,44 @@ export default function Auth({ mode: initialMode }: { mode: "login" | "signup" }
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
-            </div>
+            </div>)}
+
+            {view === "login" && !codeMode && (
+              <div className="flex items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setCodeMode(true)}
+                  className="text-[11px] font-bold text-gray-400 hover:text-brand-orange transition-colors inline-flex items-center gap-1"
+                >
+                  <Send size={12} /> Connexion par code
+                </button>
+              </div>
+            )}
+            {view === "login" && codeMode && (
+              <div className="flex items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setCodeMode(false)}
+                  className="text-[11px] font-bold text-gray-400 hover:text-brand-orange transition-colors inline-flex items-center gap-1"
+                >
+                  <LogIn size={12} /> Connexion par mot de passe
+                </button>
+              </div>
+            )}
 
             <button 
               disabled={loading}
-              type="submit" 
+              type="submit"
               className="w-full bg-gradient-to-r from-[#FF6B35] to-[#FFD23F] text-white py-5 rounded-full font-black text-xl shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 flex items-center justify-center gap-3"
             >
               {loading ? (
                 <Loader2 className="animate-spin" />
               ) : (
                 <>
-                  {view === "login" ? <LogIn /> : <UserPlus />}
+                  {codeMode ? <Send /> : (view === "login" ? <LogIn /> : <UserPlus />)}
                 </>
               )}
-              {view === "login" ? "Me connecter" : "Créer mon compte"}
+              {codeMode ? "Envoyer le code" : (view === "login" ? "Me connecter" : "Créer mon compte")}
             </button>
           </form>
 
