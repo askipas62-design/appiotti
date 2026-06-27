@@ -60,15 +60,7 @@ export default function Contact() {
                        </div>
                     </div>
 
-                    <div className="flex gap-6 group">
-                       <div className="p-4 bg-white/5 rounded-2xl text-sky-400 group-hover:bg-sky-400 group-hover:text-white transition-all shadow-lg border border-white/10">
-                          <Mail size={24} />
-                       </div>
-                       <div>
-                          <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 opacity-60">Email direct</h4>
-                          <p className="text-sm md:text-lg font-bold font-display tracking-tight hover:text-brand-orange transition-colors break-all">contact@appiotti.fr</p>
-                       </div>
-                    </div>
+
 
                     <div className="flex gap-6 group">
                        <div className="p-4 bg-white/5 rounded-2xl text-brand-yellow group-hover:bg-brand-yellow group-hover:text-white transition-all shadow-lg border border-white/10">

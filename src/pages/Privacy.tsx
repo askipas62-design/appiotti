@@ -58,7 +58,7 @@ export default function Privacy() {
                 Vos Droits
               </h2>
               <p className="text-lg leading-relaxed opacity-80">
-                Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous par e-mail à contact@appiotti-jeux.fr.
+                Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous via le formulaire de contact.
               </p>
             </section>
           </div>

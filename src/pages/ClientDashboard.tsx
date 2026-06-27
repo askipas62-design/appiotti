@@ -561,7 +561,7 @@ export default function ClientDashboard() {
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                       {[
                         { icon: <Phone className="text-brand-orange" />, title: "Hervé en direct", value: "+33 6 12 34 56 78", desc: "Un interlocuteur unique pour tout votre projet." },
-                        { icon: <Mail className="text-brand-green" />, title: "Support Mail", value: "contact@appiotti.com", desc: "Réponse sous 4 heures maximum." }
+                        { icon: <Mail className="text-brand-green" />, title: "Support Mail", value: "Via le formulaire de contact", desc: "Réponse sous 4 heures maximum." }
                       ].map((item, i) => (
                         <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[40px] group hover:bg-white/10 transition-all">
                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6">{item.icon}</div>
