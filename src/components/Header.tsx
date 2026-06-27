@@ -128,7 +128,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation (inspired by Freizeitshop24) */}
-        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs xl:text-sm font-black uppercase tracking-wider text-brand-cream/80 ml-4 mr-auto">
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs xl:text-sm font-black uppercase tracking-wider text-brand-cream/80 ml-4 mr-auto min-w-0 overflow-x-auto">
           {navigationMenu.map((cat) => (
             <div key={cat.slug} className="relative group">
               <Link 
@@ -367,16 +367,34 @@ export default function Header() {
           {/* User area (bottom) */}
           <div className="shrink-0 border-t border-white/5 px-4 py-4">
             {!user ? (
-              <Link
-                to="/connexion"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-3 w-full rounded-xl bg-brand-orange/10 hover:bg-brand-orange/20 px-4 py-3 text-brand-orange font-bold transition-all"
-              >
-                <User size={18} />
-                <span>Connexion</span>
-              </Link>
+              <div className="space-y-1">
+                <Link
+                  to="/panier"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-brand-cream/80 hover:text-brand-yellow hover:bg-white/5 font-semibold transition-all"
+                >
+                  <ShoppingCart size={18} className="text-white/40" />
+                  <span>Mon Panier{itemCount > 0 && <span className="ml-1.5 text-[10px] bg-brand-orange text-white rounded-full w-4 h-4 inline-flex items-center justify-center font-black">{itemCount}</span>}</span>
+                </Link>
+                <Link
+                  to="/connexion"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-3 w-full rounded-xl bg-brand-orange/10 hover:bg-brand-orange/20 px-4 py-3 text-brand-orange font-bold transition-all"
+                >
+                  <User size={18} />
+                  <span>Connexion</span>
+                </Link>
+              </div>
             ) : (
               <div className="space-y-1">
+                <Link
+                  to="/panier"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-brand-cream/80 hover:text-brand-yellow hover:bg-white/5 font-semibold transition-all"
+                >
+                  <ShoppingCart size={18} className="text-white/40" />
+                  <span>Mon Panier{itemCount > 0 && <span className="ml-1.5 text-[10px] bg-brand-orange text-white rounded-full w-4 h-4 inline-flex items-center justify-center font-black">{itemCount}</span>}</span>
+                </Link>
                 <Link
                   to="/client/dashboard"
                   onClick={() => setIsMenuOpen(false)}

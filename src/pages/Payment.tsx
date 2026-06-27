@@ -18,10 +18,10 @@ export default function Payment() {
   const [copied, setCopied] = useState<string | null>(null);
 
   const bankDetails = {
-    holder: "MONSIEUR HERVÉ APPIOTTI",
-    iban: "FR76 1234 5678 9012 3456 7890 123",
-    bic: "APPIFR2X",
-    bank: "Crédit Agricole Charente"
+    holder: "Sophie De PINHO",
+    iban: "FR76 1621 8000 0140 1214 6119 553",
+    bic: "BFBKFRP1",
+    bank: ""
   };
 
   const handleCopy = (text: string, field: string) => {
