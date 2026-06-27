@@ -136,12 +136,13 @@ export default function Payment() {
             <div className="bg-white p-5 rounded-[32px] shadow-xl border border-gray-100">
               <h2 className="text-lg font-black mb-3 font-display text-[#1B1B2F]">Comment ça marche ?</h2>
               <div className="space-y-3">
-                {[
-                  { num: "01", title: "Référence", text: `Notez le numéro #${orderId.split('-')[1]} visible ci-contre.` },
-                  { num: "02", title: "Virement", text: "Effectuez votre virement en saisissant cette référence en motif." },
-                  { num: "03", title: "Confirmer", text: "Cliquez sur 'Confirmer' pour réserver vos articles." },
-                  { num: "04", title: "Expédition", text: "Hervé prépare votre colis dans l'heure qui suit la réception." },
-                ].map((step, i) => (
+                  {[
+                    { num: "01", title: "Référence", text: `Notez le numéro #${orderId.split('-')[1]} visible ci-contre.` },
+                    { num: "02", title: "Virement", text: "Effectuez votre virement en saisissant cette référence en motif." },
+                    { num: "03", title: "Confirmer", text: "Cliquez sur 'Confirmer' pour réserver vos articles." },
+                    { num: "04", title: "Preuve", text: "Téléversez votre reçu de virement depuis votre espace client." },
+                    { num: "05", title: "Expédition", text: "Hervé prépare votre colis dans l'heure qui suit la réception." },
+                  ].map((step, i) => (
                   <div key={i} className="flex gap-3">
                     <span className="text-xl font-black text-[#FF6B35]/20 font-display leading-none">{step.num}</span>
                     <div>
