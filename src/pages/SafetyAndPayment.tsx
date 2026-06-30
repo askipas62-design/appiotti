@@ -14,11 +14,6 @@ export default function SafetyAndPayment() {
       desc: "Les processeurs de paiement (Stripe, PayPal) prennent entre 2% et 4% de commission. En supprimant ces intermédiaires, nous pouvons vous proposer les prix les plus bas du marché."
     },
     {
-      icon: <UserCheck size={32} className="text-brand-yellow" />,
-      title: "Un lien direct avec Hervé",
-      desc: "Chaque preuve de virement est vérifié manuellement par nos soins."
-    },
-    {
       icon: <HeartHandshake size={32} className="text-brand-green" />,
       title: "Indépendance et Éthique",
       desc: "Nous ne dépendons pas des géants du paiement américains. Nous privilégions le circuit court bancaire européen pour une gestion plus saine et transparente."
