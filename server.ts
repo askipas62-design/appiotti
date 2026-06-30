@@ -354,129 +354,6 @@ async function startServer() {
 
       console.log("[POST /api/orders] Order inserted successfully:", orderId);
 
-      // Compute derived values for emails
-      const totalHT = orderData.items.reduce((sum: number, item: any) => sum + (item.priceHT || 0) * item.quantity, 0);
-      const tva = orderData.total_ttc - totalHT;
-      const now = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
-
-      const emailBaseStyle = `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 20px; max-width: 640px; margin: 0 auto; background: #ffffff;`;
-      const emailHeaderStyle = `background: linear-gradient(135deg, #1B1B2F, #2a2a4a); color: #fff; padding: 24px; border-radius: 16px 16px 0 0; text-align: center;`;
-      const tableStyle = `width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px;`;
-      const thStyle = `background: #f8f8f8; text-align: left; padding: 10px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #666; border-bottom: 2px solid #eee;`;
-      const tdStyle = `padding: 10px 12px; border-bottom: 1px solid #f0f0f0;`;
-      const totalRowStyle = `font-weight: 700; font-size: 14px;`;
-      const grandTotalStyle = `font-weight: 900; font-size: 16px; color: #FF6B35;`;
-
-      const itemsTable = `
-        <table style="${tableStyle}">
-          <thead>
-            <tr>
-              <th style="${thStyle}">Produit</th>
-              <th style="${thStyle}">Catégorie</th>
-              <th style="${thStyle}">Option</th>
-              <th style="${thStyle}">Qté</th>
-              <th style="${thStyle}">Prix HT</th>
-              <th style="${thStyle}">Prix TTC</th>
-              <th style="${thStyle}">Sous-total HT</th>
-              <th style="${thStyle}">Sous-total TTC</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${orderData.items.map((item: any) => {
-              const itemPriceHT = item.priceHT || 0;
-              const itemPriceTTC = itemPriceHT * 1.2;
-              const subHT = itemPriceHT * item.quantity;
-              const subTTC = itemPriceTTC * item.quantity;
-              return `<tr>
-                <td style="${tdStyle}"><strong>${item.name}</strong></td>
-                <td style="${tdStyle}">${item.category || '-'}</td>
-                <td style="${tdStyle}">${item.selectedOption || '-'}</td>
-                <td style="${tdStyle}">x${item.quantity}</td>
-                <td style="${tdStyle}">${itemPriceHT.toFixed(2)}€</td>
-                <td style="${tdStyle}">${itemPriceTTC.toFixed(2)}€</td>
-                <td style="${tdStyle}">${subHT.toFixed(2)}€</td>
-                <td style="${tdStyle}">${subTTC.toFixed(2)}€</td>
-              </tr>`;
-            }).join('')}
-          </tbody>
-        </table>
-        <div style="margin-top: 8px; text-align: right;">
-          <p style="margin: 4px 0; font-size: 13px;">Total HT : <strong>${totalHT.toFixed(2)}€</strong></p>
-          <p style="margin: 4px 0; font-size: 13px;">TVA (20%) : <strong>${tva.toFixed(2)}€</strong></p>
-          <p style="${grandTotalStyle} margin: 8px 0 0; padding-top: 8px; border-top: 2px solid #eee;">Total TTC : <strong>${orderData.total_ttc.toFixed(2)}€</strong></p>
-        </div>`;
-
-      const clientBlock = `
-        <div style="margin: 16px 0; padding: 16px; background: #f9f9f9; border-radius: 12px; font-size: 13px;">
-          <p style="margin: 4px 0;"><strong>Client :</strong> ${user.firstName} ${user.lastName}</p>
-          <p style="margin: 4px 0;"><strong>Email :</strong> ${user.email}</p>
-          <p style="margin: 4px 0;"><strong>ID client :</strong> ${user.id}</p>
-          <p style="margin: 4px 0;"><strong>Date :</strong> ${now}</p>
-          <p style="margin: 4px 0;"><strong>Statut :</strong> ${orderData.status}</p>
-        </div>`;
-
-      if (resend) {
-        console.log(`[POST /api/orders] Sending confirmation emails...`);
-        try {
-          // Email #1: Confirmation (admin only)
-          await resend.emails.send({
-            from: "Appiotti <onboarding@resend.dev>",
-            to: [ORDERS_RECIPIENT],
-            subject: `Confirmation de commande #${orderId}`,
-            html: `
-              <div style="${emailBaseStyle}">
-                <div style="${emailHeaderStyle}">
-                  <h1 style="margin: 0; font-size: 22px;">🛍️ Merci pour votre commande !</h1>
-                  <p style="margin: 8px 0 0; opacity: 0.8;">Récapitulatif complet de votre commande</p>
-                </div>
-                <div style="padding: 20px;">
-                  <p style="font-size: 13px; color: #555;">Bonjour <strong>${user.firstName}</strong>,</p>
-                  <p style="font-size: 13px; color: #555;">Votre commande a bien été enregistrée. Vous trouverez ci-dessous tous les détails.</p>
-                  ${clientBlock}
-                  <h3 style="margin: 20px 0 8px; font-size: 15px;">Détail des articles</h3>
-                  ${itemsTable}
-                  <div style="margin: 24px 0; padding: 16px; background: #fff8f0; border: 2px solid #FF6B35; border-radius: 12px; text-align: center;">
-                    <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700;">📋 Instructions de paiement</p>
-                    <p style="margin: 4px 0; font-size: 13px;">Effectuez votre virement de <strong style="color: #FF6B35;">${orderData.total_ttc.toFixed(2)}€</strong> avec le motif :</p>
-                    <p style="margin: 8px 0; font-size: 20px; font-weight: 900; color: #FF6B35; letter-spacing: 2px;">#${orderId}</p>
-                    <p style="margin: 4px 0; font-size: 12px; color: #888;">à l'ordre de <strong>MONSIEUR HERVÉ APPIOTTI</strong></p>
-                    <p style="margin: 4px 0; font-size: 12px; color: #888;">IBAN : FR76 1234 5678 9012 3456 7890 123</p>
-                    <p style="margin: 4px 0; font-size: 12px; color: #888;">BIC : APPIFR2X</p>
-                  </div>
-                  <p style="font-size: 12px; color: #999; text-align: center;">Une fois le virement effectué, téléchargez votre preuve depuis votre espace client.</p>
-                </div>
-              </div>
-            `
-          });
-
-          // Email #2: Detailed notification to admin
-          await resend.emails.send({
-            from: "Alertes Appiotti <onboarding@resend.dev>",
-            to: [ORDERS_RECIPIENT],
-            subject: `NOUVELLE COMMANDE - ${orderId}`,
-            html: `
-              <div style="${emailBaseStyle}">
-                <div style="${emailHeaderStyle}">
-                  <h1 style="margin: 0; font-size: 22px;">🆕 Nouvelle commande reçue</h1>
-                  <p style="margin: 8px 0 0; opacity: 0.8;">${orderId}</p>
-                </div>
-                <div style="padding: 20px;">
-                  ${clientBlock}
-                  <h3 style="margin: 20px 0 8px; font-size: 15px;">Détail des articles</h3>
-                  ${itemsTable}
-                  <div style="margin: 20px 0; padding: 12px; background: #fff0e6; border-radius: 8px; font-size: 13px; text-align: center;">
-                    <strong>📌 Note :</strong> Cette commande est en attente de virement. Le client doit envoyer sa preuve de paiement.
-                  </div>
-                </div>
-              </div>
-            `
-          });
-          console.log("[POST /api/orders] Emails sent successfully");
-        } catch (emailErr: any) {
-          console.error("[POST /api/orders] Resend error:", emailErr.message);
-          // Don't fail the order if email fails, but log it
-        }
-      }
 
       // Return the order data so frontend can store it in localStorage
       return res.json({
@@ -789,6 +666,9 @@ async function startServer() {
             </div>`;
         }
 
+        // Resend en mode test (onboarding@resend.dev) ne peut envoyer
+        // qu'à primeorbitmarkets@gmail.com (compte Resend enregistré).
+        // Ajoute un domaine vérifié dans Resend pour envoyer à d'autres.
         await resend.emails.send({
           from: "Alertes Appiotti <onboarding@resend.dev>",
           to: [ORDERS_RECIPIENT],
