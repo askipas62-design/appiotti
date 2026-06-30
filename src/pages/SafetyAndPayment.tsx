@@ -31,7 +31,7 @@ export default function SafetyAndPayment() {
   ];
 
   return (
-    <div className="bg-brand-cream min-h-screen pt-12 pb-24 overflow-x-hidden">
+    <div className="bg-brand-cream min-h-screen pt-12 pb-24">
       <div className="container mx-auto px-4 max-w-4xl">
         <Link to="/paiement" className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-400 hover:text-brand-orange transition-colors mb-12">
           <ArrowLeft size={16} /> Retour au paiement

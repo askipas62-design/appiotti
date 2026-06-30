@@ -55,7 +55,7 @@ export default function App() {
       <WishlistProvider>
         <CartProvider>
           <Router>
-            <div className="min-h-screen flex flex-col bg-[#FFF8F0]">
+            <div className="min-h-screen flex flex-col bg-[#FFF8F0] overflow-x-hidden">
               <Header />
               <main className="flex-grow">
                 <Suspense fallback={
