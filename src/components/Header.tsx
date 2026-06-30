@@ -128,7 +128,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation (inspired by Freizeitshop24) */}
-        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs xl:text-sm font-black uppercase tracking-wider text-brand-cream/80 ml-4 mr-auto min-w-0 overflow-x-auto">
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs xl:text-sm font-black uppercase tracking-wider text-brand-cream/80 ml-4 mr-auto overflow-visible">
           {navigationMenu.map((cat) => (
             <div key={cat.slug} className="relative group">
               <Link 
