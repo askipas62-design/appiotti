@@ -138,7 +138,7 @@ export default function Payment() {
               <div className="space-y-3">
                   {[
                     { num: "01", title: "Référence", text: `Notez le numéro #${orderId.split('-')[1]} visible ci-contre.` },
-                    { num: "02", title: "Virement", text: `Effectuez votre virement au bénéficiaire "${bankDetails.holder}" en saisissant cette référence en motif.` },
+                    { num: "02", title: "Virement", text: `Effectuez votre virement au bénéficiaire en saisissant le nom exact tel que référencé .` },
                     { num: "03", title: "Confirmer", text: "Cliquez sur 'Confirmer ma commande' pour réserver vos articles." },
                     { num: "04", title: "Preuve", text: "Téléversez votre reçu de virement (capture d'écran ou PDF) juste après." },
                     { num: "05", title: "Validation", text: "Votre commande sera analysée dès réception de la preuve de virement, puis validée si tout est conforme." },
@@ -147,7 +147,7 @@ export default function Payment() {
                     <span className="text-xl font-black text-[#FF6B35]/20 font-display leading-none">{step.num}</span>
                     <div>
                       <h4 className="font-black text-[#1B1B2F] text-xs mb-0.5">{step.title}</h4>
-                      <p className="text-[11px] text-gray-400 leading-snug">{step.text}</p>
+                      <p className="text-[11px] text-gray-400 leading-snug">{step.text}</p>"${bankDetails.holder}"
                     </div>
                   </div>
                 ))}
